@@ -25,9 +25,11 @@
 		622DC2F12117050E00CA5D2C /* Raleway-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2DF2117050E00CA5D2C /* Raleway-ThinItalic.ttf */; };
 		622DC2F22117050E00CA5D2C /* Raleway-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2E02117050E00CA5D2C /* Raleway-SemiBoldItalic.ttf */; };
 		622DC2F32117050E00CA5D2C /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2E12117050E00CA5D2C /* Raleway-Bold.ttf */; };
+		622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F72117289900CA5D2C /* Prihlasenie.swift */; };
+		622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F9211728A600CA5D2C /* Registracia.swift */; };
+		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
 		62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D140382115E73A005FDB11 /* AppDelegate.swift */; };
-		62D1403B2115E73A005FDB11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D1403A2115E73A005FDB11 /* ViewController.swift */; };
-		62D1403E2115E73A005FDB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403C2115E73A005FDB11 /* Main.storyboard */; };
+		62D1403E2115E73A005FDB11 /* Autentifikacia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */; };
 		62D140402115E73C005FDB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403F2115E73C005FDB11 /* Assets.xcassets */; };
 		62D140432115E73C005FDB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D140412115E73C005FDB11 /* LaunchScreen.storyboard */; };
 		62D1404E2115E73C005FDB11 /* UdalostiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D1404D2115E73C005FDB11 /* UdalostiTests.swift */; };
@@ -72,10 +74,12 @@
 		622DC2DF2117050E00CA5D2C /* Raleway-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ThinItalic.ttf"; sourceTree = "<group>"; };
 		622DC2E02117050E00CA5D2C /* Raleway-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		622DC2E12117050E00CA5D2C /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		622DC2F72117289900CA5D2C /* Prihlasenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prihlasenie.swift; sourceTree = "<group>"; };
+		622DC2F9211728A600CA5D2C /* Registracia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registracia.swift; sourceTree = "<group>"; };
+		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
 		62D140352115E73A005FDB11 /* Udalosti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udalosti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D140382115E73A005FDB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		62D1403A2115E73A005FDB11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		62D1403D2115E73A005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		62D1403D2115E73A005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Autentifikacia.storyboard; sourceTree = "<group>"; };
 		62D1403F2115E73C005FDB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62D140422115E73C005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62D140442115E73C005FDB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +119,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622DC2F62117283500CA5D2C /* Autentifikacia */ = {
+			isa = PBXGroup;
+			children = (
+				622DC2FB2117291800CA5D2C /* Autentifikacia.swift */,
+				622DC2F72117289900CA5D2C /* Prihlasenie.swift */,
+				622DC2F9211728A600CA5D2C /* Registracia.swift */,
+				62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */,
+			);
+			path = Autentifikacia;
+			sourceTree = "<group>";
+		};
+		622DC2FD21172EEA00CA5D2C /* Udalosti */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Udalosti;
+			sourceTree = "<group>";
+		};
 		62D1402C2115E73A005FDB11 = {
 			isa = PBXGroup;
 			children = (
@@ -141,9 +163,9 @@
 		62D140372115E73A005FDB11 /* Udalosti */ = {
 			isa = PBXGroup;
 			children = (
+				622DC2FD21172EEA00CA5D2C /* Udalosti */,
+				622DC2F62117283500CA5D2C /* Autentifikacia */,
 				62D140382115E73A005FDB11 /* AppDelegate.swift */,
-				62D1403A2115E73A005FDB11 /* ViewController.swift */,
-				62D1403C2115E73A005FDB11 /* Main.storyboard */,
 				62D1403F2115E73C005FDB11 /* Assets.xcassets */,
 				62D140412115E73C005FDB11 /* LaunchScreen.storyboard */,
 				62D140442115E73C005FDB11 /* Info.plist */,
@@ -331,7 +353,7 @@
 				622DC2E92117050E00CA5D2C /* Raleway-MediumItalic.ttf in Resources */,
 				62D140402115E73C005FDB11 /* Assets.xcassets in Resources */,
 				622DC2E82117050E00CA5D2C /* Raleway-Italic.ttf in Resources */,
-				62D1403E2115E73A005FDB11 /* Main.storyboard in Resources */,
+				62D1403E2115E73A005FDB11 /* Autentifikacia.storyboard in Resources */,
 				622DC2E22117050E00CA5D2C /* Raleway-Light.ttf in Resources */,
 				622DC2EF2117050E00CA5D2C /* Raleway-LightItalic.ttf in Resources */,
 				622DC2F12117050E00CA5D2C /* Raleway-ThinItalic.ttf in Resources */,
@@ -403,8 +425,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62D1403B2115E73A005FDB11 /* ViewController.swift in Sources */,
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
+				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
+				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
+				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,12 +464,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		62D1403C2115E73A005FDB11 /* Main.storyboard */ = {
+		62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62D1403D2115E73A005FDB11 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Autentifikacia.storyboard;
 			sourceTree = "<group>";
 		};
 		62D140412115E73C005FDB11 /* LaunchScreen.storyboard */ = {
