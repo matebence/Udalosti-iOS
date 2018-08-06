@@ -34,6 +34,10 @@
 		62D140432115E73C005FDB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D140412115E73C005FDB11 /* LaunchScreen.storyboard */; };
 		62D1404E2115E73C005FDB11 /* UdalostiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D1404D2115E73C005FDB11 /* UdalostiTests.swift */; };
 		62D140592115E73C005FDB11 /* UdalostiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D140582115E73C005FDB11 /* UdalostiUITests.swift */; };
+		62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A4F2118A989000D8050 /* AutentifikaciaImplementacia.swift */; };
+		62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */; };
+		62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */; };
+		62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A552118B36B000D8050 /* Nastavenia.swift */; };
 		69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		62D140542115E73C005FDB11 /* UdalostiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UdalostiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D140582115E73C005FDB11 /* UdalostiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiUITests.swift; sourceTree = "<group>"; };
 		62D1405A2115E73C005FDB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62D66A4F2118A989000D8050 /* AutentifikaciaImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentifikaciaImplementacia.swift; sourceTree = "<group>"; };
+		62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentifikaciaUdaje.swift; sourceTree = "<group>"; };
+		62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KommunikaciaOdpoved.swift; sourceTree = "<group>"; };
+		62D66A552118B36B000D8050 /* Nastavenia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nastavenia.swift; sourceTree = "<group>"; };
 		729B08D1D5D784632F486C3E /* Pods-Udalosti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.release.xcconfig"; sourceTree = "<group>"; };
 		B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udalosti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,10 +130,10 @@
 		622DC2F62117283500CA5D2C /* Autentifikacia */ = {
 			isa = PBXGroup;
 			children = (
-				622DC2FB2117291800CA5D2C /* Autentifikacia.swift */,
-				622DC2F72117289900CA5D2C /* Prihlasenie.swift */,
-				622DC2F9211728A600CA5D2C /* Registracia.swift */,
-				62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */,
+				62D66A4E2118A964000D8050 /* Data */,
+				62D66A4D2118A956000D8050 /* UI */,
+				62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */,
+				62D66A552118B36B000D8050 /* Nastavenia.swift */,
 			);
 			path = Autentifikacia;
 			sourceTree = "<group>";
@@ -214,6 +222,26 @@
 				622DC2DF2117050E00CA5D2C /* Raleway-ThinItalic.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		62D66A4D2118A956000D8050 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				622DC2FB2117291800CA5D2C /* Autentifikacia.swift */,
+				622DC2F72117289900CA5D2C /* Prihlasenie.swift */,
+				622DC2F9211728A600CA5D2C /* Registracia.swift */,
+				62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		62D66A4E2118A964000D8050 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				62D66A4F2118A989000D8050 /* AutentifikaciaImplementacia.swift */,
+				62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		681F9A87EDA6D2DA52BC1F8B /* Frameworks */ = {
@@ -428,7 +456,11 @@
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
 				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
 				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
+				62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */,
+				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,
+				62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */,
 				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
+				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

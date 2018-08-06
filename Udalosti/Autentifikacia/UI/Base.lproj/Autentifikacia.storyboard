@@ -212,6 +212,9 @@
                                 <rect key="frame" x="51" y="518" width="273" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Registrovať" backgroundImage="udalosti_tlacidlo"/>
+                                <connections>
+                                    <action selector="registrovatSa:" destination="pR6-gF-o9U" eventType="touchUpInside" id="GIf-zt-lPe"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registrácia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWL-BN-1ml">
                                 <rect key="frame" x="62" y="104" width="250" height="58"/>
@@ -224,6 +227,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mi5-fE-wbZ"/>
                     </view>
+                    <connections>
+                        <outlet property="vstupEmailu" destination="CeQ-sH-26h" id="uug-qd-9gu"/>
+                        <outlet property="vstupHesla" destination="yyd-5p-57h" id="Asp-Hx-9ki"/>
+                        <outlet property="vstupPotvrdenieHesla" destination="3Xw-1G-HFm" id="DLf-Hx-SvH"/>
+                        <outlet property="vstupPouzivatelskeMena" destination="ifi-nr-mNs" id="OS1-2S-nuJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAg-aN-9Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
