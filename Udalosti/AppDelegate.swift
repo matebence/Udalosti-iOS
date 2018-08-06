@@ -11,7 +11,9 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let adresa = "http://localhost:8888/udalosti/index.php/"
+    let udalostiAdresa = "http://localhost:8888/"
+    let geoAdresa = "http://ip-api.com/"
+
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

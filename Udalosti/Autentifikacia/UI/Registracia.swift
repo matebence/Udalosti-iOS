@@ -57,16 +57,16 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -110, up: true)
+        posunVstupVyssie(textField, moveDistance: -110, up: true)
         titulRegistracia.alpha = 0
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -110, up: false)
+        posunVstupVyssie(textField, moveDistance: -110, up: false)
         titulRegistracia.alpha = 1.0
     }
     
-    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+    func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
         
@@ -79,6 +79,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     override func viewDidLoad() {
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
+        
         self.vstupPouzivatelskeMena.delegate = self
         self.vstupEmailu.delegate = self
         self.vstupHesla.delegate = self

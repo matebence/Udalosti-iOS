@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class AutentifikaciaUdaje : AutentifikaciaImplementacia{
-    
+
     private let delegate = UIApplication.shared.delegate as! AppDelegate
     private var kommunikaciaOdpoved: KommunikaciaOdpoved
     
@@ -18,8 +18,21 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
         self.kommunikaciaOdpoved=kommunikaciaOdpoved
     }
     
+    func prihlasenie(email: String, heslo: String, stat: String, okres: String, mesto: String) {
+        let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie"
+        let vstup: Parameters=[
+            "email":email,
+            "heslo":heslo,
+            "pokus_o_prihlasenie":NSUUID().uuidString
+        ]
+    }
+    
+    func miestoPrihlasenia(email: String, heslo: String) {
+        let adresa = delegate.geoAdresa
+    }
+    
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {
-        let adresa = delegate.adresa+"registracia"
+        let adresa = delegate.udalostiAdresa+"udalosti/index.php/registracia"
         let vstup: Parameters=[
             "email":email,
             "meno":meno,
@@ -53,5 +66,13 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                 }
             }
         }
+    }
+    
+    func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String) {
+        <#code#>
+    }
+    
+    func ucetJeNePristupny(email: String) {
+        <#code#>
     }
 }
