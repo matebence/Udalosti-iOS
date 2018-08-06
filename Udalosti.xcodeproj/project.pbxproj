@@ -38,6 +38,8 @@
 		62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */; };
 		62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */; };
 		62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A552118B36B000D8050 /* Nastavenia.swift */; };
+		62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A5A2118D142000D8050 /* KommunikaciaData.swift */; };
+		62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A602118E13C000D8050 /* Pripojenie.swift */; };
 		69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentifikaciaUdaje.swift; sourceTree = "<group>"; };
 		62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KommunikaciaOdpoved.swift; sourceTree = "<group>"; };
 		62D66A552118B36B000D8050 /* Nastavenia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nastavenia.swift; sourceTree = "<group>"; };
+		62D66A5A2118D142000D8050 /* KommunikaciaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KommunikaciaData.swift; sourceTree = "<group>"; };
+		62D66A602118E13C000D8050 /* Pripojenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pripojenie.swift; sourceTree = "<group>"; };
 		729B08D1D5D784632F486C3E /* Pods-Udalosti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.release.xcconfig"; sourceTree = "<group>"; };
 		B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udalosti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,8 +136,6 @@
 			children = (
 				62D66A4E2118A964000D8050 /* Data */,
 				62D66A4D2118A956000D8050 /* UI */,
-				62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */,
-				62D66A552118B36B000D8050 /* Nastavenia.swift */,
 			);
 			path = Autentifikacia;
 			sourceTree = "<group>";
@@ -171,12 +173,14 @@
 		62D140372115E73A005FDB11 /* Udalosti */ = {
 			isa = PBXGroup;
 			children = (
+				62D140382115E73A005FDB11 /* AppDelegate.swift */,
 				622DC2FD21172EEA00CA5D2C /* Udalosti */,
 				622DC2F62117283500CA5D2C /* Autentifikacia */,
-				62D140382115E73A005FDB11 /* AppDelegate.swift */,
-				62D1403F2115E73C005FDB11 /* Assets.xcassets */,
+				62D66A572118D0CA000D8050 /* Udaje */,
+				62D66A5D2118D7F6000D8050 /* Nastroje */,
 				62D140412115E73C005FDB11 /* LaunchScreen.storyboard */,
 				62D140442115E73C005FDB11 /* Info.plist */,
+				62D1403F2115E73C005FDB11 /* Assets.xcassets */,
 			);
 			path = Udalosti;
 			sourceTree = "<group>";
@@ -242,6 +246,48 @@
 				62D66A512118A994000D8050 /* AutentifikaciaUdaje.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		62D66A572118D0CA000D8050 /* Udaje */ = {
+			isa = PBXGroup;
+			children = (
+				62D66A582118D0DA000D8050 /* Databaza */,
+				62D66A592118D0E5000D8050 /* Siet */,
+				62D66A5C2118D1D8000D8050 /* Nastavenia */,
+			);
+			path = Udaje;
+			sourceTree = "<group>";
+		};
+		62D66A582118D0DA000D8050 /* Databaza */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Databaza;
+			sourceTree = "<group>";
+		};
+		62D66A592118D0E5000D8050 /* Siet */ = {
+			isa = PBXGroup;
+			children = (
+				62D66A532118AD8C000D8050 /* KommunikaciaOdpoved.swift */,
+				62D66A5A2118D142000D8050 /* KommunikaciaData.swift */,
+			);
+			path = Siet;
+			sourceTree = "<group>";
+		};
+		62D66A5C2118D1D8000D8050 /* Nastavenia */ = {
+			isa = PBXGroup;
+			children = (
+				62D66A552118B36B000D8050 /* Nastavenia.swift */,
+			);
+			path = Nastavenia;
+			sourceTree = "<group>";
+		};
+		62D66A5D2118D7F6000D8050 /* Nastroje */ = {
+			isa = PBXGroup;
+			children = (
+				62D66A602118E13C000D8050 /* Pripojenie.swift */,
+			);
+			path = Nastroje;
 			sourceTree = "<group>";
 		};
 		681F9A87EDA6D2DA52BC1F8B /* Frameworks */ = {
@@ -457,9 +503,11 @@
 				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
 				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
 				62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */,
+				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
 				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,
 				62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */,
 				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
+				62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */,
 				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

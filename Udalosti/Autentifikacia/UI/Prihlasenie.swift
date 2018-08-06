@@ -10,6 +10,13 @@ import UIKit
 
 class Prihlasenie: UIViewController {
     
+    @IBOutlet weak var vstupEmailu: UITextField!
+    @IBOutlet weak var vstupHesla: UITextField!
+    
+    
+    @IBAction func prihlasitSa(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
