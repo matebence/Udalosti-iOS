@@ -42,7 +42,6 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                 }
                 break;
             default:
-                nacitavanie.isHidden = true
                 break
             }
         }else{
@@ -50,6 +49,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
             self.present(chyba, animated: true, completion: nil)
         }
+        nacitavanie.isHidden = true
     }
     
     @objc func klavesnica() {

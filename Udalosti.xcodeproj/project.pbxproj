@@ -28,8 +28,10 @@
 		622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F72117289900CA5D2C /* Prihlasenie.swift */; };
 		622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F9211728A600CA5D2C /* Registracia.swift */; };
 		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
+		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
+		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D140382115E73A005FDB11 /* AppDelegate.swift */; };
-		62D1403E2115E73A005FDB11 /* Autentifikacia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */; };
+		62D1403E2115E73A005FDB11 /* Udalosti.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403C2115E73A005FDB11 /* Udalosti.storyboard */; };
 		62D140402115E73C005FDB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403F2115E73C005FDB11 /* Assets.xcassets */; };
 		62D140432115E73C005FDB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D140412115E73C005FDB11 /* LaunchScreen.storyboard */; };
 		62D1404E2115E73C005FDB11 /* UdalostiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D1404D2115E73C005FDB11 /* UdalostiTests.swift */; };
@@ -83,9 +85,11 @@
 		622DC2F72117289900CA5D2C /* Prihlasenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prihlasenie.swift; sourceTree = "<group>"; };
 		622DC2F9211728A600CA5D2C /* Registracia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registracia.swift; sourceTree = "<group>"; };
 		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
+		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62D140352115E73A005FDB11 /* Udalosti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udalosti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D140382115E73A005FDB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		62D1403D2115E73A005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Autentifikacia.storyboard; sourceTree = "<group>"; };
+		62D1403D2115E73A005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Udalosti.storyboard; sourceTree = "<group>"; };
 		62D1403F2115E73C005FDB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62D140422115E73C005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62D140442115E73C005FDB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 			path = Udalosti;
 			sourceTree = "<group>";
 		};
+		62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */ = {
+			isa = PBXGroup;
+			children = (
+				62C670912119C0E700A4B4B7 /* OnboardingView.swift */,
+				62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */,
+			);
+			path = RychlaUkazkaAplikacie;
+			sourceTree = "<group>";
+		};
 		62D1402C2115E73A005FDB11 = {
 			isa = PBXGroup;
 			children = (
@@ -174,10 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				62D140382115E73A005FDB11 /* AppDelegate.swift */,
-				622DC2FD21172EEA00CA5D2C /* Udalosti */,
+				62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */,
 				622DC2F62117283500CA5D2C /* Autentifikacia */,
+				622DC2FD21172EEA00CA5D2C /* Udalosti */,
 				62D66A572118D0CA000D8050 /* Udaje */,
 				62D66A5D2118D7F6000D8050 /* Nastroje */,
+				62D1403C2115E73A005FDB11 /* Udalosti.storyboard */,
 				62D140412115E73C005FDB11 /* LaunchScreen.storyboard */,
 				62D140442115E73C005FDB11 /* Info.plist */,
 				62D1403F2115E73C005FDB11 /* Assets.xcassets */,
@@ -234,7 +249,6 @@
 				622DC2FB2117291800CA5D2C /* Autentifikacia.swift */,
 				622DC2F72117289900CA5D2C /* Prihlasenie.swift */,
 				622DC2F9211728A600CA5D2C /* Registracia.swift */,
-				62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -427,7 +441,7 @@
 				622DC2E92117050E00CA5D2C /* Raleway-MediumItalic.ttf in Resources */,
 				62D140402115E73C005FDB11 /* Assets.xcassets in Resources */,
 				622DC2E82117050E00CA5D2C /* Raleway-Italic.ttf in Resources */,
-				62D1403E2115E73A005FDB11 /* Autentifikacia.storyboard in Resources */,
+				62D1403E2115E73A005FDB11 /* Udalosti.storyboard in Resources */,
 				622DC2E22117050E00CA5D2C /* Raleway-Light.ttf in Resources */,
 				622DC2EF2117050E00CA5D2C /* Raleway-LightItalic.ttf in Resources */,
 				622DC2F12117050E00CA5D2C /* Raleway-ThinItalic.ttf in Resources */,
@@ -508,9 +522,11 @@
 				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
 				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,
 				62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */,
+				62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */,
 				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
 				62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */,
 				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
+				62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,12 +562,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		62D1403C2115E73A005FDB11 /* Autentifikacia.storyboard */ = {
+		62D1403C2115E73A005FDB11 /* Udalosti.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62D1403D2115E73A005FDB11 /* Base */,
 			);
-			name = Autentifikacia.storyboard;
+			name = Udalosti.storyboard;
 			sourceTree = "<group>";
 		};
 		62D140412115E73C005FDB11 /* LaunchScreen.storyboard */ = {

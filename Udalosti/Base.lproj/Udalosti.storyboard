@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ayh-Cd-cBl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Raleway-Bold.ttf">
+            <string>Raleway-Bold</string>
+        </array>
         <array key="Raleway-Light.ttf">
             <string>Raleway-Light</string>
         </array>
@@ -18,6 +21,50 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Rychla Ukazka Aplikacie-->
+        <scene sceneID="qp1-Mz-T2M">
+            <objects>
+                <viewController storyboardIdentifier="RychlaUkazkaAplikacie" id="sXt-ap-NFK" customClass="RychlaUkazkaAplikacie" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Sg-me-6Ae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-dn-guu" customClass="OnboardingView" customModule="Udalosti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-by-6ch">
+                                <rect key="frame" x="99" y="515" width="185" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="25"/>
+                                <state key="normal" title="POKRAČOVAŤ" backgroundImage="udalosti_vstup">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="prvyStart:" destination="sXt-ap-NFK" eventType="touchUpInside" id="xLt-vG-7ZO"/>
+                                    <segue destination="ayh-Cd-cBl" kind="show" id="Bsf-SF-ekB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jQd-7n-ayr" firstAttribute="top" secondItem="u0o-dn-guu" secondAttribute="top" constant="20" id="85o-BG-p2c"/>
+                            <constraint firstItem="u0o-dn-guu" firstAttribute="leading" secondItem="jQd-7n-ayr" secondAttribute="leading" id="Myw-4r-epN"/>
+                            <constraint firstItem="u0o-dn-guu" firstAttribute="leading" secondItem="jQd-7n-ayr" secondAttribute="leading" id="XAb-DL-Fim"/>
+                            <constraint firstItem="jQd-7n-ayr" firstAttribute="bottom" secondItem="u0o-dn-guu" secondAttribute="bottom" id="XwP-9p-WcO"/>
+                            <constraint firstItem="jQd-7n-ayr" firstAttribute="trailing" secondItem="u0o-dn-guu" secondAttribute="trailing" id="uWz-mL-1uD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jQd-7n-ayr"/>
+                    </view>
+                    <connections>
+                        <outlet property="pokracovat" destination="KEr-by-6ch" id="s5I-qv-wJ2"/>
+                        <outlet property="ukazkaAplikacie" destination="u0o-dn-guu" id="nzv-nY-aGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZV-Wk-yZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512.8" y="25.637181409295355"/>
+        </scene>
         <!--Autentifikacia-->
         <scene sceneID="1sB-ya-J1W">
             <objects>
@@ -51,9 +98,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="Ofr-ay-Qqu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="Ofr-ay-Qqu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udržiavajte informácie o tom, čo sa deje vo Vašom okolí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="478-q5-zW5">
                                 <rect key="frame" x="41" y="231" width="292" height="51"/>
@@ -125,8 +171,19 @@
                                     <segue destination="pR6-gF-o9U" kind="show" id="ci4-rG-LME"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sGG-mU-hlf">
+                                <rect key="frame" x="177" y="547" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="trailing" secondItem="Ofr-ay-Qqu" secondAttribute="trailing" id="DOh-9h-p3P"/>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="top" secondItem="Ofr-ay-Qqu" secondAttribute="top" constant="64" id="QuN-rw-Td9"/>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="bottom" secondItem="Ofr-ay-Qqu" secondAttribute="bottom" id="Vmc-X0-dXp"/>
+                            <constraint firstItem="Ofr-ay-Qqu" firstAttribute="leading" secondItem="ZQO-v5-zNB" secondAttribute="leading" id="l8g-6L-PzB"/>
+                            <constraint firstItem="Ofr-ay-Qqu" firstAttribute="leading" secondItem="ZQO-v5-zNB" secondAttribute="leading" id="ueC-Sz-y9e"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZQO-v5-zNB"/>
                     </view>
                     <navigationItem key="navigationItem" id="87J-7F-Tqi">
@@ -150,9 +207,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="iM9-ut-Nm6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="iM9-ut-Nm6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUK-AB-eH6">
                                 <rect key="frame" x="51" y="163" width="273" height="58"/>
@@ -234,6 +290,12 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="trailing" secondItem="iM9-ut-Nm6" secondAttribute="trailing" id="10D-4W-MW6"/>
+                            <constraint firstItem="iM9-ut-Nm6" firstAttribute="leading" secondItem="mi5-fE-wbZ" secondAttribute="leading" id="2Sc-cD-u9Q"/>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="top" secondItem="iM9-ut-Nm6" secondAttribute="top" constant="64" id="5as-gj-aw7"/>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="bottom" secondItem="iM9-ut-Nm6" secondAttribute="bottom" id="zcx-XF-wgC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mi5-fE-wbZ"/>
                     </view>
                     <connections>
@@ -247,14 +309,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAg-aN-9Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784.79999999999995" y="25.637181409295355"/>
+            <point key="canvasLocation" x="0.80000000000000004" y="732.68365817091455"/>
         </scene>
     </scenes>
     <resources>
-        <image name="udalosti_logo" width="500" height="667"/>
-        <image name="udalosti_pozadie" width="540" height="960"/>
-        <image name="udalosti_tlacidlo" width="536" height="87"/>
-        <image name="udalosti_vstup" width="536" height="87"/>
+        <image name="udalosti_logo" width="166" height="222"/>
+        <image name="udalosti_pozadie" width="180" height="320"/>
+        <image name="udalosti_tlacidlo" width="178" height="29"/>
+        <image name="udalosti_vstup" width="178" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hWV-bf-dHt"/>

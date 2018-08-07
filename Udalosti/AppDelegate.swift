@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+        var rychlaUkazkaAplikacie = udalosti.instantiateViewController(withIdentifier: "RychlaUkazkaAplikacie")
+        let preferencie = UserDefaults.standard
+        
+        if preferencie.bool(forKey: "ukazkaAplikacie") {
+            rychlaUkazkaAplikacie = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")
+        }
+    
+        window?.rootViewController = rychlaUkazkaAplikacie
+        window?.makeKeyAndVisible()
+        
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear
