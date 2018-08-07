@@ -18,9 +18,12 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBOutlet weak var vstupPotvrdenieHesla: UITextField!
 
     @IBOutlet weak var titulRegistracia: UILabel!
+    @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     
     @IBAction func registrovatSa(_ sender: UIButton) {
+        nacitavanie.isHidden = false
+        
         self.autentifikaciaUdaje.registracia(meno: vstupPouzivatelskeMena.text!, email: vstupEmailu.text!, heslo: vstupHesla.text!, potvrd: vstupPotvrdenieHesla.text!)
     }
     
@@ -38,7 +41,9 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                     self.present(chyba, animated: true, completion: nil)
                 }
                 break;
-            default: break
+            default:
+                nacitavanie.isHidden = true
+                break
             }
         }else{
             let chyba = UIAlertController(title: "Chyba", message: "Žiadne spojenie", preferredStyle: UIAlertControllerStyle.alert)
@@ -58,12 +63,12 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         posunVstupVyssie(textField, moveDistance: -110, up: true)
-        titulRegistracia.alpha = 0
+        titulRegistracia.isHidden = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         posunVstupVyssie(textField, moveDistance: -110, up: false)
-        titulRegistracia.alpha = 1.0
+        titulRegistracia.isHidden = false
     }
     
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {

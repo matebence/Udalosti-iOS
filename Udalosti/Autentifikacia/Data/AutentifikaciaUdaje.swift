@@ -69,10 +69,10 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     }
     
     func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String) {
-        <#code#>
+        
     }
     
     func ucetJeNePristupny(email: String) {
-        <#code#>
+        
     }
 }
