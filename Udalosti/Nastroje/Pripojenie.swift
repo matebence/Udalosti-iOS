@@ -11,6 +11,8 @@ import SystemConfiguration
 public class Pripojenie {
     
     class func spojenieExistuje() -> Bool {
+        print("Metoda spojenieExistuje bola vykonana")
+
         var adresa = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         adresa.sin_len = UInt8(MemoryLayout.size(ofValue: adresa))
         adresa.sin_family = sa_family_t(AF_INET)

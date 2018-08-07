@@ -17,11 +17,15 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     @IBAction func prihlasitSa(_ sender: UIButton) {
+        print("Metoda prihlasitSa bola vykonana")
+        
         nacitavanie.isHidden = false
         self.autentifikaciaUdaje.miestoPrihlasenia(email: vstupEmailu.text!, heslo: vstupHesla.text!)
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
+        print("Metoda odpovedServera bola vykonana")
+
         if Pripojenie.spojenieExistuje(){
             switch od {
             case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
@@ -48,6 +52,8 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     @objc func klavesnica() {
+        print("Metoda klavesnica bola vykonana")
+        
         view.endEditing(true)
     }
     
@@ -66,6 +72,8 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        print("Metoda posunVstupVyssie bola vykonana")
+        
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
         

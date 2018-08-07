@@ -42,7 +42,7 @@
                                 </state>
                                 <connections>
                                     <action selector="prvyStart:" destination="sXt-ap-NFK" eventType="touchUpInside" id="xLt-vG-7ZO"/>
-                                    <segue destination="ayh-Cd-cBl" kind="show" id="Bsf-SF-ekB"/>
+                                    <segue destination="ayh-Cd-cBl" kind="show" identifier="Prihlasenie" id="Bsf-SF-ekB"/>
                                 </connections>
                             </button>
                         </subviews>

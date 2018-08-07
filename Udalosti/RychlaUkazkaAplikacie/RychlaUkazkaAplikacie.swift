@@ -81,6 +81,8 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
     }
     
     @IBAction func prvyStart(_ sender: Any) {
+        print("Metoda prvyStart bola vykonana")
+
         let preferencie = UserDefaults.standard
         preferencie.set(true, forKey: "ukazkaAplikacie")
         preferencie.synchronize()

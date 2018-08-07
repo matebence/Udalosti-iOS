@@ -22,12 +22,16 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     
     @IBAction func registrovatSa(_ sender: UIButton) {
+        print("Metoda registrovatSa bola vykonana")
+
         nacitavanie.isHidden = false
         
         self.autentifikaciaUdaje.registracia(meno: vstupPouzivatelskeMena.text!, email: vstupEmailu.text!, heslo: vstupHesla.text!, potvrd: vstupPotvrdenieHesla.text!)
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
+        print("Metoda odpovedServera bola vykonana")
+        
         if Pripojenie.spojenieExistuje(){
             switch od {
             case Nastavenia.AUTENTIFIKACIA_REGISRACIA:
@@ -53,6 +57,8 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     @objc func klavesnica() {
+        print("Metoda klavesnica bola vykonana")
+
         view.endEditing(true)
     }
     
@@ -72,6 +78,8 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        print("Metoda posunVstupVyssie bola vykonana")
+
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
         

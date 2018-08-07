@@ -13,12 +13,16 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
 
     private let delegate = UIApplication.shared.delegate as! AppDelegate
     private var kommunikaciaOdpoved: KommunikaciaOdpoved
+    private var sqliteDatabaza: SQLiteDatabaza
     
     init(kommunikaciaOdpoved: KommunikaciaOdpoved){
         self.kommunikaciaOdpoved=kommunikaciaOdpoved
+        self.sqliteDatabaza = SQLiteDatabaza()
     }
     
     func prihlasenie(email: String, heslo: String, stat: String, okres: String, mesto: String) {
+        print("Metoda prihlasenie bola vykonana")
+        
         let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie"
         let vstup: Parameters=[
             "email":email,
@@ -57,6 +61,8 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     }
     
     func miestoPrihlasenia(email: String, heslo: String) {
+        print("Metoda miestoPrihlasenia bola vykonana")
+
         let adresa = delegate.geoAdresa+"json"
     
         Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
@@ -80,12 +86,21 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     if(udaje.value(forKey: "city") != nil){
                         mesto = udaje.value(forKey: "city") as! String
                     }
+                    
+                    if (self.sqliteDatabaza.miestoPrihlasenia()){
+                        self.sqliteDatabaza.aktualizujMiestoPrihlasenia(stat: stat, okres: okres, mesto: mesto)
+                    }else{
+                        self.sqliteDatabaza.noveMiestoPrihlasenia(stat: stat, okres: okres, mesto: mesto)
+                    }
+                    
                     self.prihlasenie(email: email, heslo: heslo, stat: stat, okres: okres, mesto: mesto)
                 }
         }
     }
     
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {
+        print("Metoda registracia bola vykonana")
+
         let adresa = delegate.udalostiAdresa+"udalosti/index.php/registracia"
         let vstup: Parameters=[
             "email":email,
@@ -123,10 +138,10 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     }
     
     func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String) {
-        
+        print("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana")
     }
     
     func ucetJeNePristupny(email: String) {
-        
+        print("Metoda ucetJeNePristupny bola vykonana")
     }
 }
