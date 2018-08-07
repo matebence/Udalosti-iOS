@@ -30,6 +30,8 @@
 		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
+		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
+		62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670972119EA8800A4B4B7 /* SQLiteTabulka.swift */; };
 		62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D140382115E73A005FDB11 /* AppDelegate.swift */; };
 		62D1403E2115E73A005FDB11 /* Udalosti.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403C2115E73A005FDB11 /* Udalosti.storyboard */; };
 		62D140402115E73C005FDB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D1403F2115E73C005FDB11 /* Assets.xcassets */; };
@@ -87,6 +89,8 @@
 		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
+		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
+		62C670972119EA8800A4B4B7 /* SQLiteTabulka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteTabulka.swift; sourceTree = "<group>"; };
 		62D140352115E73A005FDB11 /* Udalosti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udalosti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D140382115E73A005FDB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62D1403D2115E73A005FDB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Udalosti.storyboard; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 		62D66A582118D0DA000D8050 /* Databaza */ = {
 			isa = PBXGroup;
 			children = (
+				62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */,
+				62C670972119EA8800A4B4B7 /* SQLiteTabulka.swift */,
 			);
 			path = Databaza;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
 				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
 				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
@@ -526,6 +533,7 @@
 				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
 				62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */,
 				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
+				62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */,
 				62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
