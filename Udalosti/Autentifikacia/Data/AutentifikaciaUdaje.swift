@@ -25,10 +25,64 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
             "heslo":heslo,
             "pokus_o_prihlasenie":NSUUID().uuidString
         ]
+        Alamofire.request(adresa, method: .post, parameters: vstup).responseJSON
+            {
+                response in
+                if let odpoved = response.result.value {
+                    let udaje = odpoved as! NSDictionary
+                    let chyba =  udaje.value(forKey: "chyba") as! Bool?
+                    let data : NSMutableDictionary  = [
+                        "email": email
+                    ]
+                    
+                    if(chyba)!{
+                        let validacia = udaje.value(forKey: "validacia") as! NSDictionary
+                        if (validacia.value(forKey: "oznam") != nil){
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: validacia.value(forKey: "oznam") as! String, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                        } else if (validacia.value(forKey: "email") != nil){
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: validacia.value(forKey: "email") as! String, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                        } else if (validacia.value(forKey: "heslo") != nil){
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: validacia.value(forKey: "heslo") as! String, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                        }
+                    }else{
+                        let pouzivatel = udaje.value(forKey: "pouzivatel") as! NSDictionary
+                        
+                        data["heslo"] = heslo
+                        data["token"] = pouzivatel.value(forKey: "token") as! String
+                        
+                        self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                    }
+                }
+        }
     }
     
     func miestoPrihlasenia(email: String, heslo: String) {
-        let adresa = delegate.geoAdresa
+        let adresa = delegate.geoAdresa+"json"
+    
+        Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
+            {
+                response in
+                if let odpoved = response.result.value{
+                    
+                    let udaje = odpoved as! NSDictionary
+                    var stat, okres, mesto : String
+                    
+                    stat = ""
+                    okres = ""
+                    mesto = ""
+                    
+                    if(udaje.value(forKey: "country") != nil){
+                        stat = udaje.value(forKey: "country") as! String
+                    }
+                    if(udaje.value(forKey: "regionName") != nil){
+                        okres = udaje.value(forKey: "regionName") as! String
+                    }
+                    if(udaje.value(forKey: "city") != nil){
+                        mesto = udaje.value(forKey: "city") as! String
+                    }
+                    self.prihlasenie(email: email, heslo: heslo, stat: stat, okres: okres, mesto: mesto)
+                }
+        }
     }
     
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {

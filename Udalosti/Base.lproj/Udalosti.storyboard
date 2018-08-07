@@ -190,6 +190,7 @@
                         <barButtonItem key="backBarButtonItem" title="Späť" id="Jrk-wh-NyN"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="nacitavanie" destination="sGG-mU-hlf" id="O10-Gf-EAS"/>
                         <outlet property="vstupEmailu" destination="Agc-NM-G9q" id="Laf-Oh-Gfa"/>
                         <outlet property="vstupHesla" destination="fxg-f7-bQA" id="eDU-yP-HMH"/>
                         <segue destination="pR6-gF-o9U" kind="show" id="hWV-bf-dHt"/>

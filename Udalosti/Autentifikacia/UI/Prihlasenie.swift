@@ -14,8 +14,10 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     @IBOutlet weak var vstupEmailu: UITextField!
     @IBOutlet weak var vstupHesla: UITextField!
+    @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     @IBAction func prihlasitSa(_ sender: UIButton) {
+        nacitavanie.isHidden = false
         self.autentifikaciaUdaje.miestoPrihlasenia(email: vstupEmailu.text!, heslo: vstupHesla.text!)
     }
     
@@ -24,9 +26,15 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             switch od {
             case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
                 if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-
+                    let email =  udaje!.value(forKey: "email") as! String
+                    let heslo = udaje!.value(forKey: "heslo") as! String
+                    let token =  udaje!.value(forKey: "token") as! String
+                    
+                    
                 }else{
-
+                    let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertControllerStyle.alert)
+                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(chyba, animated: true, completion: nil)
                 }
                 break;
             default: break
@@ -36,6 +44,7 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
             self.present(chyba, animated: true, completion: nil)
         }
+        nacitavanie.isHidden = true
     }
     
     @objc func klavesnica() {
