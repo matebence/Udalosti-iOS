@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCA4DE41984CFD90C187AE1AF77F5443"
-               BlueprintName = "Pods-Udalosti"
+               BlueprintIdentifier = "738B2050D3EE6CEF2F8FC5020EAB44A1"
+               BlueprintName = "paper-onboarding"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-Udalosti.framework">
+               BuildableName = "paper-onboarding.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
