@@ -12,14 +12,17 @@ import SQLite3
 class SQLiteDatabaza {
     
     var databaza: OpaquePointer?
+    var miestoUlozenia: URL
     let nazovDatabazy:String = "udalosti.sqlite"
     
     init() {
         print("Metoda SQLiteDatabaza bola vykonana")
         
-        let miestoUlozenia = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        miestoUlozenia = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent(nazovDatabazy)
-        
+    }
+    
+    func vyvorTabulky(){
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
             return
@@ -36,33 +39,24 @@ class SQLiteDatabaza {
             print("Nastala chyba pri vyvorenie tabulky Miesto")
             return
         }
+        
+        sqlite3_close(databaza)
     }
     
     func noveMiestoPrihlasenia(stat: String, okres:String, mesto:String){
         print("Metoda noveMiestoPrihlasenia bola vykonana")
         
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
+        
         var stmt: OpaquePointer?
-        let dotaz = "INSERT INTO \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES),\(SQLiteTabulka.Miesto.MESTO)) VALUES (?, ?, ?)"
+        let dotaz = "INSERT INTO \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES),\(SQLiteTabulka.Miesto.MESTO)) VALUES ('\(stat)', '\(okres)', '\(mesto)')"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba pridavanie(Miesto): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, stat, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Stat pridanie: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 2, okres, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Okres pridanie: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 3, mesto, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Mesto pridanie: "+chyba)
             return
         }
         
@@ -71,11 +65,20 @@ class SQLiteDatabaza {
             print("Databa chyba Miesto-pridanie: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         print("Nove miesto sa ulozilo")
     }
     
     func aktualizujMiestoPrihlasenia(stat: String, okres: String, mesto:String){
         print("Metoda aktualizujMiestoPrihlasenia bola vykonana")
+        
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
         
         var stmt: OpaquePointer?
         let idMiestoPrihlasenia = 1;
@@ -92,24 +95,27 @@ class SQLiteDatabaza {
             print("Databa chyba Miesto-aktualizacia: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         print("Miesto sa aktualizovalo")
     }
     
     func odstranMiestoPrihlasenia(idMiesto: integer_t){
         print("Metoda aktualizujMiestoPrihlasenia bola vykonana")
         
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
+        
         var stmt: OpaquePointer?
-        let dotaz = "DELETE FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = ?"
+        let dotaz = "DELETE FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = \(idMiesto)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba odstranenie(Miesto): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_int(stmt, 1, idMiesto) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databaza chyba Miesto-idMiesto odstrananie: "+chyba)
             return
         }
         
@@ -118,11 +124,20 @@ class SQLiteDatabaza {
             print("Databaza chyba Miesto-odstranenie: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+
         print("Miesto prihlasenia sa odstranilo")
     }
     
     func miestoPrihlasenia() -> Bool{
         print("Metoda miestoPrihlasenia bola vykonana")
+        
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return false
+        }
         
         var stmt: OpaquePointer?
         let dotaz = "SELECT * FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
@@ -132,9 +147,16 @@ class SQLiteDatabaza {
             print("Databaza chyba Miesto riadok: "+chyba)
             return false
         }
+        
         if(sqlite3_step(stmt) == SQLITE_ROW){
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+            
             return true;
         }else{
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+            
             return false;
         }
     }
@@ -142,6 +164,11 @@ class SQLiteDatabaza {
     func vratMiestoPrihlasenia() -> NSDictionary? {
         print("Metoda vratMiestoPrihlasenia bola vykonana")
 
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return nil
+        }
+        
         var stmt: OpaquePointer?
         let dotaz = "SELECT \(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES), \(SQLiteTabulka.Miesto.MESTO) FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
         
@@ -161,36 +188,31 @@ class SQLiteDatabaza {
                 "okres": okres,
                 "mesto": mesto
             ]
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+            
             return udaje
         }
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         return nil
     }
     
     func novePouzivatelskeUdaje(email:String, heslo:String, token:String){
         print("Metoda novePouzivatelskeUdaje bola vykonana")
         
-        var stmt: OpaquePointer?
-        let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN)) VALUES (?, ?, ?)"
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
         
+        var stmt: OpaquePointer?
+        let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN)) VALUES ('\(email)', '\(heslo)', '\(token)')"
+
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba pridavanie(Pouzivatel): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Pouzivatel-email pridanie: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 2, heslo, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Pouzivatel-heslo pridanie: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 2, token, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Pouzivatel-token pridanie: "+chyba)
             return
         }
         
@@ -199,11 +221,20 @@ class SQLiteDatabaza {
             print("Databa chyba Pouzivatel-pridanie: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         print("Nove Pouzivatelske udaje sa ulozili")
     }
     
     func aktualizujPouzivatelskeUdaje(email:String, heslo:String, token:String){
         print("Metoda aktualizujPouzivatelskeUdaje bola vykonana")
+        
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
         
         var stmt: OpaquePointer?
         let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)', \(SQLiteTabulka.Pouzivatel.HESLO) = '\(heslo)', \(SQLiteTabulka.Pouzivatel.TOKEN) = '\(token)'  WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)'"
@@ -219,24 +250,27 @@ class SQLiteDatabaza {
             print("Databa chyba Pouzivatel-aktualizacia: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         print("Pouzivatelske udaje sa aktualizovali")
     }
     
     func odstranPouzivatelskeUdaje(email: String){
         print("Metoda odstranPouzivatelskeUdaje bola vykonana")
         
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return
+        }
+        
         var stmt: OpaquePointer?
-        let dotaz = "DELETE FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = ?"
+        let dotaz = "DELETE FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)'"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba odstranenie(Pouzivatel): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databaza chyba Pouzivatel-email odstrananie: "+chyba)
             return
         }
         
@@ -245,11 +279,20 @@ class SQLiteDatabaza {
             print("Databaza chyba Pouzivatel-odstranenie: "+chyba)
             return
         }
+        
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         print("Pouzivatelske udaje sa odstranili")
     }
     
     func pouzivatelskeUdaje() -> Bool{
         print("Metoda pouzivatelskeUdaje bola vykonana")
+        
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return false
+        }
         
         var stmt: OpaquePointer?
         let dotaz = "SELECT * FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
@@ -260,14 +303,25 @@ class SQLiteDatabaza {
             return false
         }
         if(sqlite3_step(stmt) == SQLITE_ROW){
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+            
             return true;
         }else{
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+
             return false;
         }
     }
     
     func vratAktualnehoPouzivatela() -> NSDictionary?{
         print("Metoda vratAktualnehoPouzivatela bola vykonana")
+        
+        if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
+            print("Databazu sa nepodarilo otvorit")
+            return nil
+        }
         
         var stmt: OpaquePointer?
         let dotaz = "SELECT \(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN) FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
@@ -288,8 +342,14 @@ class SQLiteDatabaza {
                 "heslo": heslo,
                 "token": token
             ]
+            sqlite3_finalize(stmt)
+            sqlite3_close(databaza)
+            
             return udaje
         }
+        sqlite3_finalize(stmt)
+        sqlite3_close(databaza)
+        
         return nil
     }
 }

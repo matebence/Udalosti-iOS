@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var obsah = udalosti.instantiateViewController(withIdentifier: "RychlaUkazkaAplikacie")
         let preferencie = UserDefaults.standard
         
-        if preferencie.bool(forKey: "ukazkaAplikacie") {
+        if preferencie.bool(forKey: "prvyStart") {
             self.sqliteDatabaza = SQLiteDatabaza()
             if self.sqliteDatabaza.pouzivatelskeUdaje(){
                 obsah = udalosti.instantiateViewController(withIdentifier: "UvodnaObrazovka")

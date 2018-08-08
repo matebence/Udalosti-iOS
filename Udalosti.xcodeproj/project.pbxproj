@@ -30,6 +30,8 @@
 		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
 		62621815211AFA5200AA53F8 /* ZoznamUdalosti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621814211AFA5200AA53F8 /* ZoznamUdalosti.swift */; };
 		62621818211B004400AA53F8 /* UvodnaObrazovka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621817211B004400AA53F8 /* UvodnaObrazovka.swift */; };
+		6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262181B211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift */; };
+		6262181E211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262181D211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
@@ -91,6 +93,8 @@
 		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
 		62621814211AFA5200AA53F8 /* ZoznamUdalosti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoznamUdalosti.swift; sourceTree = "<group>"; };
 		62621817211B004400AA53F8 /* UvodnaObrazovka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovka.swift; sourceTree = "<group>"; };
+		6262181B211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovkaImplementacia.swift; sourceTree = "<group>"; };
+		6262181D211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovkaUdaje.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
@@ -179,9 +183,27 @@
 		62621816211B002200AA53F8 /* UvodnaObrazok */ = {
 			isa = PBXGroup;
 			children = (
-				62621817211B004400AA53F8 /* UvodnaObrazovka.swift */,
+				6262181A211B3FD200AA53F8 /* Data */,
+				62621819211B3FCB00AA53F8 /* UI */,
 			);
 			path = UvodnaObrazok;
+			sourceTree = "<group>";
+		};
+		62621819211B3FCB00AA53F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				62621817211B004400AA53F8 /* UvodnaObrazovka.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6262181A211B3FD200AA53F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6262181B211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift */,
+				6262181D211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */ = {
@@ -551,11 +573,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */,
 				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
 				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
 				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
 				62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */,
+				6262181E211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift in Sources */,
 				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
 				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,
 				62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */,
