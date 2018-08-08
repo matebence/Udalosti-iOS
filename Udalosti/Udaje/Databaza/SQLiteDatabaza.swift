@@ -79,27 +79,11 @@ class SQLiteDatabaza {
         
         var stmt: OpaquePointer?
         let idMiestoPrihlasenia = 1;
-        let dotaz = "UPDATE \(SQLiteTabulka.Miesto.NAZOV_TABULKY) SET \(SQLiteTabulka.Miesto.STAT) = ?, \(SQLiteTabulka.Miesto.OKRES) = ?, \(SQLiteTabulka.Miesto.MESTO) = ? WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = \(idMiestoPrihlasenia)"
+        let dotaz = "UPDATE \(SQLiteTabulka.Miesto.NAZOV_TABULKY) SET \(SQLiteTabulka.Miesto.STAT) = '\(stat)', \(SQLiteTabulka.Miesto.OKRES) = '\(okres)', \(SQLiteTabulka.Miesto.MESTO) = '\(mesto)' WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = \(idMiestoPrihlasenia)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba aktualizacia(Miesto): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, stat, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Stat aktualizacia: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 2, okres, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Okres aktualizacia: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 3, mesto, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Mesto aktualizacia: "+chyba)
             return
         }
         
@@ -217,22 +201,11 @@ class SQLiteDatabaza {
         print("Metoda aktualizujPouzivatelskeUdaje bola vykonana")
         
         var stmt: OpaquePointer?
-        let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = ?, \(SQLiteTabulka.Pouzivatel.HESLO) = ?  WHERE \(SQLiteTabulka.Pouzivatel.ID_STLPCA) = \(email)"
+        let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)', \(SQLiteTabulka.Pouzivatel.HESLO) = '\(heslo)'  WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)'"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba aktualizacia(Pouzivatel): "+chyba)
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Pouzivatel-Email aktualizacia: "+chyba)
-            return
-        }
-        if sqlite3_bind_text(stmt, 2, heslo, -1, nil) != SQLITE_OK{
-            let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Pouzivatel-Heslo aktualizacia: "+chyba)
             return
         }
         

@@ -34,6 +34,7 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                     let heslo = udaje!.value(forKey: "heslo") as! String
                     let token =  udaje!.value(forKey: "token") as! String
                     
+                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo)
                     
                 }else{
                     let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertControllerStyle.alert)

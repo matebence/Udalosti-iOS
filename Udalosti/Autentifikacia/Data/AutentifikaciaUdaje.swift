@@ -139,9 +139,17 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     
     func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String) {
         print("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana")
+        
+        if(self.sqliteDatabaza.pouzivatelskeUdaje()){
+            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(email: email, heslo: heslo)
+        }else{
+            self.sqliteDatabaza.novePouzivatelskeUdaje(email: email, heslo: heslo)
+        }
     }
     
     func ucetJeNePristupny(email: String) {
         print("Metoda ucetJeNePristupny bola vykonana")
+        
+        self.sqliteDatabaza.odstranPouzivatelskeUdaje(email: email)
     }
 }
