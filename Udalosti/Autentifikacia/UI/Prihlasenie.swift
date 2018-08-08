@@ -19,7 +19,7 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBAction func prihlasitSa(_ sender: UIButton) {
         print("Metoda prihlasitSa bola vykonana")
         
-        nacitavanie.isHidden = false
+        self.nacitavanie.isHidden = false
         self.autentifikaciaUdaje.miestoPrihlasenia(email: vstupEmailu.text!, heslo: vstupHesla.text!)
     }
     
@@ -55,12 +55,6 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         nacitavanie.isHidden = true
     }
     
-    @objc func klavesnica() {
-        print("Metoda klavesnica bola vykonana")
-        
-        view.endEditing(true)
-    }
-    
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -74,7 +68,6 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         posunVstupVyssie(textField, moveDistance: -100, up: false)
     }
     
-    
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
         print("Metoda posunVstupVyssie bola vykonana")
         
@@ -86,6 +79,12 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    @objc func klavesnica() {
+        print("Metoda klavesnica bola vykonana")
+        
+        view.endEditing(true)
     }
     
     override func viewDidLoad() {

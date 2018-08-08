@@ -24,8 +24,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBAction func registrovatSa(_ sender: UIButton) {
         print("Metoda registrovatSa bola vykonana")
 
-        nacitavanie.isHidden = false
-        
+        self.nacitavanie.isHidden = false
         self.autentifikaciaUdaje.registracia(meno: vstupPouzivatelskeMena.text!, email: vstupEmailu.text!, heslo: vstupHesla.text!, potvrd: vstupPotvrdenieHesla.text!)
     }
     
@@ -56,12 +55,6 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         nacitavanie.isHidden = true
     }
     
-    @objc func klavesnica() {
-        print("Metoda klavesnica bola vykonana")
-
-        view.endEditing(true)
-    }
-    
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -88,6 +81,12 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    @objc func klavesnica() {
+        print("Metoda klavesnica bola vykonana")
+        
+        view.endEditing(true)
     }
     
     override func viewDidLoad() {

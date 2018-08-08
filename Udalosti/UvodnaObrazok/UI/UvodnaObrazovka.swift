@@ -27,6 +27,7 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
                     
                     let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                     let zoznamUdalostiController = udalosti.instantiateViewController(withIdentifier: "ZoznamUdalosti")
+                    
                     self.present(zoznamUdalostiController, animated: true, completion: nil)
                 }else{
                     performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
@@ -66,7 +67,7 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        nacitavanie.isHidden = false
+        self.nacitavanie.isHidden = false
         self.pristup()
     }
     

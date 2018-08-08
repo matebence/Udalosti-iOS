@@ -14,6 +14,14 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
     @IBOutlet weak var pokracovat: UIButton!
     @IBOutlet var ukazkaAplikacie: OnboardingView!
     
+    @IBAction func prvyStart(_ sender: Any) {
+        print("Metoda prvyStart bola vykonana")
+        
+        let preferencie = UserDefaults.standard
+        preferencie.set(true, forKey: "prvyStart")
+        preferencie.synchronize()
+    }
+    
     func onboardingItemsCount() -> Int {
         return 3
     }
@@ -80,19 +88,11 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         }
     }
     
-    @IBAction func prvyStart(_ sender: Any) {
-        print("Metoda prvyStart bola vykonana")
-
-        let preferencie = UserDefaults.standard
-        preferencie.set(true, forKey: "prvyStart")
-        preferencie.synchronize()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ukazkaAplikacie.dataSource = self
-        ukazkaAplikacie.delegate = self
+        self.ukazkaAplikacie.dataSource = self
+        self.ukazkaAplikacie.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

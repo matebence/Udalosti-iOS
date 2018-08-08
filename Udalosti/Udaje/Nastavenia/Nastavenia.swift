@@ -13,4 +13,8 @@ class Nastavenia {
     
     public static let AUTENTIFIKACIA_REGISRACIA = "registracia"
     public static let AUTENTIFIKACIA_PRIHLASENIE = "prihlasenie"
+    public static let AUTENTIFIKACIA_ODHLASENIE = "odhlasenie"
+    
+    public static let UDALOSTI_PODLA_POZICIE = "podla_pozicie"
+    public static let UDALOSTI = "udalosti"
 }

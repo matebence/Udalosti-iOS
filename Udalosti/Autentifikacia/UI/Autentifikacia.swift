@@ -15,11 +15,11 @@ class Autentifikacia: UINavigationController {
 
     override func viewDidLoad() {
         let preferencie = UserDefaults.standard
+        
         if !(preferencie.bool(forKey: "prvyStart")) {
             self.sqliteDatabaza = SQLiteDatabaza()
             self.sqliteDatabaza.vyvorTabulky()
         }
-        
         super.viewDidLoad()
     }
     
