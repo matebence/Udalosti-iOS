@@ -34,8 +34,11 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                     let heslo = udaje!.value(forKey: "heslo") as! String
                     let token =  udaje!.value(forKey: "token") as! String
                     
-                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo)
+                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
                     
+                    let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+                    let zoznamUdalostiController = udalosti.instantiateViewController(withIdentifier: "ZoznamUdalosti")
+                    self.present(zoznamUdalostiController, animated: true, completion: nil)
                 }else{
                     let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertControllerStyle.alert)
                     chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))

@@ -26,7 +26,7 @@ class SQLiteDatabaza {
         }
         
         if sqlite3_exec(databaza,
-                        "CREATE TABLE IF NOT EXISTS \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.ID_STLPCA) INTEGER PRIMARY KEY AUTOINCREMENT, \(SQLiteTabulka.Pouzivatel.EMAIL) TEXT, \(SQLiteTabulka.Pouzivatel.HESLO) TEXT)", nil, nil, nil) != SQLITE_OK {
+                        "CREATE TABLE IF NOT EXISTS \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.ID_STLPCA) INTEGER PRIMARY KEY AUTOINCREMENT, \(SQLiteTabulka.Pouzivatel.EMAIL) TEXT, \(SQLiteTabulka.Pouzivatel.HESLO) TEXT, \(SQLiteTabulka.Pouzivatel.TOKEN))", nil, nil, nil) != SQLITE_OK {
             print("Nastala chyba pri vyvorenie tabulky Pouzivatel")
             return
         }
@@ -166,11 +166,11 @@ class SQLiteDatabaza {
         return nil
     }
     
-    func novePouzivatelskeUdaje(email:String, heslo:String){
+    func novePouzivatelskeUdaje(email:String, heslo:String, token:String){
         print("Metoda novePouzivatelskeUdaje bola vykonana")
         
         var stmt: OpaquePointer?
-        let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO)) VALUES (?, ?)"
+        let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN)) VALUES (?, ?, ?)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -188,6 +188,11 @@ class SQLiteDatabaza {
             print("Databa chyba Pouzivatel-heslo pridanie: "+chyba)
             return
         }
+        if sqlite3_bind_text(stmt, 2, token, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-token pridanie: "+chyba)
+            return
+        }
         
         if sqlite3_step(stmt) != SQLITE_DONE {
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -197,11 +202,11 @@ class SQLiteDatabaza {
         print("Nove Pouzivatelske udaje sa ulozili")
     }
     
-    func aktualizujPouzivatelskeUdaje(email:String, heslo:String){
+    func aktualizujPouzivatelskeUdaje(email:String, heslo:String, token:String){
         print("Metoda aktualizujPouzivatelskeUdaje bola vykonana")
         
         var stmt: OpaquePointer?
-        let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)', \(SQLiteTabulka.Pouzivatel.HESLO) = '\(heslo)'  WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)'"
+        let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)', \(SQLiteTabulka.Pouzivatel.HESLO) = '\(heslo)', \(SQLiteTabulka.Pouzivatel.TOKEN) = '\(token)'  WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = '\(email)'"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -265,7 +270,7 @@ class SQLiteDatabaza {
         print("Metoda vratAktualnehoPouzivatela bola vykonana")
         
         var stmt: OpaquePointer?
-        let dotaz = "SELECT \(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO) FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
+        let dotaz = "SELECT \(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN) FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -276,10 +281,12 @@ class SQLiteDatabaza {
         if sqlite3_step(stmt) == SQLITE_ROW {
             let email = String(cString: sqlite3_column_text(stmt, 0))
             let heslo = String(cString: sqlite3_column_text(stmt, 1))
+            let token = String(cString: sqlite3_column_text(stmt, 2))
             
             let udaje: NSDictionary = [
                 "email": email,
-                "heslo": heslo
+                "heslo": heslo,
+                "token": token
             ]
             return udaje
         }

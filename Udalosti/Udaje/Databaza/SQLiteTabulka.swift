@@ -21,5 +21,6 @@ class SQLiteTabulka{
         static let ID_STLPCA: String = "id"
         static let EMAIL: String = "email"
         static let HESLO: String = "heslo"
+        static let TOKEN: String = "token"
     }
 }

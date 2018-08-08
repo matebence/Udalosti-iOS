@@ -28,6 +28,8 @@
 		622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F72117289900CA5D2C /* Prihlasenie.swift */; };
 		622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F9211728A600CA5D2C /* Registracia.swift */; };
 		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
+		62621815211AFA5200AA53F8 /* ZoznamUdalosti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621814211AFA5200AA53F8 /* ZoznamUdalosti.swift */; };
+		62621818211B004400AA53F8 /* UvodnaObrazovka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621817211B004400AA53F8 /* UvodnaObrazovka.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
@@ -87,6 +89,8 @@
 		622DC2F72117289900CA5D2C /* Prihlasenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prihlasenie.swift; sourceTree = "<group>"; };
 		622DC2F9211728A600CA5D2C /* Registracia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registracia.swift; sourceTree = "<group>"; };
 		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
+		62621814211AFA5200AA53F8 /* ZoznamUdalosti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoznamUdalosti.swift; sourceTree = "<group>"; };
+		62621817211B004400AA53F8 /* UvodnaObrazovka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovka.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
@@ -148,11 +152,36 @@
 			path = Autentifikacia;
 			sourceTree = "<group>";
 		};
-		622DC2FD21172EEA00CA5D2C /* Udalosti */ = {
+		622DC2FD21172EEA00CA5D2C /* ZoznamUdalosti */ = {
+			isa = PBXGroup;
+			children = (
+				62621813211AFA4200AA53F8 /* Data */,
+				62621812211AFA3900AA53F8 /* UI */,
+			);
+			path = ZoznamUdalosti;
+			sourceTree = "<group>";
+		};
+		62621812211AFA3900AA53F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				62621814211AFA5200AA53F8 /* ZoznamUdalosti.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		62621813211AFA4200AA53F8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Udalosti;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		62621816211B002200AA53F8 /* UvodnaObrazok */ = {
+			isa = PBXGroup;
+			children = (
+				62621817211B004400AA53F8 /* UvodnaObrazovka.swift */,
+			);
+			path = UvodnaObrazok;
 			sourceTree = "<group>";
 		};
 		62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */ = {
@@ -191,9 +220,10 @@
 			isa = PBXGroup;
 			children = (
 				62D140382115E73A005FDB11 /* AppDelegate.swift */,
+				62621816211B002200AA53F8 /* UvodnaObrazok */,
 				62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */,
 				622DC2F62117283500CA5D2C /* Autentifikacia */,
-				622DC2FD21172EEA00CA5D2C /* Udalosti */,
+				622DC2FD21172EEA00CA5D2C /* ZoznamUdalosti */,
 				62D66A572118D0CA000D8050 /* Udaje */,
 				62D66A5D2118D7F6000D8050 /* Nastroje */,
 				62D1403C2115E73A005FDB11 /* Udalosti.storyboard */,
@@ -533,7 +563,9 @@
 				622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */,
 				62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */,
 				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
+				62621818211B004400AA53F8 /* UvodnaObrazovka.swift in Sources */,
 				62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */,
+				62621815211AFA5200AA53F8 /* ZoznamUdalosti.swift in Sources */,
 				62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

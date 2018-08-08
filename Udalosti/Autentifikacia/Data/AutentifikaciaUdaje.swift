@@ -137,13 +137,13 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
         }
     }
     
-    func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String) {
+    func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String, token: String) {
         print("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana")
         
         if(self.sqliteDatabaza.pouzivatelskeUdaje()){
-            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(email: email, heslo: heslo)
+            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(email: email, heslo: heslo, token: token)
         }else{
-            self.sqliteDatabaza.novePouzivatelskeUdaje(email: email, heslo: heslo)
+            self.sqliteDatabaza.novePouzivatelskeUdaje(email: email, heslo: heslo, token: token)
         }
     }
     
