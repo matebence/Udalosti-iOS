@@ -46,29 +46,29 @@ class SQLiteDatabaza {
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databaza chyba: "+chyba)
+            print("Databaza chyba pridavanie(Miesto): "+chyba)
             return
         }
         
         if sqlite3_bind_text(stmt, 1, stat, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Stat pridanie "+chyba)
+            print("Databa chyba Miesto-Stat pridanie: "+chyba)
             return
         }
         if sqlite3_bind_text(stmt, 2, okres, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Okres pridanie "+chyba)
+            print("Databa chyba Miesto-Okres pridanie: "+chyba)
             return
         }
         if sqlite3_bind_text(stmt, 3, mesto, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Mesto pridanie "+chyba)
+            print("Databa chyba Miesto-Mesto pridanie: "+chyba)
             return
         }
         
         if sqlite3_step(stmt) != SQLITE_DONE {
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-pridanie "+chyba)
+            print("Databa chyba Miesto-pridanie: "+chyba)
             return
         }
         print("Nove miesto sa ulozilo")
@@ -83,41 +83,69 @@ class SQLiteDatabaza {
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databaza chyba: "+chyba)
+            print("Databaza chyba aktualizacia(Miesto): "+chyba)
             return
         }
         
         if sqlite3_bind_text(stmt, 1, stat, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Stat aktualizacia "+chyba)
+            print("Databa chyba Miesto-Stat aktualizacia: "+chyba)
             return
         }
         if sqlite3_bind_text(stmt, 2, okres, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Okres aktualizacia "+chyba)
+            print("Databa chyba Miesto-Okres aktualizacia: "+chyba)
             return
         }
         if sqlite3_bind_text(stmt, 3, mesto, -1, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-Mesto aktualizacia "+chyba)
+            print("Databa chyba Miesto-Mesto aktualizacia: "+chyba)
             return
         }
         
         if sqlite3_step(stmt) != SQLITE_DONE {
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databa chyba Miesto-aktualizacia "+chyba)
+            print("Databa chyba Miesto-aktualizacia: "+chyba)
             return
         }
         print("Miesto sa aktualizovalo")
     }
     
+    func odstranMiestoPrihlasenia(idMiesto: integer_t){
+        print("Metoda aktualizujMiestoPrihlasenia bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "DELETE FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = ?"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba odstranenie(Miesto): "+chyba)
+            return
+        }
+        
+        if sqlite3_bind_int(stmt, 1, idMiesto) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Miesto-idMiesto odstrananie: "+chyba)
+            return
+        }
+        
+        if sqlite3_step(stmt) != SQLITE_DONE{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Miesto-odstranenie: "+chyba)
+            return
+        }
+        print("Miesto prihlasenia sa odstranilo")
+    }
+    
     func miestoPrihlasenia() -> Bool{
+        print("Metoda miestoPrihlasenia bola vykonana")
+        
         var stmt: OpaquePointer?
         let dotaz = "SELECT * FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK {
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
-            print("Databaza chyba Miesto vypis "+chyba)
+            print("Databaza chyba Miesto riadok: "+chyba)
             return false
         }
         if(sqlite3_step(stmt) == SQLITE_ROW){
@@ -125,5 +153,163 @@ class SQLiteDatabaza {
         }else{
             return false;
         }
+    }
+    
+    func vratMiestoPrihlasenia() -> NSDictionary? {
+        print("Metoda vratMiestoPrihlasenia bola vykonana")
+
+        var stmt: OpaquePointer?
+        let dotaz = "SELECT \(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES), \(SQLiteTabulka.Miesto.MESTO) FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Miesto vypis: "+chyba)
+            return nil
+        }
+        
+        if sqlite3_step(stmt) == SQLITE_ROW {
+            let stat = String(cString: sqlite3_column_text(stmt, 0))
+            let okres = String(cString: sqlite3_column_text(stmt, 1))
+            let mesto = String(cString: sqlite3_column_text(stmt, 2))
+            
+            let udaje: NSDictionary = [
+                "stat": stat,
+                "okres": okres,
+                "mesto": mesto
+            ]
+            return udaje
+        }
+        return nil
+    }
+    
+    func novePouzivatelskeUdaje(email:String, heslo:String){
+        print("Metoda novePouzivatelskeUdaje bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO)) VALUES (?, ?)"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba pridavanie(Pouzivatel): "+chyba)
+            return
+        }
+        
+        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-email pridanie: "+chyba)
+            return
+        }
+        if sqlite3_bind_text(stmt, 2, heslo, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-heslo pridanie: "+chyba)
+            return
+        }
+        
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-pridanie: "+chyba)
+            return
+        }
+        print("Nove Pouzivatelske udaje sa ulozili")
+    }
+    
+    func aktualizujPouzivatelskeUdaje(email:String, heslo:String){
+        print("Metoda aktualizujPouzivatelskeUdaje bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "UPDATE \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) SET \(SQLiteTabulka.Pouzivatel.EMAIL) = ?, \(SQLiteTabulka.Pouzivatel.HESLO) = ?  WHERE \(SQLiteTabulka.Pouzivatel.ID_STLPCA) = \(email)"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba aktualizacia(Pouzivatel): "+chyba)
+            return
+        }
+        
+        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-Email aktualizacia: "+chyba)
+            return
+        }
+        if sqlite3_bind_text(stmt, 2, heslo, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-Heslo aktualizacia: "+chyba)
+            return
+        }
+        
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databa chyba Pouzivatel-aktualizacia: "+chyba)
+            return
+        }
+        print("Pouzivatelske udaje sa aktualizovali")
+    }
+    
+    func odstranPouzivatelskeUdaje(email: String){
+        print("Metoda odstranPouzivatelskeUdaje bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "DELETE FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) WHERE \(SQLiteTabulka.Pouzivatel.EMAIL) = ?"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba odstranenie(Pouzivatel): "+chyba)
+            return
+        }
+        
+        if sqlite3_bind_text(stmt, 1, email, -1, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Pouzivatel-email odstrananie: "+chyba)
+            return
+        }
+        
+        if sqlite3_step(stmt) != SQLITE_DONE{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Pouzivatel-odstranenie: "+chyba)
+            return
+        }
+        print("Pouzivatelske udaje sa odstranili")
+    }
+    
+    func pouzivatelskeUdaje() -> Bool{
+        print("Metoda pouzivatelskeUdaje bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "SELECT * FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK {
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Pouzivatel riadok: "+chyba)
+            return false
+        }
+        if(sqlite3_step(stmt) == SQLITE_ROW){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    func vratAktualnehoPouzivatela() -> NSDictionary?{
+        print("Metoda vratAktualnehoPouzivatela bola vykonana")
+        
+        var stmt: OpaquePointer?
+        let dotaz = "SELECT \(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO) FROM \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY)"
+        
+        if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
+            let chyba = String(cString: sqlite3_errmsg(databaza)!)
+            print("Databaza chyba Pouzivatel vypis: "+chyba)
+            return nil
+        }
+        
+        if sqlite3_step(stmt) == SQLITE_ROW {
+            let email = String(cString: sqlite3_column_text(stmt, 0))
+            let heslo = String(cString: sqlite3_column_text(stmt, 1))
+            
+            let udaje: NSDictionary = [
+                "email": email,
+                "heslo": heslo
+            ]
+            return udaje
+        }
+        return nil
     }
 }
