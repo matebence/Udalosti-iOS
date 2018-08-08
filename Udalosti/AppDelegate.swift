@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if preferencie.bool(forKey: "ukazkaAplikacie") {
             self.sqliteDatabaza = SQLiteDatabaza()
             if self.sqliteDatabaza.pouzivatelskeUdaje(){
-                obsah = udalosti.instantiateViewController(withIdentifier: "UvodnaObrazokvka")
+                obsah = udalosti.instantiateViewController(withIdentifier: "UvodnaObrazovka")
             }else{
                 obsah = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")
             }

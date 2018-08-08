@@ -9,9 +9,9 @@
 import UIKit
 
 class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
-
-    var autentifikaciaUdaje : AutentifikaciaUdaje!
     
+    var autentifikaciaUdaje : AutentifikaciaUdaje!
+
     @IBOutlet weak var vstupEmailu: UITextField!
     @IBOutlet weak var vstupHesla: UITextField!
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
@@ -90,12 +90,12 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     override func viewDidLoad() {
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
-        
         self.vstupEmailu.delegate = self
         self.vstupHesla.delegate = self
 
         let vypnutKlavesnicu = UITapGestureRecognizer(target: self, action: #selector(klavesnica))
         view.addGestureRecognizer(vypnutKlavesnicu)
+
         super.viewDidLoad()
     }
     

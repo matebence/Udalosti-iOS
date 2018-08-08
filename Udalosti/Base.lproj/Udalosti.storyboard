@@ -63,12 +63,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZV-Wk-yZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1512.8" y="25.637181409295355"/>
+            <point key="canvasLocation" x="-1660" y="-296"/>
         </scene>
-        <!--Uvodna Obrazokvka-->
+        <!--Uvodna Obrazovka-->
         <scene sceneID="8yE-vF-aHc">
             <objects>
-                <viewController storyboardIdentifier="UvodnaObrazokvka" id="5V0-Fd-hoB" customClass="UvodnaObrazokvka" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UvodnaObrazovka" id="5V0-Fd-hoB" customClass="UvodnaObrazovka" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oC8-pl-UjM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,12 +86,13 @@
                         <viewLayoutGuide key="safeArea" id="wLK-Ot-AL8"/>
                     </view>
                     <connections>
-                        <outlet property="nacitavanie" destination="SmQ-fu-GqE" id="GLy-bR-loN"/>
+                        <outlet property="nacitavanie" destination="SmQ-fu-GqE" id="Hbf-Ha-zd1"/>
+                        <segue destination="ayh-Cd-cBl" kind="show" identifier="automatickePrihlasenie" id="kzr-RI-kS7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gib-Q5-8cT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513" y="733"/>
+            <point key="canvasLocation" x="-1660" y="384"/>
         </scene>
         <!--Autentifikacia-->
         <scene sceneID="1sB-ya-J1W">
@@ -363,7 +364,8 @@
         <image name="udalosti_vstup" width="178" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hWV-bf-dHt"/>
+        <segue reference="ci4-rG-LME"/>
+        <segue reference="kzr-RI-kS7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

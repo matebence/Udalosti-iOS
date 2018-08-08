@@ -16,10 +16,20 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "automatickePrihlasenie" {
+            let automatickePrihlasenie = segue.destination as! Autentifikacia
+            automatickePrihlasenie.chyba = sender as? Bool
+        }
+    }
+    
     override func viewDidLoad() {
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
-
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
     }
     
     override func didReceiveMemoryWarning() {
