@@ -1,14 +1,14 @@
 //
-//  Udalosti.swift
+//  UdalostiPodlaPozacie.swift
 //  Udalosti
 //
-//  Created by Bence Mate on 8/8/18.
+//  Created by Bence Mate on 8/9/18.
 //  Copyright © 2018 Bence Mate. All rights reserved.
 //
 
 import UIKit
 
-class ZoznamUdalosti: UIViewController {
+class UdalostiPodlaPozacie: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,5 +16,9 @@ class ZoznamUdalosti: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

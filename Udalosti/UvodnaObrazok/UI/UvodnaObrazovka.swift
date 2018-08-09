@@ -26,9 +26,9 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
                     self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
                     
                     let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                    let zoznamUdalostiController = udalosti.instantiateViewController(withIdentifier: "ZoznamUdalosti")
+                    let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
                     
-                    self.present(zoznamUdalostiController, animated: true, completion: nil)
+                    self.present(navigaciaUdalostiController, animated: true, completion: nil)
                 }else{
                     performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
                     autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
@@ -57,6 +57,10 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
             let automatickePrihlasenie = segue.destination as! Autentifikacia
             automatickePrihlasenie.chyba = sender as? Bool
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewDidLoad() {

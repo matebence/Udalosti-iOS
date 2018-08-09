@@ -18,10 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let geoAdresa = "http://ip-api.com/"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.ukazkaAplikacie()
-        self.nastavNavigaciu()
         
         return true
     }
@@ -43,13 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = obsah
         window?.makeKeyAndVisible()
-    }
-    
-    func nastavNavigaciu(){
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundColor = .clear
-        UINavigationBar.appearance().isTranslucent = true
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

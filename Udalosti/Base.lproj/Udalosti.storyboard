@@ -215,7 +215,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZQO-v5-zNB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="87J-7F-Tqi">
+                    <navigationItem key="navigationItem" title="Prihlasovanie" id="87J-7F-Tqi">
                         <barButtonItem key="backBarButtonItem" title="Späť" id="Jrk-wh-NyN"/>
                     </navigationItem>
                     <connections>
@@ -229,25 +229,104 @@
             </objects>
             <point key="canvasLocation" x="0.80000000000000004" y="24.7376311844078"/>
         </scene>
-        <!--Zoznam Udalosti-->
-        <scene sceneID="pzE-ji-yMS">
+        <!--Najblizšie udalosti-->
+        <scene sceneID="B29-B8-8z7">
             <objects>
-                <viewController storyboardIdentifier="ZoznamUdalosti" id="Crb-Dh-2CE" customClass="ZoznamUdalosti" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KbC-Wk-8DW">
+                <viewController storyboardIdentifier="UdalostiPodlaPozacie" title="Najblizšie udalosti" id="CYO-zT-DYT" customClass="UdalostiPodlaPozacie" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FBX-Ke-j05">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBG-88-v79">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-ra-Elr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Nitra" id="0Ea-dS-h7R"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="B2E-1g-ZaP"/>
+                        <viewLayoutGuide key="safeArea" id="mkb-ft-hAi"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Najblizšie udalosti" image="udalosti_tab_podla_pozicie" selectedImage="udalosti_tab_podla_pozicie" id="SbB-b8-F9U">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RbX-tX-T9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ivZ-Ne-SBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="25"/>
+            <point key="canvasLocation" x="1708" y="360"/>
         </scene>
-        <!--Registracia-->
+        <!--Objavujte udalosti-->
+        <scene sceneID="CLP-rz-vfh">
+            <objects>
+                <viewController storyboardIdentifier="UdalostiObjavuj" title="Objavujte udalosti" id="wh9-rX-7ZD" customClass="UdalostiObjavuj" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fgJ-et-Ckt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9v-j9-c0A">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.38039215686274508" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28g-FC-bF4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.0" green="0.38039215686274508" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Slovakia" id="0WG-GS-XIM"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1Xe-mH-0qi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Objavujte udalosti" image="udalosti_tab_objavuj" selectedImage="udalosti_tab_objavuj" id="D5k-v5-RYX">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u7y-As-aJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="-305.39730134932535"/>
+        </scene>
+        <!--Navigacia Udalosti-->
+        <scene sceneID="2kR-96-TZR">
+            <objects>
+                <tabBarController storyboardIdentifier="NavigaciaUdalosti" id="37n-J0-fdw" customClass="NavigaciaUdalosti" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CMV-Pv-PKR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wh9-rX-7ZD" kind="relationship" relationship="viewControllers" id="94K-mj-CfK"/>
+                        <segue destination="CYO-zT-DYT" kind="relationship" relationship="viewControllers" id="ajo-OX-e4M"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Amk-UE-VvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="25"/>
+        </scene>
+        <!--Registrácia-->
         <scene sceneID="KJI-8g-2VV">
             <objects>
-                <viewController storyboardIdentifier="Registracia" id="pR6-gF-o9U" customClass="Registracia" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registracia" title="Registrácia" id="pR6-gF-o9U" customClass="Registracia" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QFv-nE-x3V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,17 +401,21 @@
                                     <action selector="registrovatSa:" destination="pR6-gF-o9U" eventType="touchUpInside" id="GIf-zt-lPe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registrácia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWL-BN-1ml">
-                                <rect key="frame" x="62" y="104" width="250" height="58"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-Fh-YIM">
+                                <rect key="frame" x="177" y="603" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udalosti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJs-1T-JuJ">
+                                <rect key="frame" x="116" y="104" width="188" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="49"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-Fh-YIM">
-                                <rect key="frame" x="177" y="603" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-jI-JtG">
+                                <rect key="frame" x="71" y="108" width="37" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -345,7 +428,6 @@
                     </view>
                     <connections>
                         <outlet property="nacitavanie" destination="sMW-Fh-YIM" id="EW3-eT-2fI"/>
-                        <outlet property="titulRegistracia" destination="vWL-BN-1ml" id="uhW-Dn-6sH"/>
                         <outlet property="vstupEmailu" destination="CeQ-sH-26h" id="uug-qd-9gu"/>
                         <outlet property="vstupHesla" destination="yyd-5p-57h" id="Asp-Hx-9ki"/>
                         <outlet property="vstupPotvrdenieHesla" destination="3Xw-1G-HFm" id="DLf-Hx-SvH"/>
@@ -360,12 +442,14 @@
     <resources>
         <image name="udalosti_logo" width="166" height="222"/>
         <image name="udalosti_pozadie" width="180" height="320"/>
+        <image name="udalosti_tab_objavuj" width="28" height="28"/>
+        <image name="udalosti_tab_podla_pozicie" width="28" height="28"/>
         <image name="udalosti_tlacidlo" width="178" height="29"/>
         <image name="udalosti_vstup" width="178" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ci4-rG-LME"/>
-        <segue reference="Bsf-SF-ekB"/>
+        <segue reference="kzr-RI-kS7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

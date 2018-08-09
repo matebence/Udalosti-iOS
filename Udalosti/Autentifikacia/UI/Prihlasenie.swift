@@ -42,8 +42,8 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                         token: token)
                     
                     let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                    let zoznamUdalostiController = udalosti.instantiateViewController(withIdentifier: "ZoznamUdalosti")
-                    self.present(zoznamUdalostiController, animated: true, completion: nil)
+                    let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
+                    self.present(navigaciaUdalostiController, animated: true, completion: nil)
                 }else{
                     let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertControllerStyle.alert)
                     chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
