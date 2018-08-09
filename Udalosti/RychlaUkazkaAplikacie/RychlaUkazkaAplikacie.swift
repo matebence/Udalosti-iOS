@@ -22,6 +22,10 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         preferencie.synchronize()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func onboardingItemsCount() -> Int {
         return 3
     }

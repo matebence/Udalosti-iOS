@@ -21,14 +21,16 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved{
     }
     
     func zrusToken() {
-        let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
-        self.udalostiUdaje.odhlasenie(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
-        
-        Nastavenia.TOKEN = true
+        if uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje() {
+            let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+            self.udalostiUdaje.odhlasenie(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
+            
+            Nastavenia.TOKEN = true
+        }
     }
     
     func novyToken() {
-        if Nastavenia.TOKEN {
+        if Nastavenia.TOKEN && uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje(){
             let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
             let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
 
