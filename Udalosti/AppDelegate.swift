@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let geoAdresa = "http://ip-api.com/"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.ukazkaAplikacie()
         self.nastavNavigaciu()
         
@@ -52,13 +52,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = true
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-    
     func applicationDidEnterBackground(_ application: UIApplication) {
+        let tokenUdaje: TokenUdaje = TokenUdaje()
+        tokenUdaje.zrusToken()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        let tokenUdaje: TokenUdaje = TokenUdaje()
+        tokenUdaje.novyToken()
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

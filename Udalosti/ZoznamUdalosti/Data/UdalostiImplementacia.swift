@@ -10,4 +10,5 @@ import Foundation
 
 protocol UdalostiImplementacia {
     func odhlasenie(email: String)
+    func miestoPrihlasenia() -> NSDictionary
 }

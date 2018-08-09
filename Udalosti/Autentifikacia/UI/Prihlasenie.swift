@@ -20,7 +20,9 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         print("Metoda prihlasitSa bola vykonana")
         
         self.nacitavanie.isHidden = false
-        self.autentifikaciaUdaje.miestoPrihlasenia(email: vstupEmailu.text!, heslo: vstupHesla.text!)
+        self.autentifikaciaUdaje.miestoPrihlasenia(
+            email: vstupEmailu.text!,
+            heslo: vstupHesla.text!)
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
@@ -34,7 +36,10 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                     let heslo = udaje!.value(forKey: "heslo") as! String
                     let token =  udaje!.value(forKey: "token") as! String
                     
-                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
+                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
+                        email: email,
+                        heslo: heslo,
+                        token: token)
                     
                     let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                     let zoznamUdalostiController = udalosti.instantiateViewController(withIdentifier: "ZoznamUdalosti")

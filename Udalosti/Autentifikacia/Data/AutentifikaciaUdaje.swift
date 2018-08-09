@@ -88,12 +88,23 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     }
                     
                     if (self.sqliteDatabaza.miestoPrihlasenia()){
-                        self.sqliteDatabaza.aktualizujMiestoPrihlasenia(stat: stat, okres: okres, mesto: mesto)
+                        self.sqliteDatabaza.aktualizujMiestoPrihlasenia(
+                            stat: stat,
+                            okres: okres,
+                            mesto: mesto)
                     }else{
-                        self.sqliteDatabaza.noveMiestoPrihlasenia(stat: stat, okres: okres, mesto: mesto)
+                        self.sqliteDatabaza.noveMiestoPrihlasenia(
+                            stat: stat,
+                            okres: okres,
+                            mesto: mesto)
                     }
                     
-                    self.prihlasenie(email: email, heslo: heslo, stat: stat, okres: okres, mesto: mesto)
+                    self.prihlasenie(
+                        email: email,
+                        heslo: heslo,
+                        stat: stat,
+                        okres: okres,
+                        mesto: mesto)
                 }
         }
     }
@@ -141,9 +152,15 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
         print("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana")
         
         if(self.sqliteDatabaza.pouzivatelskeUdaje()){
-            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(email: email, heslo: heslo, token: token)
+            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(
+                email: email,
+                heslo: heslo,
+                token: token)
         }else{
-            self.sqliteDatabaza.novePouzivatelskeUdaje(email: email, heslo: heslo, token: token)
+            self.sqliteDatabaza.novePouzivatelskeUdaje(
+                email: email,
+                heslo: heslo,
+                token: token)
         }
     }
     

@@ -25,7 +25,10 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         print("Metoda registrovatSa bola vykonana")
 
         self.nacitavanie.isHidden = false
-        self.autentifikaciaUdaje.registracia(meno: vstupPouzivatelskeMena.text!, email: vstupEmailu.text!, heslo: vstupHesla.text!, potvrd: vstupPotvrdenieHesla.text!)
+        self.autentifikaciaUdaje.registracia(
+            meno: vstupPouzivatelskeMena.text!,
+            email: vstupEmailu.text!, heslo: vstupHesla.text!,
+            potvrd: vstupPotvrdenieHesla.text!)
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {

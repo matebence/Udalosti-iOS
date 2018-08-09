@@ -11,9 +11,9 @@ import SQLite3
 
 class SQLiteDatabaza {
     
-    var databaza: OpaquePointer?
-    var miestoUlozenia: URL
-    let nazovDatabazy:String = "udalosti.sqlite"
+    private var databaza: OpaquePointer?
+    private var miestoUlozenia: URL
+    private let nazovDatabazy:String = "udalosti.sqlite"
     
     init() {
         print("Metoda SQLiteDatabaza bola vykonana")
