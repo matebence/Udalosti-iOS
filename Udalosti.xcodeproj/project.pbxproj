@@ -36,6 +36,7 @@
 		62621827211B6F7900AA53F8 /* TokenImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621826211B6F7900AA53F8 /* TokenImplementacia.swift */; };
 		62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621828211B723D00AA53F8 /* UdalostiImplementacia.swift */; };
 		6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262182A211B724800AA53F8 /* UdalostiUdaje.swift */; };
+		6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
@@ -52,6 +53,7 @@
 		62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A552118B36B000D8050 /* Nastavenia.swift */; };
 		62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A5A2118D142000D8050 /* KommunikaciaData.swift */; };
 		62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A602118E13C000D8050 /* Pripojenie.swift */; };
+		62D8E535211DBCCC00EAC9D1 /* Udalost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8E534211DBCCC00EAC9D1 /* Udalost.swift */; };
 		62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */; };
 		62E42C67211C544800038A01 /* UdalostiPodlaPozacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */; };
 		69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */; };
@@ -105,6 +107,7 @@
 		62621826211B6F7900AA53F8 /* TokenImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenImplementacia.swift; sourceTree = "<group>"; };
 		62621828211B723D00AA53F8 /* UdalostiImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiImplementacia.swift; sourceTree = "<group>"; };
 		6262182A211B724800AA53F8 /* UdalostiUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiUdaje.swift; sourceTree = "<group>"; };
+		6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiTableViewCell.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		62D66A552118B36B000D8050 /* Nastavenia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nastavenia.swift; sourceTree = "<group>"; };
 		62D66A5A2118D142000D8050 /* KommunikaciaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KommunikaciaData.swift; sourceTree = "<group>"; };
 		62D66A602118E13C000D8050 /* Pripojenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pripojenie.swift; sourceTree = "<group>"; };
+		62D8E534211DBCCC00EAC9D1 /* Udalost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Udalost.swift; sourceTree = "<group>"; };
 		62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiObjavuj.swift; sourceTree = "<group>"; };
 		62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiPodlaPozacie.swift; sourceTree = "<group>"; };
 		729B08D1D5D784632F486C3E /* Pods-Udalosti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,13 +172,13 @@
 			path = Autentifikacia;
 			sourceTree = "<group>";
 		};
-		622DC2FD21172EEA00CA5D2C /* ZoznamUdalosti */ = {
+		622DC2FD21172EEA00CA5D2C /* Udalosti */ = {
 			isa = PBXGroup;
 			children = (
 				62621813211AFA4200AA53F8 /* Data */,
 				62621812211AFA3900AA53F8 /* UI */,
 			);
-			path = ZoznamUdalosti;
+			path = Udalosti;
 			sourceTree = "<group>";
 		};
 		62621812211AFA3900AA53F8 /* UI */ = {
@@ -270,7 +274,8 @@
 				62621816211B002200AA53F8 /* UvodnaObrazok */,
 				62C670902119C08500A4B4B7 /* RychlaUkazkaAplikacie */,
 				622DC2F62117283500CA5D2C /* Autentifikacia */,
-				622DC2FD21172EEA00CA5D2C /* ZoznamUdalosti */,
+				622DC2FD21172EEA00CA5D2C /* Udalosti */,
+				62D8E536211DBE0C00EAC9D1 /* Zoznam */,
 				62D66A572118D0CA000D8050 /* Udaje */,
 				62D66A5D2118D7F6000D8050 /* Nastroje */,
 				62621823211B6F1F00AA53F8 /* Token */,
@@ -386,6 +391,15 @@
 				62D66A602118E13C000D8050 /* Pripojenie.swift */,
 			);
 			path = Nastroje;
+			sourceTree = "<group>";
+		};
+		62D8E536211DBE0C00EAC9D1 /* Zoznam */ = {
+			isa = PBXGroup;
+			children = (
+				62D8E534211DBCCC00EAC9D1 /* Udalost.swift */,
+				6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */,
+			);
+			path = Zoznam;
 			sourceTree = "<group>";
 		};
 		681F9A87EDA6D2DA52BC1F8B /* Frameworks */ = {
@@ -601,6 +615,7 @@
 			files = (
 				6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */,
 				6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */,
+				6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */,
 				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */,
 				62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */,
@@ -623,6 +638,7 @@
 				62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */,
 				62621815211AFA5200AA53F8 /* NavigaciaUdalosti.swift in Sources */,
 				62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */,
+				62D8E535211DBCCC00EAC9D1 /* Udalost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

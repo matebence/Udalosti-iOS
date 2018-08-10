@@ -18,6 +18,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBOutlet weak var vstupPotvrdenieHesla: UITextField!
 
     @IBOutlet weak var titulRegistracia: UILabel!
+    @IBOutlet weak var titulObrazok: UIImageView!
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     
@@ -100,13 +101,15 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        posunVstupVyssie(textField, moveDistance: -110, up: true)
-        titulRegistracia.isHidden = true
+        self.posunVstupVyssie(textField, moveDistance: -100, up: true)
+        self.titulRegistracia.isHidden = true
+        self.titulObrazok.isHidden = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        posunVstupVyssie(textField, moveDistance: -110, up: false)
-        titulRegistracia.isHidden = false
+        posunVstupVyssie(textField, moveDistance: -100, up: false)
+        self.titulRegistracia.isHidden = false
+        self.titulObrazok.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

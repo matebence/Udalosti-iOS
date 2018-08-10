@@ -8,15 +8,15 @@
 
 import Foundation
 
-class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved{
-   
+class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
+    
     private var autentifikaciaUdaje : AutentifikaciaUdaje!
     private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     private var udalostiUdaje : UdalostiUdaje!
 
     init() {
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
-        self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self)
+        self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
     }
     
@@ -63,4 +63,6 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved{
         default: break
         }
     }
+    
+    func dataZoServera(odpoved: String, od: String, data: NSArray?) {}
 }
