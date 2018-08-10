@@ -26,8 +26,6 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
-        print("Metoda odpovedServera bola vykonana")
-
         if Pripojenie.spojenieExistuje(){
             switch od {
             case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
@@ -60,19 +58,6 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         nacitavanie.isHidden = true
     }
     
-    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        posunVstupVyssie(textField, moveDistance: -100, up: true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        posunVstupVyssie(textField, moveDistance: -100, up: false)
-    }
-    
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
         print("Metoda posunVstupVyssie bola vykonana")
         
@@ -92,15 +77,33 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    override func viewDidLoad() {
+    func inicializacia(){
+        print("Metoda inicializacia-Prihlasenie bola vykonana")
+
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
         self.vstupEmailu.delegate = self
         self.vstupHesla.delegate = self
-
+        
         let vypnutKlavesnicu = UITapGestureRecognizer(target: self, action: #selector(klavesnica))
         view.addGestureRecognizer(vypnutKlavesnicu)
-
+    }
+    
+    override func viewDidLoad() {
+        self.inicializacia()
         super.viewDidLoad()
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        posunVstupVyssie(textField, moveDistance: -100, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        posunVstupVyssie(textField, moveDistance: -100, up: false)
     }
     
     override func didReceiveMemoryWarning() {

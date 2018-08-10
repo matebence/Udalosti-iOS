@@ -251,7 +251,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Nitra" id="0Ea-dS-h7R"/>
+                                    <navigationItem title="Miesto" id="0Ea-dS-h7R"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -288,7 +288,13 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Slovakia" id="0WG-GS-XIM"/>
+                                    <navigationItem title="Štát" id="0WG-GS-XIM">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="udalosti_odhlasenie" id="suS-ou-dYv">
+                                            <connections>
+                                                <action selector="odhlasitSa:" destination="wh9-rX-7ZD" id="Of3-jp-cao"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -298,6 +304,9 @@
                     <tabBarItem key="tabBarItem" title="Objavujte udalosti" image="udalosti_tab_objavuj" selectedImage="udalosti_tab_objavuj" id="D5k-v5-RYX">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="titul" destination="0WG-GS-XIM" id="Owu-LM-fZG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7y-As-aJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -441,6 +450,7 @@
     </scenes>
     <resources>
         <image name="udalosti_logo" width="166" height="222"/>
+        <image name="udalosti_odhlasenie" width="28" height="28"/>
         <image name="udalosti_pozadie" width="180" height="320"/>
         <image name="udalosti_tab_objavuj" width="28" height="28"/>
         <image name="udalosti_tab_podla_pozicie" width="28" height="28"/>

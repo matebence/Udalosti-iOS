@@ -22,14 +22,6 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         preferencie.synchronize()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    func onboardingItemsCount() -> Int {
-        return 3
-    }
-    
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         let pozadiePrva = UIColor(red: 8/255, green: 78/255, blue: 123/255, alpha: 1)
         let pozadieDruha = UIColor(red: 1/255, green: 96/255, blue: 151/255, alpha: 1)
@@ -69,8 +61,8 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
             ][index]
     }
     
-    func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {
-        
+    func onboardingItemsCount() -> Int {
+        return 3
     }
     
     func onboardingWillTransitonToIndex(_ index: Int) {
@@ -92,11 +84,24 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {
+        
+    }
+    
+    func inicializacia(){
+        print("Metoda inicializacia-RychlaUkazkaAplikacie bola vykonana")
+        
         self.ukazkaAplikacie.dataSource = self
         self.ukazkaAplikacie.delegate = self
+    }
+    
+    override func viewDidLoad() {
+        self.inicializacia()
+        super.viewDidLoad()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {

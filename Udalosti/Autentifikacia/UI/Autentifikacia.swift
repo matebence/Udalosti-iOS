@@ -13,20 +13,6 @@ class Autentifikacia: UINavigationController {
     var chyba: Bool?
     var sqliteDatabaza: SQLiteDatabaza!
 
-    override func viewDidLoad() {
-        let preferencie = UserDefaults.standard
-        
-        if !(preferencie.bool(forKey: "prvyStart")) {
-            self.sqliteDatabaza = SQLiteDatabaza()
-            self.sqliteDatabaza.vyvorTabulky()
-        }
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.automatickePrihlasenieChyba()
-    }
-    
     func automatickePrihlasenieChyba(){
         print("Metoda automatickePrihlasenieChyba bola vykonana")
         
@@ -37,6 +23,32 @@ class Autentifikacia: UINavigationController {
                 self.present(chyba, animated: true, completion: nil)
             }
         }
+    }
+    
+    func vytvorTabulky(){
+        print("Metoda vytvorTabulky bola vykonana")
+
+        let preferencie = UserDefaults.standard
+        
+        if !(preferencie.bool(forKey: "prvyStart")) {
+            self.sqliteDatabaza = SQLiteDatabaza()
+            self.sqliteDatabaza.vyvorTabulky()
+        }
+    }
+    
+    func inicializacia(){
+        print("Metoda inicializacia-Autentifikacia bola vykonana")
+
+        self.vytvorTabulky()
+    }
+    
+    override func viewDidLoad() {
+        self.inicializacia()
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.automatickePrihlasenieChyba()
     }
     
     override func didReceiveMemoryWarning() {

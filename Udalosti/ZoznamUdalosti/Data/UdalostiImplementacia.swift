@@ -9,6 +9,7 @@
 import Foundation
 
 protocol UdalostiImplementacia {
+    func automatickePrihlasenieVypnute(email: String)
     func odhlasenie(email: String)
     func miestoPrihlasenia() -> NSDictionary
 }

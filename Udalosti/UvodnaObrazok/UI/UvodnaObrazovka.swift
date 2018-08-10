@@ -40,6 +40,8 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
     }
     
     func pristup(){
+        print("Metoda pristup bola vykonana")
+
         if Pripojenie.spojenieExistuje(){
             if(uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje()){
                 self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
@@ -52,6 +54,23 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
         }
     }
     
+    func inicializacia(){
+        print("Metoda inicializacia-UvodnaObrazovka bola vykonana")
+        
+        self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
+        self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
+    }
+    
+    override func viewDidLoad() {
+        self.inicializacia()
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.nacitavanie.isHidden = false
+        self.pristup()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "automatickePrihlasenie" {
             let automatickePrihlasenie = segue.destination as! Autentifikacia
@@ -61,18 +80,6 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    override func viewDidLoad() {
-        self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
-        self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
-        
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.nacitavanie.isHidden = false
-        self.pristup()
     }
     
     override func didReceiveMemoryWarning() {

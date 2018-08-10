@@ -16,15 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let udalostiAdresa = "http://localhost:8888/"
     let geoAdresa = "http://ip-api.com/"
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.ukazkaAplikacie()
-        
-        return true
-    }
     
     func ukazkaAplikacie(){
+        print("Metoda ukazkaAplikacie bola vykonana")
+        
         let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
         let preferencie = UserDefaults.standard
         
@@ -41,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = obsah
         window?.makeKeyAndVisible()
+    }
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.ukazkaAplikacie()
+        
+        return true
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class UdalostiUdaje : UdalostiImplementacia{
-
+  
     private let delegate = UIApplication.shared.delegate as! AppDelegate
     private var kommunikaciaOdpoved: KommunikaciaOdpoved
     private var sqliteDatabaza: SQLiteDatabaza
@@ -42,6 +42,12 @@ class UdalostiUdaje : UdalostiImplementacia{
                     }
                 }
         }
+    }
+    
+    func automatickePrihlasenieVypnute(email: String) {
+        print("Metoda automatickePrihlasenieVypnute bola vykonana")
+        
+        sqliteDatabaza.odstranPouzivatelskeUdaje(email: email)
     }
 
     func miestoPrihlasenia() -> NSDictionary {
