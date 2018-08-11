@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88E9EC28B8B46C3631E6B242B50F4442"
-               BlueprintName = "Alamofire"
+               BlueprintIdentifier = "6CFC8A92EF53B332213F853457C3A0C4"
+               BlueprintName = "SwipeableTabBarController"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Alamofire.framework">
+               BuildableName = "SwipeableTabBarController.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

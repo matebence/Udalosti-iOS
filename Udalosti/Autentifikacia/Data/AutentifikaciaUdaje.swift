@@ -56,6 +56,8 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                         
                         self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
                     }
+                }else{
+                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
                 }
         }
     }
@@ -144,7 +146,9 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     }else{
                         self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_REGISRACIA, udaje:nil)
                 }
-            }
+                }else{
+                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
+                }
         }
     }
     

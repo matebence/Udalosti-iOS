@@ -13,15 +13,17 @@ class Udalost {
     var idUdalost: String?
     var obrazok: String?
     var nazov: String?
-    var datum: String?
+    var den: String?
+    var mesiac: String?
     var cas: String?
     var miesto: String?
     
-    init(idUdalost: String?, obrazok: String?, nazov: String?, datum: String?, cas: String?, miesto:String?) {
+    init(idUdalost: String?, obrazok: String?, nazov: String?, den: String?, mesiac: String?, cas: String?, miesto:String?) {
         self.idUdalost = idUdalost
         self.obrazok = obrazok;
         self.nazov = nazov
-        self.datum = datum
+        self.den = den
+        self.mesiac = mesiac
         self.cas = cas
         self.miesto = miesto
     }

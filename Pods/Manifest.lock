@@ -3,23 +3,27 @@ PODS:
   - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
   - paper-onboarding (4.1.0)
+  - SwipeableTabBarController (1.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireImage (~> 3.3)
   - paper-onboarding
+  - SwipeableTabBarController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
     - paper-onboarding
+    - SwipeableTabBarController
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   paper-onboarding: 344780cbb0bfc229cd1862f5b9bba446b23c5185
+  SwipeableTabBarController: ca84e61b588e0d4ebd2b8b906f29509a490fdca4
 
-PODFILE CHECKSUM: eb12032cfbdcf62184439668be0578e85b1bf8a6
+PODFILE CHECKSUM: 0d69a5dc1c94c6f1aca48a539264f96306b08fad
 
 COCOAPODS: 1.5.3

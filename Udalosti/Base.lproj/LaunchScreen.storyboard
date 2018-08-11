@@ -18,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iIE-S3-Am6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iIE-S3-Am6">
                                 <rect key="frame" x="131" y="258" width="113" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.38823529411764707" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iIE-S3-Am6" secondAttribute="trailing" constant="131" id="17j-AT-igs"/>
+                            <constraint firstItem="iIE-S3-Am6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131" id="JPd-Ec-Fwk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iIE-S3-Am6" secondAttribute="bottom" constant="259" id="PPY-uS-XID"/>
+                            <constraint firstItem="iIE-S3-Am6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238" id="ppA-p4-uww"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

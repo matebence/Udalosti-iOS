@@ -37,9 +37,12 @@ class UdalostiUdaje : UdalostiImplementacia{
                 response in
                 if let odpoved = response.result.value{
                     let udaje = odpoved as! NSDictionary
-                    let data: NSArray = udaje.value(forKey: "udalosti") as! NSArray
-                    
-                    self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI, data: data)
+                    if udaje.value(forKey: "udalosti") != nil{
+                        let data: NSArray = udaje.value(forKey: "udalosti") as! NSArray
+                        self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI, data: data)
+                    }else{
+                        self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.CHYBA, od: Nastavenia.UDALOSTI, data: nil)
+                    }
                 }
         }
     }
@@ -55,15 +58,19 @@ class UdalostiUdaje : UdalostiImplementacia{
             "mesto":mesto,
             "token":token
         ]
-        
+
         Alamofire.request(adresa, method: .post, parameters: vstup).responseJSON
             {
                 response in
                 if let odpoved = response.result.value{
                     let udaje = odpoved as! NSDictionary
-                    let data: NSArray = udaje.value(forKey: "udalosti") as! NSArray
                     
-                    self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI_PODLA_POZICIE, data: data)
+                    if udaje.value(forKey: "udalosti") != nil{
+                        let data: NSArray = udaje.value(forKey: "udalosti") as! NSArray
+                        self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI_PODLA_POZICIE, data: data)
+                    }else{
+                        self.kommunikaciaData.dataZoServera(odpoved: Nastavenia.CHYBA, od: Nastavenia.UDALOSTI_PODLA_POZICIE, data: nil)
+                    }
                 }
         }
     }

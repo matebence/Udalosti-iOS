@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import SwipeableTabBarController
 
-class NavigaciaUdalosti: UITabBarController {
+class NavigaciaUdalosti: SwipeableTabBarController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nastavGesta()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func nastavGesta(){
+        selectedIndex = 0
+        
+        setSwipeAnimation(type: SwipeAnimationType.push)
+        setTapAnimation(type: SwipeAnimationType.push)
+        
+        setDiagonalSwipe(enabled: false)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }

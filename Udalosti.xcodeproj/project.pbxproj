@@ -56,6 +56,7 @@
 		62D8E535211DBCCC00EAC9D1 /* Udalost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8E534211DBCCC00EAC9D1 /* Udalost.swift */; };
 		62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */; };
 		62E42C67211C544800038A01 /* UdalostiPodlaPozacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */; };
+		62F9747E211ED0AA00989640 /* Obrazok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9747D211ED0AA00989640 /* Obrazok.swift */; };
 		69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		62D8E534211DBCCC00EAC9D1 /* Udalost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Udalost.swift; sourceTree = "<group>"; };
 		62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiObjavuj.swift; sourceTree = "<group>"; };
 		62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiPodlaPozacie.swift; sourceTree = "<group>"; };
+		62F9747D211ED0AA00989640 /* Obrazok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obrazok.swift; sourceTree = "<group>"; };
 		729B08D1D5D784632F486C3E /* Pods-Udalosti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.release.xcconfig"; sourceTree = "<group>"; };
 		B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udalosti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -389,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				62D66A602118E13C000D8050 /* Pripojenie.swift */,
+				62F9747D211ED0AA00989640 /* Obrazok.swift */,
 			);
 			path = Nastroje;
 			sourceTree = "<group>";
@@ -593,12 +596,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +630,7 @@
 				622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */,
 				62D66A542118AD8C000D8050 /* KommunikaciaOdpoved.swift in Sources */,
 				6262181E211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift in Sources */,
+				62F9747E211ED0AA00989640 /* Obrazok.swift in Sources */,
 				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
 				62621827211B6F7900AA53F8 /* TokenImplementacia.swift in Sources */,
 				62E42C67211C544800038A01 /* UdalostiPodlaPozacie.swift in Sources */,

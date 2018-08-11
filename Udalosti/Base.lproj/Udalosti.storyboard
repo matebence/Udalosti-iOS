@@ -77,16 +77,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-KI-wh4">
-                                <rect key="frame" x="131" y="258" width="113" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-KI-wh4">
+                                <rect key="frame" x="127.5" y="255" width="120" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="QW8-JX-JfP"/>
+                                    <constraint firstAttribute="height" constant="157" id="vtY-wB-SUN"/>
+                                </constraints>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-fu-GqE">
-                                <rect key="frame" x="177" y="570" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-fu-GqE">
+                                <rect key="frame" x="178" y="570.5" width="19" height="19.5"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.38823529411764707" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SmQ-fu-GqE" firstAttribute="top" secondItem="Fpr-KI-wh4" secondAttribute="bottom" constant="158.5" id="5ag-Td-NKx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SmQ-fu-GqE" secondAttribute="trailing" constant="162" id="70l-zB-Elc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SmQ-fu-GqE" secondAttribute="bottom" constant="77" id="FPe-3C-hqD"/>
+                            <constraint firstItem="Fpr-KI-wh4" firstAttribute="centerX" secondItem="oC8-pl-UjM" secondAttribute="centerX" id="Gyv-74-bvW"/>
+                            <constraint firstItem="Fpr-KI-wh4" firstAttribute="centerY" secondItem="oC8-pl-UjM" secondAttribute="centerY" id="Phd-wk-GOD"/>
+                            <constraint firstItem="SmQ-fu-GqE" firstAttribute="leading" secondItem="oC8-pl-UjM" secondAttribute="leadingMargin" constant="162" id="fPi-sn-DRS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wLK-Ot-AL8"/>
                     </view>
                     <connections>
@@ -134,28 +144,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="Ofr-ay-Qqu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udržiavajte informácie o tom, čo sa deje vo Vašom okolí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="478-q5-zW5">
-                                <rect key="frame" x="41" y="231" width="292" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="Agc-NM-G9q">
-                                <rect key="frame" x="51" y="326" width="273" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-f7-bQA">
-                                <rect key="frame" x="51" y="393" width="273" height="43"/>
+                                <rect key="frame" x="52" y="395" width="273" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,33 +157,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx2-hO-lEy">
-                                <rect key="frame" x="51" y="459" width="273" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Prihlásiť sa" backgroundImage="udalosti_tlacidlo"/>
-                                <connections>
-                                    <action selector="prihlasitSa:" destination="5UK-7O-fHe" eventType="touchUpInside" id="Rc5-80-S3j"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udalosti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ4-Cx-qey">
-                                <rect key="frame" x="116" y="165" width="188" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="49"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-Oh-6Tf">
-                                <rect key="frame" x="71" y="169" width="37" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nemáté používatelské konto?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1w-q9-K9C">
-                                <rect key="frame" x="93" y="608" width="189" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" fixedFrame="YES" text="Nemáté používatelské konto?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1w-q9-K9C">
+                                <rect key="frame" x="94.5" y="609" width="188.5" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.99543776064399125" blue="0.97916466041730088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSW-1t-FVg">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSW-1t-FVg">
                                 <rect key="frame" x="137" y="624" width="101" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -205,17 +176,55 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sGG-mU-hlf">
-                                <rect key="frame" x="177" y="547" width="20" height="20"/>
+                                <rect key="frame" x="178" y="548" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx2-hO-lEy">
+                                <rect key="frame" x="51" y="460" width="273" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prihlásiť sa" backgroundImage="udalosti_tlacidlo"/>
+                                <connections>
+                                    <action selector="prihlasitSa:" destination="5UK-7O-fHe" eventType="touchUpInside" id="Rc5-80-S3j"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="Agc-NM-G9q">
+                                <rect key="frame" x="52" y="329" width="273" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Udržiavajte informácie o tom, čo sa deje vo Vašom okolí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="478-q5-zW5">
+                                <rect key="frame" x="52" y="242" width="273" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udalosti" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ4-Cx-qey">
+                                <rect key="frame" x="118" y="181" width="187.5" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="49"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-Oh-6Tf">
+                                <rect key="frame" x="72" y="184" width="37" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="trailing" secondItem="Ofr-ay-Qqu" secondAttribute="trailing" id="DOh-9h-p3P"/>
-                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="top" secondItem="Ofr-ay-Qqu" secondAttribute="top" constant="64" id="QuN-rw-Td9"/>
-                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="bottom" secondItem="Ofr-ay-Qqu" secondAttribute="bottom" id="Vmc-X0-dXp"/>
-                            <constraint firstItem="Ofr-ay-Qqu" firstAttribute="leading" secondItem="ZQO-v5-zNB" secondAttribute="leading" id="l8g-6L-PzB"/>
-                            <constraint firstItem="Ofr-ay-Qqu" firstAttribute="leading" secondItem="ZQO-v5-zNB" secondAttribute="leading" id="ueC-Sz-y9e"/>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="top" secondItem="Ofr-ay-Qqu" secondAttribute="top" constant="64" id="HCP-AX-YYv"/>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="bottom" secondItem="Ofr-ay-Qqu" secondAttribute="bottom" id="PBD-bR-3Zh"/>
+                            <constraint firstItem="Ofr-ay-Qqu" firstAttribute="leading" secondItem="ZQO-v5-zNB" secondAttribute="leading" id="TbZ-OL-4Bt"/>
+                            <constraint firstItem="ZQO-v5-zNB" firstAttribute="trailing" secondItem="Ofr-ay-Qqu" secondAttribute="trailing" id="kI2-ye-cbR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZQO-v5-zNB"/>
                     </view>
@@ -241,30 +250,200 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBG-88-v79">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeR-uF-pjC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-ra-Elr">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6f-d6-Y6n">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Miesto" id="0Ea-dS-h7R"/>
+                                    <navigationItem title="Miesto" id="xBB-ad-3GG">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="udalosti_odhlasenie" id="6OA-ND-zhF">
+                                            <connections>
+                                                <action selector="odhlasitSa:" destination="CYO-zT-DYT" id="vid-9p-TOl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw9-ht-gWW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.91372549020000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="udalostiPodlaPozicie" rowHeight="259" id="9d6-zL-1bn" customClass="UdalostiTableViewCell" customModule="Udalosti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="259"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9d6-zL-1bn" id="ZJ8-0I-FSt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-1R-WSk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="182.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mesiac" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbP-zC-fF8">
+                                                    <rect key="frame" x="15" y="212" width="57.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt3-6L-cRP">
+                                                    <rect key="frame" x="94.5" y="185.5" width="186" height="24.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="186" id="fxg-pZ-G14"/>
+                                                        <constraint firstAttribute="height" constant="24" id="scT-Za-4dh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtY-GW-jBw">
+                                                    <rect key="frame" x="0.0" y="238.5" width="375" height="20"/>
+                                                    <color key="backgroundColor" red="0.94117647059999998" green="0.91372549020000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-zv-kCt">
+                                                    <rect key="frame" x="29" y="185" width="26.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                                    <color key="textColor" red="0.76470588240000004" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTt-MM-h5L">
+                                                    <rect key="frame" x="317.5" y="186.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-tb-eZA">
+                                                    <rect key="frame" x="329" y="212" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="Sno-Ya-wPZ"/>
+                                                        <constraint firstAttribute="height" constant="20" id="i5g-EX-64V"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6L-fG-7kr">
+                                                    <rect key="frame" x="117" y="207.5" width="141" height="28.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Mesto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXw-yL-2Jk">
+                                                            <rect key="frame" x="38" y="4" width="45" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="14"/>
+                                                            <color key="textColor" red="0.22845113280000001" green="0.51273351909999998" blue="0.74975097180000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="uFI-Tx-jwp">
+                                                            <rect key="frame" x="6" y="4" width="28" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="28" id="YpN-Z5-tsF"/>
+                                                                <constraint firstAttribute="height" constant="20" id="oTi-51-EoM"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Miesto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGd-XA-cX7">
+                                                            <rect key="frame" x="87" y="4" width="43.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="hGd-XA-cX7" firstAttribute="top" secondItem="S6L-fG-7kr" secondAttribute="top" constant="4" id="6bF-Hc-5eA"/>
+                                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hGd-XA-cX7" secondAttribute="trailing" constant="10.5" id="Mth-gw-6c5"/>
+                                                        <constraint firstItem="aXw-yL-2Jk" firstAttribute="leading" secondItem="uFI-Tx-jwp" secondAttribute="trailing" constant="4" id="MwG-Ik-73I"/>
+                                                        <constraint firstItem="uFI-Tx-jwp" firstAttribute="top" secondItem="S6L-fG-7kr" secondAttribute="top" constant="4" id="bWz-cg-Ux9"/>
+                                                        <constraint firstItem="aXw-yL-2Jk" firstAttribute="top" secondItem="S6L-fG-7kr" secondAttribute="top" constant="4" id="cuo-ia-2f9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="uFI-Tx-jwp" secondAttribute="bottom" constant="4" id="d74-f7-4yR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aXw-yL-2Jk" secondAttribute="bottom" constant="4" id="qz9-0W-WUV"/>
+                                                        <constraint firstItem="uFI-Tx-jwp" firstAttribute="leading" secondItem="S6L-fG-7kr" secondAttribute="leading" constant="6" id="sfo-31-JjI"/>
+                                                        <constraint firstItem="hGd-XA-cX7" firstAttribute="leading" secondItem="aXw-yL-2Jk" secondAttribute="trailing" constant="4" id="tOy-L4-pta"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hGd-XA-cX7" secondAttribute="bottom" constant="4" id="vn2-TG-xUS"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tt3-6L-cRP" firstAttribute="leading" relation="lessThanOrEqual" secondItem="KRC-zv-kCt" secondAttribute="trailing" constant="40.5" id="54l-pz-Tqv"/>
+                                                <constraint firstItem="rR5-tb-eZA" firstAttribute="leading" relation="lessThanOrEqual" secondItem="S6L-fG-7kr" secondAttribute="trailing" constant="71" id="7FP-LT-FVb"/>
+                                                <constraint firstAttribute="bottom" secondItem="gtY-GW-jBw" secondAttribute="bottom" id="7ut-sV-FdD"/>
+                                                <constraint firstItem="S6L-fG-7kr" firstAttribute="top" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="25" id="7zW-sI-HzF"/>
+                                                <constraint firstItem="KRC-zv-kCt" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" constant="14" id="82O-ub-K14"/>
+                                                <constraint firstItem="rR5-tb-eZA" firstAttribute="top" secondItem="oTt-MM-h5L" secondAttribute="bottom" constant="5" id="8Nx-hX-cfb"/>
+                                                <constraint firstItem="S6L-fG-7kr" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="8Tj-4c-iHl"/>
+                                                <constraint firstItem="QbP-zC-fF8" firstAttribute="top" secondItem="KRC-zv-kCt" secondAttribute="bottom" constant="2" id="Gf2-89-cUx"/>
+                                                <constraint firstItem="gtY-GW-jBw" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="NhQ-Y0-pc7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oTt-MM-h5L" secondAttribute="trailing" constant="0.5" id="O3L-6n-9Fn"/>
+                                                <constraint firstItem="oTt-MM-h5L" firstAttribute="leading" secondItem="Tt3-6L-cRP" secondAttribute="trailing" constant="37" id="RYW-iZ-ePl"/>
+                                                <constraint firstItem="oTt-MM-h5L" firstAttribute="top" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="4" id="TkU-tg-I5g"/>
+                                                <constraint firstItem="KRC-zv-kCt" firstAttribute="top" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="2" id="Ubx-AS-krq"/>
+                                                <constraint firstItem="QbP-zC-fF8" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" id="Ust-dl-dOX"/>
+                                                <constraint firstItem="Tt3-6L-cRP" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="VGY-Ae-6Oj"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fem-1R-WSk" secondAttribute="trailing" id="XTw-TW-yed"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rR5-tb-eZA" secondAttribute="trailing" constant="11" id="d5b-Ld-UPA"/>
+                                                <constraint firstItem="S6L-fG-7kr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QbP-zC-fF8" secondAttribute="trailing" constant="44.5" id="dKy-LC-WUO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rR5-tb-eZA" secondAttribute="bottom" constant="16" id="dm3-e7-uJA"/>
+                                                <constraint firstItem="Fem-1R-WSk" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="e3a-y6-k3a"/>
+                                                <constraint firstItem="gtY-GW-jBw" firstAttribute="top" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="56" id="eOz-ex-Cfl"/>
+                                                <constraint firstItem="Fem-1R-WSk" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" id="eVt-y0-rya"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="S6L-fG-7kr" secondAttribute="bottom" constant="12" id="glJ-cy-hZf"/>
+                                                <constraint firstItem="Tt3-6L-cRP" firstAttribute="top" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="3" id="kac-hX-Egg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Tt3-6L-cRP" secondAttribute="bottom" constant="38" id="l8i-po-pZ8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fem-1R-WSk" secondAttribute="bottom" constant="76" id="sIl-eg-MuE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QbP-zC-fF8" secondAttribute="bottom" constant="16" id="ux6-PA-8GW"/>
+                                                <constraint firstAttribute="trailing" secondItem="gtY-GW-jBw" secondAttribute="trailing" id="vQ7-9K-RlL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cas" destination="oTt-MM-h5L" id="Qhu-IO-MTV"/>
+                                            <outlet property="datum" destination="KRC-zv-kCt" id="aG3-bg-4Ik"/>
+                                            <outlet property="mesiac" destination="QbP-zC-fF8" id="Miw-lu-EFd"/>
+                                            <outlet property="mesto" destination="aXw-yL-2Jk" id="I1g-c0-JHq"/>
+                                            <outlet property="miesto" destination="hGd-XA-cX7" id="P1E-X1-Mip"/>
+                                            <outlet property="nazov" destination="Tt3-6L-cRP" id="9vu-jW-mJA"/>
+                                            <outlet property="obrazok" destination="Fem-1R-WSk" id="2p9-G2-fD1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CYO-zT-DYT" id="Am7-4r-5Pl"/>
+                                    <outlet property="delegate" destination="CYO-zT-DYT" id="VVw-Ce-Lh2"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-Ke-CKr">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-lD-02K">
+                                <rect key="frame" x="132" y="269" width="110" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VeR-uF-pjC" firstAttribute="top" secondItem="FBX-Ke-j05" secondAttribute="top" id="CGU-ds-bDj"/>
+                            <constraint firstItem="VeR-uF-pjC" firstAttribute="trailing" secondItem="mkb-ft-hAi" secondAttribute="trailing" id="Fth-b2-OMq"/>
+                            <constraint firstItem="I6f-d6-Y6n" firstAttribute="top" secondItem="mkb-ft-hAi" secondAttribute="top" id="IQ1-5p-5uv"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="bottom" secondItem="mkb-ft-hAi" secondAttribute="bottom" id="KMj-vT-dqz"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" id="Mzo-1G-cVn"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" id="anL-QC-dFn"/>
+                            <constraint firstItem="I6f-d6-Y6n" firstAttribute="leading" secondItem="mkb-ft-hAi" secondAttribute="leading" id="cYo-aO-U7U"/>
+                            <constraint firstItem="I6f-d6-Y6n" firstAttribute="trailing" secondItem="mkb-ft-hAi" secondAttribute="trailing" id="fFE-99-8F7"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="leading" secondItem="mkb-ft-hAi" secondAttribute="leading" id="luv-4X-Z2U"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="trailing" secondItem="mkb-ft-hAi" secondAttribute="trailing" id="mkp-up-nPp"/>
+                            <constraint firstItem="VeR-uF-pjC" firstAttribute="leading" secondItem="mkb-ft-hAi" secondAttribute="leading" id="phn-rE-Xwc"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="I6f-d6-Y6n" secondAttribute="bottom" id="z5Y-Sy-cxC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mkb-ft-hAi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Najblizšie udalosti" image="udalosti_tab_podla_pozicie" selectedImage="udalosti_tab_podla_pozicie" id="SbB-b8-F9U">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="nacitavanie" destination="w3m-Ke-CKr" id="8EO-yi-G3P"/>
+                        <outlet property="titul" destination="xBB-ad-3GG" id="HW2-dP-GcJ"/>
+                        <outlet property="ziadneUdalosti" destination="JC9-lD-02K" id="I1d-vW-CUG"/>
+                        <outlet property="zoznamUdalostiPodlaPozicie" destination="Fw9-ht-gWW" id="t9d-1g-TCs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivZ-Ne-SBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,105 +478,128 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="255" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-Bi-CIU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-Bi-CIU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="udalost" rowHeight="255" id="ysd-hz-rCG" customClass="UdalostiTableViewCell" customModule="Udalosti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="255"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="udalosti" rowHeight="259" id="ysd-hz-rCG" customClass="UdalostiTableViewCell" customModule="Udalosti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="259"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysd-hz-rCG" id="gOU-t9-LOF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iW-Wu-4GF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iW-Wu-4GF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-qt-WPS">
-                                                    <rect key="frame" x="30" y="201" width="27" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
-                                                    <color key="textColor" red="0.76470588235294112" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="August" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFH-xZ-mKk">
-                                                    <rect key="frame" x="15" y="226" width="56" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mesiac" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFH-xZ-mKk">
+                                                    <rect key="frame" x="15" y="212" width="57.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triatlon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOl-YT-Jdn">
-                                                    <rect key="frame" x="109" y="204" width="162" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOl-YT-Jdn">
+                                                    <rect key="frame" x="94.5" y="186" width="186" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="162" id="k5O-Bb-Ihs"/>
+                                                        <constraint firstAttribute="width" constant="186" id="40d-eF-KDf"/>
+                                                        <constraint firstAttribute="height" constant="24" id="Ybi-GE-TDZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3H-zt-w8Y">
-                                                    <rect key="frame" x="319" y="204" width="41" height="20"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBm-gI-rFa">
+                                                    <rect key="frame" x="0.0" y="239" width="375" height="20"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-qt-WPS">
+                                                    <rect key="frame" x="29" y="185" width="26.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                                    <color key="textColor" red="0.76470588235294112" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3H-zt-w8Y">
+                                                    <rect key="frame" x="317.5" y="187" width="42" height="20"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="THE-Pv-80p">
-                                                    <rect key="frame" x="328" y="226" width="20" height="20"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="THE-Pv-80p">
+                                                    <rect key="frame" x="329" y="212" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="2V0-yd-hh7"/>
+                                                        <constraint firstAttribute="height" constant="20" id="x8y-aF-uKc"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Stadion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-bc-ole">
-                                                    <rect key="frame" x="195" y="227" width="60" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nitra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7d-Vt-OpO">
-                                                    <rect key="frame" x="150" y="227" width="41" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
-                                                    <color key="textColor" red="0.22845113277435303" green="0.51273351907730103" blue="0.74975097179412842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="A72-cg-ET4">
-                                                    <rect key="frame" x="128" y="226" width="20" height="18"/>
-                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Was-6b-aoz">
+                                                    <rect key="frame" x="117" y="208" width="141" height="28"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Mesto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7d-Vt-OpO">
+                                                            <rect key="frame" x="38" y="4" width="45" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="14"/>
+                                                            <color key="textColor" red="0.22845113277435303" green="0.51273351907730103" blue="0.74975097179412842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="zHU-cy-U4h">
+                                                            <rect key="frame" x="6" y="4" width="28" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="28" id="1Kj-bE-Fix"/>
+                                                                <constraint firstAttribute="height" constant="20" id="HgT-Wq-9W8"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Miesto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-bc-ole">
+                                                            <rect key="frame" x="87" y="4" width="43.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="c7d-Vt-OpO" firstAttribute="leading" secondItem="zHU-cy-U4h" secondAttribute="trailing" constant="4" id="Dau-JZ-Dft"/>
+                                                        <constraint firstItem="IEO-bc-ole" firstAttribute="leading" secondItem="c7d-Vt-OpO" secondAttribute="trailing" constant="4" id="Hbq-Ct-PVc"/>
+                                                        <constraint firstItem="zHU-cy-U4h" firstAttribute="top" secondItem="Was-6b-aoz" secondAttribute="top" constant="4" id="OXz-Oq-pCv"/>
+                                                        <constraint firstItem="c7d-Vt-OpO" firstAttribute="top" secondItem="Was-6b-aoz" secondAttribute="top" constant="4" id="Rkk-Pa-gW5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zHU-cy-U4h" secondAttribute="bottom" constant="4" id="Rnd-lO-u21"/>
+                                                        <constraint firstAttribute="bottom" secondItem="c7d-Vt-OpO" secondAttribute="bottom" constant="4" id="Y19-IV-YCn"/>
+                                                        <constraint firstItem="IEO-bc-ole" firstAttribute="top" secondItem="Was-6b-aoz" secondAttribute="top" constant="4" id="jPM-O8-6v5"/>
+                                                        <constraint firstItem="zHU-cy-U4h" firstAttribute="leading" secondItem="Was-6b-aoz" secondAttribute="leading" constant="6" id="p0V-Uh-kzW"/>
+                                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="IEO-bc-ole" secondAttribute="trailing" constant="10.5" id="rao-LA-Gps"/>
+                                                        <constraint firstAttribute="bottom" secondItem="IEO-bc-ole" secondAttribute="bottom" constant="4" id="uBP-bJ-PIp"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="x3H-zt-w8Y" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="topMargin" constant="193" id="0ec-Dz-iTb"/>
-                                                <constraint firstAttribute="bottom" secondItem="A72-cg-ET4" secondAttribute="bottom" constant="11" id="2Cw-SW-gda"/>
-                                                <constraint firstItem="c7d-Vt-OpO" firstAttribute="leading" secondItem="A72-cg-ET4" secondAttribute="trailing" constant="2" id="3dX-hg-vIP"/>
-                                                <constraint firstItem="SOl-YT-Jdn" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="5" id="4Cg-Aq-pQH"/>
-                                                <constraint firstItem="A72-cg-ET4" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" constant="128" id="5rE-bp-Plg"/>
-                                                <constraint firstItem="THE-Pv-80p" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="226" id="7cN-TM-AIo"/>
-                                                <constraint firstAttribute="trailing" secondItem="6iW-Wu-4GF" secondAttribute="trailing" id="93d-fo-1Hv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SOl-YT-Jdn" secondAttribute="bottom" constant="16" id="9xT-0v-BJI"/>
-                                                <constraint firstItem="IEO-bc-ole" firstAttribute="leading" secondItem="c7d-Vt-OpO" secondAttribute="trailing" constant="4" id="B2O-2x-pGu"/>
-                                                <constraint firstItem="6iW-Wu-4GF" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" id="DXY-Ak-CZH"/>
-                                                <constraint firstItem="zdd-qt-WPS" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" constant="15" id="HfZ-cg-Wgj"/>
-                                                <constraint firstItem="IEO-bc-ole" firstAttribute="leading" secondItem="c7d-Vt-OpO" secondAttribute="trailing" constant="4" id="Kjw-Sn-fvh"/>
-                                                <constraint firstItem="x3H-zt-w8Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" id="Qy0-iO-gpX"/>
-                                                <constraint firstItem="x3H-zt-w8Y" firstAttribute="trailing" secondItem="gOU-t9-LOF" secondAttribute="trailingMargin" id="Spj-eR-yX1"/>
-                                                <constraint firstAttribute="trailing" secondItem="IEO-bc-ole" secondAttribute="trailing" constant="120" id="XVK-1Y-Glz"/>
-                                                <constraint firstItem="THE-Pv-80p" firstAttribute="top" secondItem="x3H-zt-w8Y" secondAttribute="bottom" constant="2" id="ZE0-F9-38b"/>
-                                                <constraint firstItem="A72-cg-ET4" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="27" id="dY8-jx-5AK"/>
-                                                <constraint firstItem="yFH-xZ-mKk" firstAttribute="top" secondItem="zdd-qt-WPS" secondAttribute="bottom" id="gTq-e4-umI"/>
-                                                <constraint firstItem="THE-Pv-80p" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" constant="328" id="hQ7-y4-XlF"/>
-                                                <constraint firstAttribute="bottom" secondItem="c7d-Vt-OpO" secondAttribute="bottom" constant="8" id="hhl-8Y-HEA"/>
-                                                <constraint firstItem="yFH-xZ-mKk" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" constant="15" id="iJc-4J-CZR"/>
-                                                <constraint firstAttribute="bottom" secondItem="THE-Pv-80p" secondAttribute="bottom" constant="9" id="jFM-Xo-r34"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="SOl-YT-Jdn" secondAttribute="trailing" constant="89" id="lVe-g8-qLs"/>
-                                                <constraint firstAttribute="bottom" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="56" id="oBH-Jn-CCI"/>
-                                                <constraint firstItem="IEO-bc-ole" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="28" id="pFx-Ug-CXs"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zdd-qt-WPS" secondAttribute="trailing" id="pTB-ck-0Hv"/>
-                                                <constraint firstAttribute="bottom" secondItem="IEO-bc-ole" secondAttribute="bottom" constant="8" id="qcm-ts-g2D"/>
-                                                <constraint firstItem="yFH-xZ-mKk" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="226" id="rmg-fX-js4"/>
-                                                <constraint firstAttribute="bottom" secondItem="yFH-xZ-mKk" secondAttribute="bottom" constant="9" id="tHb-Ya-4km"/>
-                                                <constraint firstItem="c7d-Vt-OpO" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="28" id="uKj-Z8-cyl"/>
-                                                <constraint firstItem="zdd-qt-WPS" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="topMargin" constant="190" id="xr5-XM-Cvr"/>
-                                                <constraint firstItem="SOl-YT-Jdn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" id="ySN-Kf-jaV"/>
-                                                <constraint firstAttribute="trailing" secondItem="THE-Pv-80p" secondAttribute="trailing" constant="27" id="yn3-jS-KdU"/>
-                                                <constraint firstItem="6iW-Wu-4GF" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="zJI-8V-vfd"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yFH-xZ-mKk" secondAttribute="trailing" id="zp6-NP-JAE"/>
+                                                <constraint firstItem="zdd-qt-WPS" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" constant="14" id="0gJ-mm-wVi"/>
+                                                <constraint firstItem="x3H-zt-w8Y" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="4" id="18P-dh-Pz6"/>
+                                                <constraint firstItem="THE-Pv-80p" firstAttribute="top" secondItem="x3H-zt-w8Y" secondAttribute="bottom" constant="5" id="1YF-gc-buU"/>
+                                                <constraint firstItem="SOl-YT-Jdn" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="4wu-vR-Iqw"/>
+                                                <constraint firstItem="yFH-xZ-mKk" firstAttribute="top" secondItem="zdd-qt-WPS" secondAttribute="bottom" constant="2" id="5QE-Z9-Q12"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="THE-Pv-80p" secondAttribute="bottom" constant="16" id="99G-2f-o1O"/>
+                                                <constraint firstAttribute="trailing" secondItem="PBm-gI-rFa" secondAttribute="trailing" id="Bgg-Nd-NGf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yFH-xZ-mKk" secondAttribute="bottom" constant="16" id="DJK-Ps-zzg"/>
+                                                <constraint firstItem="x3H-zt-w8Y" firstAttribute="leading" secondItem="SOl-YT-Jdn" secondAttribute="trailing" constant="37" id="F8U-i3-c2s"/>
+                                                <constraint firstItem="PBm-gI-rFa" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="OQY-QZ-eLF"/>
+                                                <constraint firstAttribute="trailing" secondItem="6iW-Wu-4GF" secondAttribute="trailing" id="REw-qr-ssa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="THE-Pv-80p" secondAttribute="trailing" constant="11" id="Tun-Jc-OVD"/>
+                                                <constraint firstItem="SOl-YT-Jdn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zdd-qt-WPS" secondAttribute="trailing" constant="40.5" id="Xta-YW-had"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="x3H-zt-w8Y" secondAttribute="trailing" constant="0.5" id="aZG-R4-iQ3"/>
+                                                <constraint firstItem="6iW-Wu-4GF" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" id="cmR-fp-0Fe"/>
+                                                <constraint firstAttribute="bottom" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="76" id="ef5-As-Mtq"/>
+                                                <constraint firstItem="Was-6b-aoz" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="hEB-qO-fzn"/>
+                                                <constraint firstItem="THE-Pv-80p" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Was-6b-aoz" secondAttribute="trailing" constant="71" id="klE-DX-Wof"/>
+                                                <constraint firstItem="Was-6b-aoz" firstAttribute="leading" relation="lessThanOrEqual" secondItem="yFH-xZ-mKk" secondAttribute="trailing" constant="44.5" id="lBV-S6-v09"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="SOl-YT-Jdn" secondAttribute="bottom" constant="38" id="lM3-Lb-MoQ"/>
+                                                <constraint firstItem="PBm-gI-rFa" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="56" id="m6W-LF-VON"/>
+                                                <constraint firstItem="6iW-Wu-4GF" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="qay-Dp-CJk"/>
+                                                <constraint firstAttribute="bottom" secondItem="PBm-gI-rFa" secondAttribute="bottom" id="sKw-fp-hW1"/>
+                                                <constraint firstItem="SOl-YT-Jdn" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="3" id="t3G-va-7Aj"/>
+                                                <constraint firstItem="yFH-xZ-mKk" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" id="vfU-fY-sFY"/>
+                                                <constraint firstItem="Was-6b-aoz" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="25" id="wpU-eS-vaX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Was-6b-aoz" secondAttribute="bottom" constant="12" id="yL1-d2-A7F"/>
+                                                <constraint firstItem="zdd-qt-WPS" firstAttribute="top" secondItem="6iW-Wu-4GF" secondAttribute="bottom" constant="2" id="zNW-AE-mw1"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.95649734881551796" green="0.96995954949238583" blue="0.95382491408950831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cas" destination="x3H-zt-w8Y" id="fhR-k8-3Qb"/>
                                             <outlet property="datum" destination="zdd-qt-WPS" id="kYT-Yj-3SF"/>
@@ -414,20 +616,29 @@
                                     <outlet property="delegate" destination="wh9-rX-7ZD" id="apA-mR-P8n"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-wf-5sR">
+                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Vz-ghQ">
+                                <rect key="frame" x="132" y="269" width="110" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="W9v-j9-c0A" firstAttribute="trailing" secondItem="28g-FC-bF4" secondAttribute="trailing" id="0Yv-Jb-Ewd"/>
-                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="leading" secondItem="1Xe-mH-0qi" secondAttribute="leading" id="DQP-lp-FMh"/>
-                            <constraint firstItem="28g-FC-bF4" firstAttribute="trailing" secondItem="1Xe-mH-0qi" secondAttribute="trailing" id="OZZ-kU-NkI"/>
-                            <constraint firstItem="W9v-j9-c0A" firstAttribute="leading" secondItem="28g-FC-bF4" secondAttribute="leading" id="Tko-cq-Gmd"/>
-                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="28g-FC-bF4" secondAttribute="bottom" id="cMp-NL-NMO"/>
-                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="trailing" secondItem="1Xe-mH-0qi" secondAttribute="trailing" id="gpE-SL-6Jc"/>
-                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="bottom" secondItem="1Xe-mH-0qi" secondAttribute="bottom" id="h52-aK-xev"/>
-                            <constraint firstItem="W9v-j9-c0A" firstAttribute="top" secondItem="fgJ-et-Ckt" secondAttribute="top" id="rdx-gB-JRE"/>
-                            <constraint firstItem="28g-FC-bF4" firstAttribute="top" secondItem="1Xe-mH-0qi" secondAttribute="top" id="sX5-IM-rYC"/>
-                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="W9v-j9-c0A" secondAttribute="bottom" id="vmG-V3-4lk"/>
-                            <constraint firstItem="28g-FC-bF4" firstAttribute="leading" secondItem="1Xe-mH-0qi" secondAttribute="leading" id="wa2-b6-SaO"/>
+                            <constraint firstItem="28g-FC-bF4" firstAttribute="trailing" secondItem="1Xe-mH-0qi" secondAttribute="trailing" id="F0I-7j-ctI"/>
+                            <constraint firstItem="W9v-j9-c0A" firstAttribute="trailing" secondItem="1Xe-mH-0qi" secondAttribute="trailing" id="FKn-sN-rTu"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="bottom" secondItem="1Xe-mH-0qi" secondAttribute="bottom" id="Gs5-4E-jtn"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="trailing" secondItem="1Xe-mH-0qi" secondAttribute="trailing" id="PMn-Dg-hFT"/>
+                            <constraint firstItem="W9v-j9-c0A" firstAttribute="top" secondItem="fgJ-et-Ckt" secondAttribute="top" id="RSh-1r-kwE"/>
+                            <constraint firstItem="28g-FC-bF4" firstAttribute="top" secondItem="1Xe-mH-0qi" secondAttribute="top" id="V2M-GV-73Y"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="W9v-j9-c0A" secondAttribute="bottom" id="Y2T-I0-Plc"/>
+                            <constraint firstItem="28g-FC-bF4" firstAttribute="leading" secondItem="1Xe-mH-0qi" secondAttribute="leading" id="acs-KQ-Rmk"/>
+                            <constraint firstItem="W9v-j9-c0A" firstAttribute="leading" secondItem="1Xe-mH-0qi" secondAttribute="leading" id="auI-Ga-sg4"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="W9v-j9-c0A" secondAttribute="bottom" id="jjV-K3-aFD"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="28g-FC-bF4" secondAttribute="bottom" id="u6f-04-2mT"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="leading" secondItem="1Xe-mH-0qi" secondAttribute="leading" id="vz8-dy-5g6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Xe-mH-0qi"/>
                     </view>
@@ -435,7 +646,9 @@
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="nacitavanie" destination="rfK-wf-5sR" id="qTf-sj-orX"/>
                         <outlet property="titul" destination="0WG-GS-XIM" id="Owu-LM-fZG"/>
+                        <outlet property="ziadneUdalosti" destination="57M-Vz-ghQ" id="pze-nX-Zul"/>
                         <outlet property="zoznamUdalosti" destination="vFc-Bi-CIU" id="AYi-Rp-Msr"/>
                     </connections>
                 </viewController>
@@ -474,41 +687,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="iM9-ut-Nm6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUK-AB-eH6">
-                                <rect key="frame" x="51" y="163" width="273" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUK-AB-eH6">
+                                <rect key="frame" x="51" y="198" width="273" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-sH-26h">
-                                <rect key="frame" x="51" y="321" width="273" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meno" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-nr-mNs">
-                                <rect key="frame" x="51" y="256" width="273" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-5p-57h">
-                                <rect key="frame" x="51" y="388" width="273" height="43"/>
+                                <rect key="frame" x="51" y="410" width="273" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -521,7 +708,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Potvrdenie hesla" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-1G-HFm">
-                                <rect key="frame" x="51" y="451" width="273" height="43"/>
+                                <rect key="frame" x="51" y="473" width="273" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -534,7 +721,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVt-vu-LL4">
-                                <rect key="frame" x="51" y="518" width="273" height="43"/>
+                                <rect key="frame" x="51" y="540" width="273" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Registrovať" backgroundImage="udalosti_tlacidlo"/>
                                 <connections>
@@ -542,27 +729,53 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-Fh-YIM">
-                                <rect key="frame" x="177" y="603" width="20" height="20"/>
+                                <rect key="frame" x="177" y="625" width="20" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Udalosti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJs-1T-JuJ">
-                                <rect key="frame" x="116" y="104" width="188" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Udalosti" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJs-1T-JuJ">
+                                <rect key="frame" x="117" y="139" width="187.5" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="49"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-jI-JtG">
-                                <rect key="frame" x="71" y="108" width="37" height="50"/>
+                                <rect key="frame" x="72" y="143" width="37" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-sH-26h">
+                                <rect key="frame" x="51" y="343" width="273" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meno" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-nr-mNs">
+                                <rect key="frame" x="51" y="278" width="273" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="trailing" secondItem="iM9-ut-Nm6" secondAttribute="trailing" id="10D-4W-MW6"/>
-                            <constraint firstItem="iM9-ut-Nm6" firstAttribute="leading" secondItem="mi5-fE-wbZ" secondAttribute="leading" id="2Sc-cD-u9Q"/>
-                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="top" secondItem="iM9-ut-Nm6" secondAttribute="top" constant="64" id="5as-gj-aw7"/>
-                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="bottom" secondItem="iM9-ut-Nm6" secondAttribute="bottom" id="zcx-XF-wgC"/>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="trailing" secondItem="iM9-ut-Nm6" secondAttribute="trailing" id="TXo-Kf-hZ7"/>
+                            <constraint firstItem="iM9-ut-Nm6" firstAttribute="leading" secondItem="mi5-fE-wbZ" secondAttribute="leading" id="otC-e6-hkp"/>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="top" secondItem="iM9-ut-Nm6" secondAttribute="top" constant="64" id="wy5-KI-nbz"/>
+                            <constraint firstItem="mi5-fE-wbZ" firstAttribute="bottom" secondItem="iM9-ut-Nm6" secondAttribute="bottom" id="xzO-bU-dFD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mi5-fE-wbZ"/>
                     </view>
@@ -589,6 +802,7 @@
         <image name="udalosti_tab_podla_pozicie" width="28" height="28"/>
         <image name="udalosti_tlacidlo" width="178" height="29"/>
         <image name="udalosti_vstup" width="178" height="29"/>
+        <image name="udalosti_ziadne_udalosti" width="316" height="358"/>
         <image name="udalosti_zoznam_cas" width="28" height="28"/>
         <image name="udalosti_zoznam_pozicia" width="28" height="28"/>
     </resources>
