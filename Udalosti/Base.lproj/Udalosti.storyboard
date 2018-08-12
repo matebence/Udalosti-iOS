@@ -172,7 +172,7 @@
                                     <color key="titleColor" red="0.012624419294297695" green="0.59368717670440674" blue="0.84006249904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pR6-gF-o9U" kind="show" id="ci4-rG-LME"/>
+                                    <segue destination="pR6-gF-o9U" kind="show" identifier="tlacidloRegistrovatSa" id="ci4-rG-LME"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sGG-mU-hlf">
@@ -235,7 +235,7 @@
                         <outlet property="nacitavanie" destination="sGG-mU-hlf" id="O10-Gf-EAS"/>
                         <outlet property="vstupEmailu" destination="Agc-NM-G9q" id="Laf-Oh-Gfa"/>
                         <outlet property="vstupHesla" destination="fxg-f7-bQA" id="eDU-yP-HMH"/>
-                        <segue destination="pR6-gF-o9U" kind="show" id="hWV-bf-dHt"/>
+                        <segue destination="pR6-gF-o9U" kind="show" identifier="spatNaPrihlasenie" id="hWV-bf-dHt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pj-Fk-Qc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,8 +807,8 @@
         <image name="udalosti_zoznam_pozicia" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ci4-rG-LME"/>
-        <segue reference="kzr-RI-kS7"/>
+        <segue reference="hWV-bf-dHt"/>
+        <segue reference="Bsf-SF-ekB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
