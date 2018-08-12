@@ -38,7 +38,10 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             case Nastavenia.AUTENTIFIKACIA_REGISRACIA:
                 if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                     let chyba = UIAlertController(title: "Úspech", message: "Registrácia prebehla úspešne", preferredStyle: UIAlertControllerStyle.alert)
-                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
+                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: {
+                        action in
+                        self.spustiPrihlasenie()
+                    }))
                     self.present(chyba, animated: true, completion: nil)
                 }else{
                     let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertControllerStyle.alert)
@@ -55,6 +58,10 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             self.present(chyba, animated: true, completion: nil)
         }
         nacitavanie.isHidden = true
+    }
+    
+    func spustiPrihlasenie(){
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {

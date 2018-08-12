@@ -29,6 +29,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
             "heslo":heslo,
             "pokus_o_prihlasenie":NSUUID().uuidString
         ]
+
         Alamofire.request(adresa, method: .post, parameters: vstup).responseJSON
             {
                 response in
@@ -49,12 +50,16 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                             self.kommunikaciaOdpoved.odpovedServera(odpoved: validacia.value(forKey: "heslo") as! String, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
                         }
                     }else{
-                        let pouzivatel = udaje.value(forKey: "pouzivatel") as! NSDictionary
-                        
-                        data["heslo"] = heslo
-                        data["token"] = pouzivatel.value(forKey: "token") as! String
-                        
-                        self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                        if udaje.value(forKey: "pouzivatel") != nil{
+                            let pouzivatel = udaje.value(forKey: "pouzivatel") as! NSDictionary
+                            
+                            data["heslo"] = heslo
+                            data["token"] = pouzivatel.value(forKey: "token") as! String
+                            
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:data)
+                        }else{
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: "Údaje sa nepodarilo spracovať. Prosím skúste ešte raz!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
+                        }
                     }
                 }else{
                     self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
@@ -147,7 +152,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                         self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.AUTENTIFIKACIA_REGISRACIA, udaje:nil)
                 }
                 }else{
-                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
+                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_REGISRACIA, udaje:nil)
                 }
         }
     }
