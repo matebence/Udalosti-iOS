@@ -9,7 +9,7 @@
 import Foundation
 import SQLite3
 
-class SQLiteDatabaza {
+class SQLiteDatabaza: SQLiteDataImplementacia {
     
     private var databaza: OpaquePointer?
     private var miestoUlozenia: URL

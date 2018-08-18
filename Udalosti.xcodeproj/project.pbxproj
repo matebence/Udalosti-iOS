@@ -37,6 +37,7 @@
 		62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621828211B723D00AA53F8 /* UdalostiImplementacia.swift */; };
 		6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262182A211B724800AA53F8 /* UdalostiUdaje.swift */; };
 		6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */; };
+		62A30DA52128A084005C6857 /* SQLiteDataImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A30DA42128A084005C6857 /* SQLiteDataImplementacia.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
@@ -109,6 +110,7 @@
 		62621828211B723D00AA53F8 /* UdalostiImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiImplementacia.swift; sourceTree = "<group>"; };
 		6262182A211B724800AA53F8 /* UdalostiUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiUdaje.swift; sourceTree = "<group>"; };
 		6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiTableViewCell.swift; sourceTree = "<group>"; };
+		62A30DA42128A084005C6857 /* SQLiteDataImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDataImplementacia.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */,
 				62C670972119EA8800A4B4B7 /* SQLiteTabulka.swift */,
+				62A30DA42128A084005C6857 /* SQLiteDataImplementacia.swift */,
 			);
 			path = Databaza;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */,
 				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */,
+				62A30DA52128A084005C6857 /* SQLiteDataImplementacia.swift in Sources */,
 				62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */,
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
 				62621825211B6F5C00AA53F8 /* TokenUdaje.swift in Sources */,

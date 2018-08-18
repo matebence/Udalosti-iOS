@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var sqliteDatabaza: SQLiteDatabaza!
     
-    let udalostiAdresa = "http://localhost:8888/"
+    let udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/"
     let geoAdresa = "http://ip-api.com/"
     
     func ukazkaAplikacie(){
