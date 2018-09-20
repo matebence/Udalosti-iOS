@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.4'
+platform :ios, '12.0'
 use_frameworks!
 
 target 'Udalosti' do

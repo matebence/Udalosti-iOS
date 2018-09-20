@@ -23,7 +23,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func prihlasenie(email: String, heslo: String, stat: String, okres: String, mesto: String) {
         print("Metoda prihlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie"
+        let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie/prihlasit_sa"
         let vstup: Parameters=[
             "email":email,
             "heslo":heslo,

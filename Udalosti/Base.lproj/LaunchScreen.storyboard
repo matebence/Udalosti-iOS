@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,15 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iIE-S3-Am6">
-                                <rect key="frame" x="131" y="258" width="113" height="150"/>
+                                <rect key="frame" x="144" y="277" width="86" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iIE-S3-Am6" secondAttribute="height" multiplier="86:113" id="H8J-to-ZW5"/>
+                                    <constraint firstAttribute="width" constant="86" id="USc-En-ixg"/>
+                                    <constraint firstAttribute="height" constant="113" id="vOB-Cy-ICz"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.38823529411764707" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iIE-S3-Am6" secondAttribute="trailing" constant="131" id="17j-AT-igs"/>
-                            <constraint firstItem="iIE-S3-Am6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131" id="JPd-Ec-Fwk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iIE-S3-Am6" secondAttribute="bottom" constant="259" id="PPY-uS-XID"/>
-                            <constraint firstItem="iIE-S3-Am6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238" id="ppA-p4-uww"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iIE-S3-Am6" secondAttribute="trailing" constant="145" id="17j-AT-igs"/>
+                            <constraint firstItem="iIE-S3-Am6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="144" id="JPd-Ec-Fwk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iIE-S3-Am6" secondAttribute="bottom" constant="277" id="PPY-uS-XID"/>
+                            <constraint firstItem="iIE-S3-Am6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="257" id="ppA-p4-uww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
