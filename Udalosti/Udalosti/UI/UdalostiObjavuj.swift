@@ -54,9 +54,10 @@ class UdalostiObjavuj: UIViewController, UITableViewDataSource, UITableViewDeleg
                         idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
                         obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
                         nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
-                        den: (data![i] as AnyObject).value(forKey: "den") as? String,
-                        mesiac: (data![i] as AnyObject).value(forKey: "mesiac") as? String,
+                        den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
+                        mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 4)+"...",
                         cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
+                        mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
                         miesto: (data![i] as AnyObject).value(forKey: "miesto") as? String
                     ))
                 }
@@ -89,21 +90,6 @@ class UdalostiObjavuj: UIViewController, UITableViewDataSource, UITableViewDeleg
             token: pouzivatelskeUdaje.value(forKey: "token") as! String)
     }
     
-    func nastavMiestoUdalosti(miesto:String, vrat: Int) -> String{
-        print("Metoda nastavMiestoUdalosti bola vykonana")
-
-        var mestoMiesto = miesto.components(separatedBy: ",")
-        if mestoMiesto.count > 1 {
-            return mestoMiesto[vrat]
-        } else {
-            if vrat == 0 {
-                return miesto
-            }else {
-                return ""
-            }
-        }
-    }
-        
     func inicializacia (){
         print("Metoda inicializacia-UdalostiObjavuj bola vykonana")
 
@@ -138,8 +124,8 @@ class UdalostiObjavuj: UIViewController, UITableViewDataSource, UITableViewDeleg
         riadokUdalosti.datum.text = udalost.den
         riadokUdalosti.mesiac.text = udalost.mesiac
         riadokUdalosti.nazov.text = udalost.nazov
-        riadokUdalosti.mesto.text = self.nastavMiestoUdalosti(miesto: udalost.miesto!, vrat: 0)
-        riadokUdalosti.miesto.text = self.nastavMiestoUdalosti(miesto: udalost.miesto!, vrat: 1)
+        riadokUdalosti.mesto.text = udalost.mesto
+        riadokUdalosti.miesto.text = udalost.miesto
         riadokUdalosti.cas.text = udalost.cas
         
         Alamofire.request(delegate.udalostiAdresa+"udalosti/"+udalost.obrazok!).responseImage { response in

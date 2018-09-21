@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,8 +16,14 @@
         <array key="Raleway-Light.ttf">
             <string>Raleway-Light</string>
         </array>
+        <array key="Raleway-Medium.ttf">
+            <string>Raleway-Medium</string>
+        </array>
         <array key="Raleway-Regular.ttf">
             <string>Raleway-Regular</string>
+        </array>
+        <array key="Raleway-SemiBold.ttf">
+            <string>Raleway-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -300,14 +307,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeR-uF-pjC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeR-uF-pjC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6f-d6-Y6n">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6f-d6-Y6n">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.0" green="0.3803921569" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
@@ -323,9 +328,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw9-ht-gWW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw9-ht-gWW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.91372549020000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="udalostiPodlaPozicie" rowHeight="259" id="9d6-zL-1bn" customClass="UdalostiTableViewCell" customModule="Udalosti" customModuleProvider="target">
@@ -334,7 +338,106 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9d6-zL-1bn" id="ZJ8-0I-FSt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GPd-gL-aId">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hkr-Jd-j1v">
+                                                    <rect key="frame" x="0.0" y="167" width="104" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="25." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpV-lg-uKP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="46"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="25"/>
+                                                            <color key="textColor" red="0.76470588240000004" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesiac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwi-GC-JQl">
+                                                            <rect key="frame" x="0.0" y="46" width="104" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VFp-ux-XHJ">
+                                                    <rect key="frame" x="103" y="167" width="169" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBd-DG-hbZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="169" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-cd-B9D">
+                                                            <rect key="frame" x="0.0" y="33" width="169" height="33"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-Wt-jvg">
+                                                                    <rect key="frame" x="0.0" y="2.5" width="28" height="28"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-HN-539">
+                                                                    <rect key="frame" x="54" y="6.5" width="48" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.0" green="0.35686274509999999" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhC-dR-Grk">
+                                                                    <rect key="frame" x="115.5" y="6.5" width="53.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="99l-bd-AVQ">
+                                                    <rect key="frame" x="271" y="167" width="104" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="17:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-1M-rfE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="38"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-kX-zqb">
+                                                            <rect key="frame" x="0.0" y="38" width="104" height="28"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-WW-Lvb">
+                                                    <rect key="frame" x="0.0" y="240" width="375" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VFp-ux-XHJ" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="topMargin" constant="156" id="3tc-dh-43H"/>
+                                                <constraint firstItem="hkr-Jd-j1v" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" constant="167" id="9pg-Ag-2YN"/>
+                                                <constraint firstItem="99l-bd-AVQ" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" constant="271" id="CIm-Mb-cH4"/>
+                                                <constraint firstAttribute="bottom" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="91" id="GFu-Lh-e6Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="99l-bd-AVQ" secondAttribute="bottom" constant="26" id="Ifs-xZ-GlR"/>
+                                                <constraint firstAttribute="trailing" secondItem="99l-bd-AVQ" secondAttribute="trailing" id="OMQ-7J-ViE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="VFp-ux-XHJ" secondAttribute="trailing" constant="88" id="OnC-Do-hZq"/>
+                                                <constraint firstItem="hkr-Jd-j1v" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="Q2B-lg-eT0"/>
+                                                <constraint firstAttribute="bottom" secondItem="hkr-Jd-j1v" secondAttribute="bottom" constant="26" id="QLz-nk-zoM"/>
+                                                <constraint firstItem="99l-bd-AVQ" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" constant="167" id="V0P-XP-QJJ"/>
+                                                <constraint firstItem="VFp-ux-XHJ" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" constant="88" id="V0q-6J-WOP"/>
+                                                <constraint firstAttribute="trailing" secondItem="GPd-gL-aId" secondAttribute="trailing" id="mNA-YN-FPQ"/>
+                                                <constraint firstItem="GPd-gL-aId" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="mzx-nz-54g"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="VFp-ux-XHJ" secondAttribute="bottom" constant="15" id="wye-TZ-GUv"/>
+                                                <constraint firstItem="GPd-gL-aId" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" id="yAu-9x-u5D"/>
+                                                <constraint firstAttribute="trailing" secondItem="hkr-Jd-j1v" secondAttribute="trailing" constant="271" id="zCO-I7-Fb1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cas" destination="gx6-1M-rfE" id="tvd-Rs-ytN"/>
+                                            <outlet property="datum" destination="SpV-lg-uKP" id="XAv-KH-rVd"/>
+                                            <outlet property="mesiac" destination="iwi-GC-JQl" id="gBq-Gf-xaT"/>
+                                            <outlet property="mesto" destination="fo4-HN-539" id="cvx-PB-TqM"/>
+                                            <outlet property="miesto" destination="NhC-dR-Grk" id="86n-Un-MeF"/>
+                                            <outlet property="nazov" destination="HBd-DG-hbZ" id="WaH-tU-13P"/>
+                                            <outlet property="obrazok" destination="GPd-gL-aId" id="jA2-E4-xvw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -342,16 +445,46 @@
                                     <outlet property="delegate" destination="CYO-zT-DYT" id="VVw-Ce-Lh2"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-Ke-CKr">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-Ke-CKr">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="5lU-oc-XTE"/>
+                                    <constraint firstAttribute="height" constant="20" id="AqA-Io-FUS"/>
+                                    <constraint firstAttribute="width" secondItem="w3m-Ke-CKr" secondAttribute="height" multiplier="1:1" id="qrS-6l-2sn"/>
+                                </constraints>
                             </activityIndicatorView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-lD-02K">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-lD-02K">
                                 <rect key="frame" x="132" y="269" width="110" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JC9-lD-02K" secondAttribute="height" multiplier="55:59" id="UHn-bh-Sle"/>
+                                    <constraint firstAttribute="width" constant="110" id="a6U-In-LnO"/>
+                                    <constraint firstAttribute="height" constant="118" id="zu1-Vy-nIu"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" id="90R-dt-cMo"/>
+                            <constraint firstItem="I6f-d6-Y6n" firstAttribute="leading" secondItem="FBX-Ke-j05" secondAttribute="leading" id="9A1-ZV-JPQ"/>
+                            <constraint firstItem="JC9-lD-02K" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" constant="205" id="B4D-8v-6Ri"/>
+                            <constraint firstItem="JC9-lD-02K" firstAttribute="leading" secondItem="FBX-Ke-j05" secondAttribute="leadingMargin" constant="116" id="BY6-HZ-20K"/>
+                            <constraint firstItem="VeR-uF-pjC" firstAttribute="leading" secondItem="FBX-Ke-j05" secondAttribute="leading" id="DAS-CU-KgY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="w3m-Ke-CKr" secondAttribute="bottom" constant="275" id="EWw-hB-TmR"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="JC9-lD-02K" secondAttribute="bottom" constant="231" id="KbX-AJ-w3b"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="leading" secondItem="FBX-Ke-j05" secondAttribute="leading" id="Piy-ep-RAi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w3m-Ke-CKr" secondAttribute="trailing" constant="162" id="QxC-kd-jtA"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="I6f-d6-Y6n" secondAttribute="bottom" id="Uhg-16-pMD"/>
+                            <constraint firstAttribute="trailing" secondItem="Fw9-ht-gWW" secondAttribute="trailing" id="WRU-tV-IS9"/>
+                            <constraint firstItem="w3m-Ke-CKr" firstAttribute="leading" secondItem="FBX-Ke-j05" secondAttribute="leadingMargin" constant="161" id="dWP-Cb-n89"/>
+                            <constraint firstItem="VeR-uF-pjC" firstAttribute="top" secondItem="FBX-Ke-j05" secondAttribute="top" id="eB0-hS-OtY"/>
+                            <constraint firstItem="4bj-V5-NxK" firstAttribute="top" secondItem="Fw9-ht-gWW" secondAttribute="bottom" id="hpi-n9-sEs"/>
+                            <constraint firstAttribute="trailing" secondItem="I6f-d6-Y6n" secondAttribute="trailing" id="huK-gp-kNr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JC9-lD-02K" secondAttribute="trailing" constant="117" id="jNG-rG-Ycy"/>
+                            <constraint firstItem="Fw9-ht-gWW" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" id="lyz-oV-IVU"/>
+                            <constraint firstAttribute="trailing" secondItem="VeR-uF-pjC" secondAttribute="trailing" id="q0S-qA-1dk"/>
+                            <constraint firstItem="I6f-d6-Y6n" firstAttribute="top" secondItem="eN3-Ao-KGk" secondAttribute="bottom" id="qgZ-jj-Obd"/>
+                            <constraint firstItem="w3m-Ke-CKr" firstAttribute="top" secondItem="VeR-uF-pjC" secondAttribute="bottom" constant="259" id="rAQ-eW-VHi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Najblizšie udalosti" image="udalosti_tab_podla_pozicie" selectedImage="udalosti_tab_podla_pozicie" id="SbB-b8-F9U">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -379,14 +512,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9v-j9-c0A">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9v-j9-c0A">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.38039215686274508" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28g-FC-bF4">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28g-FC-bF4">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.0" green="0.38039215686274508" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
@@ -402,9 +533,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-Bi-CIU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="20" rowHeight="259" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-Bi-CIU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="udalosti" rowHeight="259" id="ysd-hz-rCG" customClass="UdalostiTableViewCell" customModule="Udalosti" customModuleProvider="target">
@@ -413,7 +543,110 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysd-hz-rCG" id="gOU-t9-LOF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R9A-eI-huD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0P2-Rt-77b">
+                                                    <rect key="frame" x="0.0" y="167" width="104" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="25." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc6-xX-j7i">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="46"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="25"/>
+                                                            <color key="textColor" red="0.76470588235294112" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesiac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRZ-rq-FRa">
+                                                            <rect key="frame" x="0.0" y="46" width="104" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qjh-v5-0aD">
+                                                    <rect key="frame" x="103" y="167" width="169" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUe-sG-PKa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="169" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-px-7wb">
+                                                            <rect key="frame" x="0.0" y="33" width="169" height="33"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-II-IDP">
+                                                                    <rect key="frame" x="0.0" y="2.5" width="28" height="28"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2On-R9-4io">
+                                                                    <rect key="frame" x="49.5" y="6.5" width="57.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
+                                                                    <color key="textColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-qY-Cjw">
+                                                                    <rect key="frame" x="116.5" y="6.5" width="52.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-ft-RUD">
+                                                    <rect key="frame" x="271" y="167" width="104" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="17:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXm-UT-TyB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="38"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-Sa-VpN">
+                                                            <rect key="frame" x="0.0" y="38" width="104" height="28"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-qr-Rj8">
+                                                    <rect key="frame" x="0.0" y="240" width="375" height="19"/>
+                                                    <color key="backgroundColor" red="0.94778173575129532" green="0.94778173575129532" blue="0.94778173575129532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0P2-Rt-77b" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="1qE-RW-avk"/>
+                                                <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="0P2-Rt-77b" secondAttribute="bottom" constant="7" id="4dW-Z6-k6N"/>
+                                                <constraint firstAttribute="bottom" secondItem="RgW-ft-RUD" secondAttribute="bottom" constant="26" id="4jp-FV-NNY"/>
+                                                <constraint firstItem="RgW-ft-RUD" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="167" id="5kn-eJ-6YA"/>
+                                                <constraint firstItem="R9A-eI-huD" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="6Bf-uC-4QZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="R9A-eI-huD" secondAttribute="bottom" constant="91" id="8O9-aj-Q9X"/>
+                                                <constraint firstAttribute="trailing" secondItem="0P2-Rt-77b" secondAttribute="trailing" constant="271" id="9MI-UZ-qjY"/>
+                                                <constraint firstItem="Qjh-v5-0aD" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" constant="88" id="FSn-fC-aKD"/>
+                                                <constraint firstItem="RgW-ft-RUD" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" constant="271" id="K4n-us-884"/>
+                                                <constraint firstItem="0P2-Rt-77b" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="167" id="QhX-Bh-ODt"/>
+                                                <constraint firstAttribute="bottom" secondItem="0P2-Rt-77b" secondAttribute="bottom" constant="26" id="WvF-1P-JkB"/>
+                                                <constraint firstItem="Qjh-v5-0aD" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="topMargin" constant="156" id="ceW-pt-xQc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qjh-v5-0aD" secondAttribute="trailing" constant="88" id="dg2-a4-F3R"/>
+                                                <constraint firstItem="R9A-eI-huD" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" id="eox-vD-qYg"/>
+                                                <constraint firstAttribute="trailing" secondItem="R9A-eI-huD" secondAttribute="trailing" id="f1Y-TP-IyN"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZDU-qr-Rj8" secondAttribute="trailing" id="iKQ-Ns-QtT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qjh-v5-0aD" secondAttribute="bottom" constant="15" id="pBv-fZ-MlM"/>
+                                                <constraint firstItem="ZDU-qr-Rj8" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="pUP-HF-OWO"/>
+                                                <constraint firstAttribute="trailing" secondItem="RgW-ft-RUD" secondAttribute="trailing" id="xqD-4t-Vqe"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZDU-qr-Rj8" secondAttribute="bottom" id="zzo-Bz-5X2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cas" destination="OXm-UT-TyB" id="oWZ-x0-EDn"/>
+                                            <outlet property="datum" destination="Vc6-xX-j7i" id="18e-iW-2hw"/>
+                                            <outlet property="mesiac" destination="fRZ-rq-FRa" id="etz-Bp-4Zp"/>
+                                            <outlet property="mesto" destination="2On-R9-4io" id="WKc-pi-YKN"/>
+                                            <outlet property="miesto" destination="NXm-qY-Cjw" id="7JE-hN-xtD"/>
+                                            <outlet property="nazov" destination="JUe-sG-PKa" id="T01-ft-GXi"/>
+                                            <outlet property="obrazok" destination="R9A-eI-huD" id="5Y1-oe-UtD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -421,16 +654,46 @@
                                     <outlet property="delegate" destination="wh9-rX-7ZD" id="apA-mR-P8n"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-wf-5sR">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-wf-5sR">
                                 <rect key="frame" x="0.0" y="323" width="375" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="0re-ue-Z91"/>
+                                    <constraint firstAttribute="height" constant="20" id="6jt-wt-k66"/>
+                                    <constraint firstAttribute="width" secondItem="rfK-wf-5sR" secondAttribute="height" multiplier="75:4" id="BCk-kk-e3A"/>
+                                </constraints>
                             </activityIndicatorView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Vz-ghQ">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Vz-ghQ">
                                 <rect key="frame" x="132" y="269" width="110" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="0ZB-be-7EW"/>
+                                    <constraint firstAttribute="width" constant="110" id="DwR-iW-KkU"/>
+                                    <constraint firstAttribute="width" secondItem="57M-Vz-ghQ" secondAttribute="height" multiplier="55:59" id="Ffw-57-H4m"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="57M-Vz-ghQ" secondAttribute="bottom" constant="231" id="1eG-Lc-w0u"/>
+                            <constraint firstItem="57M-Vz-ghQ" firstAttribute="top" secondItem="fgJ-et-Ckt" secondAttribute="topMargin" constant="249" id="7GT-el-Paw"/>
+                            <constraint firstItem="rfK-wf-5sR" firstAttribute="leading" secondItem="fgJ-et-Ckt" secondAttribute="leading" id="8il-sG-A26"/>
+                            <constraint firstAttribute="bottom" secondItem="rfK-wf-5sR" secondAttribute="bottom" constant="324" id="DXI-Kg-Agv"/>
+                            <constraint firstItem="28g-FC-bF4" firstAttribute="leading" secondItem="fgJ-et-Ckt" secondAttribute="leading" id="Jk9-qH-KvD"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="28g-FC-bF4" secondAttribute="bottom" id="MpK-YU-q7W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="57M-Vz-ghQ" secondAttribute="trailing" constant="117" id="QBy-10-tVj"/>
+                            <constraint firstItem="W9v-j9-c0A" firstAttribute="leading" secondItem="fgJ-et-Ckt" secondAttribute="leading" id="TgI-Ku-nEf"/>
+                            <constraint firstAttribute="trailing" secondItem="W9v-j9-c0A" secondAttribute="trailing" id="TwA-qq-02K"/>
+                            <constraint firstItem="57M-Vz-ghQ" firstAttribute="leading" secondItem="fgJ-et-Ckt" secondAttribute="leadingMargin" constant="116" id="Ug5-cO-Rzb"/>
+                            <constraint firstAttribute="trailing" secondItem="vFc-Bi-CIU" secondAttribute="trailing" id="XHN-qR-dv5"/>
+                            <constraint firstItem="28g-FC-bF4" firstAttribute="top" secondItem="X65-C7-2YJ" secondAttribute="bottom" id="ZNt-wW-BPM"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="W9v-j9-c0A" secondAttribute="bottom" id="ek0-FD-FZR"/>
+                            <constraint firstItem="bbi-iE-PgO" firstAttribute="top" secondItem="vFc-Bi-CIU" secondAttribute="bottom" id="hXS-FB-Nqi"/>
+                            <constraint firstItem="W9v-j9-c0A" firstAttribute="top" secondItem="fgJ-et-Ckt" secondAttribute="top" id="iGE-89-9Y1"/>
+                            <constraint firstAttribute="trailing" secondItem="rfK-wf-5sR" secondAttribute="trailing" id="jVz-g0-h9c"/>
+                            <constraint firstItem="rfK-wf-5sR" firstAttribute="top" secondItem="fgJ-et-Ckt" secondAttribute="top" constant="323" id="nxY-jj-yN8"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="leading" secondItem="fgJ-et-Ckt" secondAttribute="leading" id="qt8-Fw-EMB"/>
+                            <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="W9v-j9-c0A" secondAttribute="bottom" id="xcn-sM-o8D"/>
+                            <constraint firstAttribute="trailing" secondItem="28g-FC-bF4" secondAttribute="trailing" id="xdZ-RS-F1v"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Objavujte udalosti" image="udalosti_tab_objavuj" selectedImage="udalosti_tab_objavuj" id="D5k-v5-RYX">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -647,6 +910,8 @@
         <image name="udalosti_tlacidlo" width="178" height="29"/>
         <image name="udalosti_vstup" width="178" height="29"/>
         <image name="udalosti_ziadne_udalosti" width="316" height="358"/>
+        <image name="udalosti_zoznam_cas" width="28" height="28"/>
+        <image name="udalosti_zoznam_pozicia" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hWV-bf-dHt"/>

@@ -38,6 +38,7 @@
 		6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262182A211B724800AA53F8 /* UdalostiUdaje.swift */; };
 		6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */; };
 		62A30DA52128A084005C6857 /* SQLiteDataImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A30DA42128A084005C6857 /* SQLiteDataImplementacia.swift */; };
+		62C6123C2154F9C900F7C623 /* Retazec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6123B2154F9C900F7C623 /* Retazec.swift */; };
 		62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670912119C0E700A4B4B7 /* OnboardingView.swift */; };
 		62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */; };
 		62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */; };
@@ -111,6 +112,7 @@
 		6262182A211B724800AA53F8 /* UdalostiUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiUdaje.swift; sourceTree = "<group>"; };
 		6269B193211DC27A008AFD17 /* UdalostiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiTableViewCell.swift; sourceTree = "<group>"; };
 		62A30DA42128A084005C6857 /* SQLiteDataImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDataImplementacia.swift; sourceTree = "<group>"; };
+		62C6123B2154F9C900F7C623 /* Retazec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retazec.swift; sourceTree = "<group>"; };
 		62C670912119C0E700A4B4B7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		62C670932119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RychlaUkazkaAplikacie.swift; sourceTree = "<group>"; };
 		62C670952119E87C00A4B4B7 /* SQLiteDatabaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaza.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			children = (
 				62D66A602118E13C000D8050 /* Pripojenie.swift */,
 				62F9747D211ED0AA00989640 /* Obrazok.swift */,
+				62C6123B2154F9C900F7C623 /* Retazec.swift */,
 			);
 			path = Nastroje;
 			sourceTree = "<group>";
@@ -495,13 +498,16 @@
 				TargetAttributes = {
 					62D140342115E73A005FDB11 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					62D140482115E73C005FDB11 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 62D140342115E73A005FDB11;
 					};
 					62D140532115E73C005FDB11 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 62D140342115E73A005FDB11;
 					};
 				};
@@ -621,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C6123C2154F9C900F7C623 /* Retazec.swift in Sources */,
 				6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */,
 				6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */,
 				6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */,
@@ -831,7 +838,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.Udalosti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -850,7 +857,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.Udalosti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -869,7 +876,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.UdalostiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udalosti.app/Udalosti";
 			};
@@ -889,7 +896,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.UdalostiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udalosti.app/Udalosti";
 			};
@@ -908,7 +915,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.UdalostiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Udalosti;
 			};
@@ -927,7 +934,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bence.mate.UdalostiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Udalosti;
 			};

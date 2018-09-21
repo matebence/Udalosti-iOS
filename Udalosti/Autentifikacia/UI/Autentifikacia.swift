@@ -18,8 +18,8 @@ class Autentifikacia: UINavigationController {
         
         if let ucetNepristupny = chyba {
             if ucetNepristupny {
-                let chyba = UIAlertController(title: "Chyba", message: "Prosím prihláste sa!", preferredStyle: UIAlertControllerStyle.alert)
-                chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertActionStyle.default, handler: nil))
+                let chyba = UIAlertController(title: "Chyba", message: "Prosím prihláste sa!", preferredStyle: UIAlertController.Style.alert)
+                chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
                 self.present(chyba, animated: true, completion: nil)
             }
         }
