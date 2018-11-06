@@ -23,7 +23,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func prihlasenie(email: String, heslo: String, stat: String, okres: String, mesto: String) {
         print("Metoda prihlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie/prihlasit_sa"
+        let adresa = delegate.udalostiAdresa+"index.php/prihlasenie/prihlasit"
         let vstup: Parameters=[
             "email":email,
             "heslo":heslo,
@@ -119,7 +119,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {
         print("Metoda registracia bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/registracia"
+        let adresa = delegate.udalostiAdresa+"index.php/registracia"
         let vstup: Parameters=[
             "email":email,
             "meno":meno,

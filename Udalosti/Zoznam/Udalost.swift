@@ -17,9 +17,9 @@ class Udalost {
     var mesiac: String?
     var cas: String?
     var mesto: String?
-    var miesto: String?
+    var ulica: String?
     
-    init(idUdalost: String?, obrazok: String?, nazov: String?, den: String?, mesiac: String?, cas: String?, mesto:String?, miesto:String?) {
+    init(idUdalost: String?, obrazok: String?, nazov: String?, den: String?, mesiac: String?, cas: String?, mesto:String?, ulica:String?) {
         self.idUdalost = idUdalost
         self.obrazok = obrazok;
         self.nazov = nazov
@@ -27,6 +27,6 @@ class Udalost {
         self.mesiac = mesiac
         self.cas = cas
         self.mesto = mesto
-        self.miesto = miesto
+        self.ulica = ulica
     }
 }

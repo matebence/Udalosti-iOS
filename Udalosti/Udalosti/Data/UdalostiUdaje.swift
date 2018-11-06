@@ -25,7 +25,7 @@ class UdalostiUdaje : UdalostiImplementacia{
     func zoznamUdalosti(email: String, stat: String, token: String) {
         print("Metoda zoznamUdalosti bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/udalosti"
+        let adresa = delegate.udalostiAdresa+"index.php/udalosti"
         let vstup: Parameters=[
             "email":email,
             "stat":stat,
@@ -50,7 +50,7 @@ class UdalostiUdaje : UdalostiImplementacia{
     func zoznamUdalostiPodlaPozicie(email: String, stat: String, okres: String, mesto: String, token: String) {
         print("Metoda zoznamUdalostiPodlaPozicie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/udalosti/udalosti_podla_pozicie"
+        let adresa = delegate.udalostiAdresa+"index.php/udalosti/zoznam_podla_pozicie"
         let vstup: Parameters=[
             "email":email,
             "stat":stat,
@@ -78,7 +78,7 @@ class UdalostiUdaje : UdalostiImplementacia{
     func odhlasenie(email: String) {
         print("Metoda odhlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"udalosti/index.php/prihlasenie/odhlasit_sa"
+        let adresa = delegate.udalostiAdresa+"index.php/prihlasenie/odhlasit"
         let vstup: Parameters=[
             "email":email
         ]

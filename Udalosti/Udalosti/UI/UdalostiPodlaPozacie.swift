@@ -58,7 +58,7 @@ class UdalostiPodlaPozacie: UIViewController, UITableViewDataSource, UITableView
                         mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 4)+"...",
                         cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
                         mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
-                        miesto: (data![i] as AnyObject).value(forKey: "miesto") as? String
+                        ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String
                     ))
                 }
                 self.zoznamUdalostiPodlaPozicie.reloadData()
@@ -136,7 +136,7 @@ class UdalostiPodlaPozacie: UIViewController, UITableViewDataSource, UITableView
         riadokUdalosti.mesiac.text = udalost.mesiac
         riadokUdalosti.nazov.text = udalost.nazov
         riadokUdalosti.mesto.text = udalost.mesto
-        riadokUdalosti.miesto.text = udalost.miesto
+        riadokUdalosti.miesto.text = udalost.ulica
         riadokUdalosti.cas.text = udalost.cas
         
         Alamofire.request(delegate.udalostiAdresa+"udalosti/"+udalost.obrazok!).responseImage { response in
