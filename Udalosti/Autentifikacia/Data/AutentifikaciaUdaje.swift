@@ -86,6 +86,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     
                     if(udaje.value(forKey: "country") != nil){
                         stat = udaje.value(forKey: "country") as! String
+                        stat = "Slovensko";
                     }
                     if(udaje.value(forKey: "regionName") != nil){
                         okres = udaje.value(forKey: "regionName") as! String

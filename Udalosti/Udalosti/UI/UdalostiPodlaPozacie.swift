@@ -55,7 +55,7 @@ class UdalostiPodlaPozacie: UIViewController, UITableViewDataSource, UITableView
                         obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
                         nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
                         den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
-                        mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 4)+"...",
+                        mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 3)+".",
                         cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
                         mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
                         ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String
@@ -139,7 +139,7 @@ class UdalostiPodlaPozacie: UIViewController, UITableViewDataSource, UITableView
         riadokUdalosti.miesto.text = udalost.ulica
         riadokUdalosti.cas.text = udalost.cas
         
-        Alamofire.request(delegate.udalostiAdresa+"udalosti/"+udalost.obrazok!).responseImage { response in
+        Alamofire.request(delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
             debugPrint(response)
             
             if let obrazokUdalosti = response.result.value {
