@@ -9,9 +9,18 @@
 import Foundation
 
 protocol AutentifikaciaImplementacia {
-    func ucetJeNePristupny(email:String) -> Void
-    func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String, token: String) -> Void
+
+    func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj:Bool) -> Void
+	
     func miestoPrihlasenia(email: String, heslo: String) -> Void
-    func prihlasenie(email: String, heslo: String, stat: String, okres:String, mesto:String) -> Void
+
+    func prihlasenie(email: String, heslo: String) -> Void
+
     func registracia(meno: String, email: String, heslo:String,potvrd:String) -> Void
+
+    func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String, token: String) -> Void
+    
+    func ucetJeNePristupny(email:String) -> Void
+    
+    func vytvorTabulky()
 }

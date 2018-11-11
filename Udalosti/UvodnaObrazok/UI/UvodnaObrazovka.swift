@@ -15,28 +15,46 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
 
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
-    func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
-        switch od {
-            case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
-                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                    let email =  udaje!.value(forKey: "email") as! String
-                    let heslo = udaje!.value(forKey: "heslo") as! String
-                    let token =  udaje!.value(forKey: "token") as! String
-                    
-                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
-                    
-                    let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                    let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
-                    
-                    self.present(navigaciaUdalostiController, animated: true, completion: nil)
-                }else{
-                    performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
-                    autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
-                }
-                break;
-            default: break
+    override func viewDidAppear(_ animated: Bool) {
+        print("Metoda viewDidAppear - UvodnaObrazovka bola vykonana")
+
+        self.nacitavanie.isHidden = false
+        self.pristup()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Metoda prepare - UvodnaObrazovka bola vykonana")
+
+        if segue.identifier == "automatickePrihlasenie" {
+            let automatickePrihlasenie = segue.destination as! Autentifikacia
+            automatickePrihlasenie.chyba = sender as? Bool
         }
-        nacitavanie.isHidden = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        print("Metoda preferredStatusBarStyle - UvodnaObrazovka bola vykonana")
+
+        return .lightContent
+    }
+    
+    override func didReceiveMemoryWarning() {
+        print("Metoda didReceiveMemoryWarning - UvodnaObrazovka bola vykonana")
+
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidLoad() {
+        print("Metoda viewDidLoad - UvodnaObrazovka bola vykonana")
+
+        super.viewDidLoad()
+        self.inicializacia()
+    }
+    
+    func inicializacia(){
+        print("Metoda inicializacia - UvodnaObrazovka bola vykonana")
+        
+        self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
+        self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
     }
     
     func pristup(){
@@ -54,35 +72,29 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
         }
     }
     
-    func inicializacia(){
-        print("Metoda inicializacia-UvodnaObrazovka bola vykonana")
-        
-        self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
-        self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
-    }
-    
-    override func viewDidLoad() {
-        self.inicializacia()
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.nacitavanie.isHidden = false
-        self.pristup()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "automatickePrihlasenie" {
-            let automatickePrihlasenie = segue.destination as! Autentifikacia
-            automatickePrihlasenie.chyba = sender as? Bool
+    func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
+        print("Metoda odpovedServera - UvodnaObrazovka bola vykonana")
+
+        switch od {
+        case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
+            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                let email =  udaje!.value(forKey: "email") as! String
+                let heslo = udaje!.value(forKey: "heslo") as! String
+                let token =  udaje!.value(forKey: "token") as! String
+                
+                self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
+                
+                let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+                let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
+                
+                self.present(navigaciaUdalostiController, animated: true, completion: nil)
+            }else{
+                performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
+                autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+            }
+            break;
+        default: break
         }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        nacitavanie.isHidden = true
     }
 }

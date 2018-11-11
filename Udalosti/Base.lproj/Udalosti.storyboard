@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="40" id="1Yo-A2-zqP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="25"/>
-                                <state key="normal" title="POKRAČOVAŤ" backgroundImage="udalosti_vstup">
+                                <state key="normal" title="POKRAČOVAŤ" backgroundImage="vstup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -102,7 +102,7 @@
                                     <constraint firstAttribute="height" constant="20" id="Pve-TE-Sjx"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-KI-wh4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-KI-wh4">
                                 <rect key="frame" x="142.5" y="274" width="90" height="119"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="119" id="IPz-Gd-wHd"/>
@@ -166,10 +166,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="Ofr-ay-Qqu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="Ofr-ay-Qqu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-f7-bQA">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-f7-bQA">
                                 <rect key="frame" x="52" y="408" width="271" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -219,12 +219,12 @@
                                     <constraint firstAttribute="height" constant="43" id="da5-cx-gy0"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="271" id="eQz-hI-MD0"/>
                                 </constraints>
-                                <state key="normal" title="Prihlásiť sa" backgroundImage="udalosti_tlacidlo"/>
+                                <state key="normal" title="Prihlásiť sa" backgroundImage="tlacidlo"/>
                                 <connections>
                                     <action selector="prihlasitSa:" destination="5UK-7O-fHe" eventType="touchUpInside" id="Rc5-80-S3j"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="Agc-NM-G9q">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="Agc-NM-G9q">
                                 <rect key="frame" x="52" y="343" width="271" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -249,7 +249,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-Oh-6Tf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-Oh-6Tf">
                                 <rect key="frame" x="72" y="196" width="49.5" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dnw-Oh-6Tf" secondAttribute="height" multiplier="19:22" id="U33-20-v4w"/>
@@ -313,7 +313,7 @@
         <!--Najblizšie udalosti-->
         <scene sceneID="B29-B8-8z7">
             <objects>
-                <viewController storyboardIdentifier="UdalostiPodlaPozacie" title="Najblizšie udalosti" id="CYO-zT-DYT" customClass="UdalostiPodlaPozacie" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UdalostiPodlaPozacie" title="Najblizšie udalosti" id="CYO-zT-DYT" customClass="Lokalizator" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eN3-Ao-KGk"/>
                         <viewControllerLayoutGuide type="bottom" id="4bj-V5-NxK"/>
@@ -335,7 +335,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Miesto" id="xBB-ad-3GG">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="udalosti_odhlasenie" id="6OA-ND-zhF">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="odhlasenie" id="6OA-ND-zhF">
                                             <connections>
                                                 <action selector="odhlasitSa:" destination="CYO-zT-DYT" id="vid-9p-TOl"/>
                                             </connections>
@@ -389,7 +389,7 @@
                                                         <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-cd-B9D">
                                                             <rect key="frame" x="0.0" y="26" width="138" height="28"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-Wt-jvg">
+                                                                <imageView userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-Wt-jvg">
                                                                     <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-HN-539">
@@ -417,7 +417,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-kX-zqb">
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-kX-zqb">
                                                             <rect key="frame" x="8.5" y="21.5" width="28" height="28"/>
                                                         </imageView>
                                                     </subviews>
@@ -472,7 +472,7 @@
                                     <constraint firstAttribute="height" constant="20" id="ZWb-MW-aHh"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-lD-02K">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-lD-02K">
                                 <rect key="frame" x="132.5" y="274.5" width="110" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="118" id="9UB-pU-MZE"/>
@@ -500,7 +500,7 @@
                             <constraint firstItem="w3m-Ke-CKr" firstAttribute="centerX" secondItem="FBX-Ke-j05" secondAttribute="centerX" id="vjz-Ip-N7m"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Najblizšie udalosti" image="udalosti_tab_podla_pozicie" selectedImage="udalosti_tab_podla_pozicie" id="SbB-b8-F9U">
+                    <tabBarItem key="tabBarItem" title="Lokalizátor" image="udalosti_tab_podla_pozicie" selectedImage="tab_lokalizator" id="SbB-b8-F9U">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -517,7 +517,7 @@
         <!--Objavujte udalosti-->
         <scene sceneID="CLP-rz-vfh">
             <objects>
-                <viewController storyboardIdentifier="UdalostiObjavuj" title="Objavujte udalosti" id="wh9-rX-7ZD" customClass="UdalostiObjavuj" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UdalostiObjavuj" title="Objavujte udalosti" id="wh9-rX-7ZD" customClass="Objavuj" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X65-C7-2YJ"/>
                         <viewControllerLayoutGuide type="bottom" id="bbi-iE-PgO"/>
@@ -539,7 +539,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Štát" id="0WG-GS-XIM">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="udalosti_odhlasenie" id="suS-ou-dYv">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="odhlasenie" id="suS-ou-dYv">
                                             <connections>
                                                 <action selector="odhlasitSa:" destination="wh9-rX-7ZD" id="Of3-jp-cao"/>
                                             </connections>
@@ -593,7 +593,7 @@
                                                         <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-px-7wb">
                                                             <rect key="frame" x="7.5" y="29" width="138" height="35"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="udalosti_zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-II-IDP">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-II-IDP">
                                                                     <rect key="frame" x="0.0" y="3.5" width="28" height="28"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2On-R9-4io">
@@ -622,7 +622,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-Sa-VpN">
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-Sa-VpN">
                                                             <rect key="frame" x="12.5" y="23.5" width="28" height="30.5"/>
                                                         </imageView>
                                                     </subviews>
@@ -677,7 +677,7 @@
                                     <constraint firstAttribute="width" constant="375" id="w6O-br-Mpr"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Vz-ghQ">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ziadne_udalosti" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Vz-ghQ">
                                 <rect key="frame" x="132.5" y="274.5" width="110" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="118" id="AXa-dL-7LS"/>
@@ -705,7 +705,7 @@
                             <constraint firstItem="vFc-Bi-CIU" firstAttribute="top" secondItem="28g-FC-bF4" secondAttribute="bottom" id="uD5-Tc-t2D"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Objavujte udalosti" image="udalosti_tab_objavuj" selectedImage="udalosti_tab_objavuj" id="D5k-v5-RYX">
+                    <tabBarItem key="tabBarItem" title="Objavuj" image="tab_objavuj" selectedImage="tab_objavuj" id="D5k-v5-RYX">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -719,10 +719,10 @@
             </objects>
             <point key="canvasLocation" x="1708" y="-305.39730134932535"/>
         </scene>
-        <!--Navigacia Udalosti-->
+        <!--Navigacia-->
         <scene sceneID="2kR-96-TZR">
             <objects>
-                <tabBarController storyboardIdentifier="NavigaciaUdalosti" id="37n-J0-fdw" customClass="NavigaciaUdalosti" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigaciaUdalosti" id="37n-J0-fdw" customClass="Navigacia" customModule="Udalosti" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CMV-Pv-PKR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -751,7 +751,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="iM9-ut-Nm6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pozadie" translatesAutoresizingMaskIntoConstraints="NO" id="iM9-ut-Nm6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUK-AB-eH6">
@@ -764,7 +764,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-5p-57h">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Heslo" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-5p-57h">
                                 <rect key="frame" x="51" y="406" width="273" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -780,7 +780,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Potvrdenie hesla" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-1G-HFm">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Potvrdenie hesla" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-1G-HFm">
                                 <rect key="frame" x="51" y="469" width="273" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -802,12 +802,12 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="273" id="3U6-rP-XgA"/>
                                     <constraint firstAttribute="height" constant="43" id="Qlc-bp-S2a"/>
                                 </constraints>
-                                <state key="normal" title="Registrovať" backgroundImage="udalosti_tlacidlo"/>
+                                <state key="normal" title="Registrovať" backgroundImage="tlacidlo"/>
                                 <connections>
                                     <action selector="registrovatSa:" destination="pR6-gF-o9U" eventType="touchUpInside" id="GIf-zt-lPe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-sH-26h">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-sH-26h">
                                 <rect key="frame" x="51" y="339" width="273" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -823,7 +823,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meno" textAlignment="center" minimumFontSize="17" background="udalosti_vstup" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-nr-mNs">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meno" textAlignment="center" minimumFontSize="17" background="vstup" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-nr-mNs">
                                 <rect key="frame" x="51" y="276" width="273" height="43"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -856,7 +856,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udalosti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-jI-JtG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-jI-JtG">
                                 <rect key="frame" x="51" y="115" width="50" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Tbs-q8-gLw"/>
@@ -910,20 +910,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="udalosti_logo" width="166" height="222"/>
-        <image name="udalosti_odhlasenie" width="28" height="28"/>
-        <image name="udalosti_pozadie" width="180" height="320"/>
-        <image name="udalosti_tab_objavuj" width="28" height="28"/>
+        <image name="logo" width="166" height="222"/>
+        <image name="odhlasenie" width="28" height="28"/>
+        <image name="pozadie" width="180" height="320"/>
+        <image name="tab_lokalizator" width="28" height="28"/>
+        <image name="tab_objavuj" width="28" height="28"/>
+        <image name="tlacidlo" width="178" height="29"/>
         <image name="udalosti_tab_podla_pozicie" width="28" height="28"/>
-        <image name="udalosti_tlacidlo" width="178" height="29"/>
-        <image name="udalosti_vstup" width="178" height="29"/>
-        <image name="udalosti_ziadne_udalosti" width="316" height="358"/>
-        <image name="udalosti_zoznam_cas" width="28" height="28"/>
-        <image name="udalosti_zoznam_pozicia" width="28" height="28"/>
+        <image name="vstup" width="178" height="29"/>
+        <image name="ziadne_udalosti" width="316" height="358"/>
+        <image name="zoznam_cas" width="28" height="28"/>
+        <image name="zoznam_pozicia" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hWV-bf-dHt"/>
-        <segue reference="kzr-RI-kS7"/>
+        <segue reference="Bsf-SF-ekB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

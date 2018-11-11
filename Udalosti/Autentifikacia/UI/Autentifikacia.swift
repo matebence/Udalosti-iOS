@@ -8,11 +8,37 @@
 
 import UIKit
 
-class Autentifikacia: UINavigationController {
+class Autentifikacia: UINavigationController, KommunikaciaOdpoved {
 
+    var autentifikaciaUdaje : AutentifikaciaUdaje!
     var chyba: Bool?
-    var sqliteDatabaza: SQLiteDatabaza!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("Metoda viewDidAppear - Autentifikacia bola vykonana")
 
+        self.automatickePrihlasenieChyba()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        print("Metoda didReceiveMemoryWarning - Autentifikacia bola vykonana")
+
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidLoad() {
+        print("Metoda viewDidLoad - Autentifikacia bola vykonana")
+
+        super.viewDidLoad()
+        self.inicializacia()
+    }
+
+    func inicializacia(){
+        print("Metoda inicializacia-Autentifikacia bola vykonana")
+        
+        self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
+        self.autentifikaciaUdaje.vytvorTabulky()
+    }
+    
     func automatickePrihlasenieChyba(){
         print("Metoda automatickePrihlasenieChyba bola vykonana")
         
@@ -25,33 +51,7 @@ class Autentifikacia: UINavigationController {
         }
     }
     
-    func vytvorTabulky(){
-        print("Metoda vytvorTabulky bola vykonana")
-
-        let preferencie = UserDefaults.standard
-        
-        if !(preferencie.bool(forKey: "prvyStart")) {
-            self.sqliteDatabaza = SQLiteDatabaza()
-            self.sqliteDatabaza.vyvorTabulky()
-        }
-    }
-    
-    func inicializacia(){
-        print("Metoda inicializacia-Autentifikacia bola vykonana")
-
-        self.vytvorTabulky()
-    }
-    
-    override func viewDidLoad() {
-        self.inicializacia()
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.automatickePrihlasenieChyba()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
+        print("Metoda odpovedServera - Autentifikacia bola vykonana")
     }
 }

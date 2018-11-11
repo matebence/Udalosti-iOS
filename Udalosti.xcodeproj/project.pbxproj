@@ -28,7 +28,7 @@
 		622DC2F82117289900CA5D2C /* Prihlasenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F72117289900CA5D2C /* Prihlasenie.swift */; };
 		622DC2FA211728A600CA5D2C /* Registracia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2F9211728A600CA5D2C /* Registracia.swift */; };
 		622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DC2FB2117291800CA5D2C /* Autentifikacia.swift */; };
-		62621815211AFA5200AA53F8 /* NavigaciaUdalosti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621814211AFA5200AA53F8 /* NavigaciaUdalosti.swift */; };
+		62621815211AFA5200AA53F8 /* Navigacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621814211AFA5200AA53F8 /* Navigacia.swift */; };
 		62621818211B004400AA53F8 /* UvodnaObrazovka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62621817211B004400AA53F8 /* UvodnaObrazovka.swift */; };
 		6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262181B211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift */; };
 		6262181E211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262181D211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift */; };
@@ -56,8 +56,9 @@
 		62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A5A2118D142000D8050 /* KommunikaciaData.swift */; };
 		62D66A612118E13C000D8050 /* Pripojenie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D66A602118E13C000D8050 /* Pripojenie.swift */; };
 		62D8E535211DBCCC00EAC9D1 /* Udalost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8E534211DBCCC00EAC9D1 /* Udalost.swift */; };
-		62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */; };
-		62E42C67211C544800038A01 /* UdalostiPodlaPozacie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */; };
+		62E42C65211C542C00038A01 /* Objavuj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C64211C542C00038A01 /* Objavuj.swift */; };
+		62E42C67211C544800038A01 /* Lokalizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E42C66211C544800038A01 /* Lokalizator.swift */; };
+		62F1F13A2198472600072402 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F1F1392198472600072402 /* MapKit.framework */; };
 		62F9747E211ED0AA00989640 /* Obrazok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9747D211ED0AA00989640 /* Obrazok.swift */; };
 		69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */; };
 /* End PBXBuildFile section */
@@ -102,7 +103,7 @@
 		622DC2F72117289900CA5D2C /* Prihlasenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prihlasenie.swift; sourceTree = "<group>"; };
 		622DC2F9211728A600CA5D2C /* Registracia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registracia.swift; sourceTree = "<group>"; };
 		622DC2FB2117291800CA5D2C /* Autentifikacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autentifikacia.swift; sourceTree = "<group>"; };
-		62621814211AFA5200AA53F8 /* NavigaciaUdalosti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigaciaUdalosti.swift; sourceTree = "<group>"; };
+		62621814211AFA5200AA53F8 /* Navigacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigacia.swift; sourceTree = "<group>"; };
 		62621817211B004400AA53F8 /* UvodnaObrazovka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovka.swift; sourceTree = "<group>"; };
 		6262181B211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovkaImplementacia.swift; sourceTree = "<group>"; };
 		6262181D211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvodnaObrazovkaUdaje.swift; sourceTree = "<group>"; };
@@ -136,8 +137,9 @@
 		62D66A5A2118D142000D8050 /* KommunikaciaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KommunikaciaData.swift; sourceTree = "<group>"; };
 		62D66A602118E13C000D8050 /* Pripojenie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pripojenie.swift; sourceTree = "<group>"; };
 		62D8E534211DBCCC00EAC9D1 /* Udalost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Udalost.swift; sourceTree = "<group>"; };
-		62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiObjavuj.swift; sourceTree = "<group>"; };
-		62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdalostiPodlaPozacie.swift; sourceTree = "<group>"; };
+		62E42C64211C542C00038A01 /* Objavuj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objavuj.swift; sourceTree = "<group>"; };
+		62E42C66211C544800038A01 /* Lokalizator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lokalizator.swift; sourceTree = "<group>"; };
+		62F1F1392198472600072402 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		62F9747D211ED0AA00989640 /* Obrazok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obrazok.swift; sourceTree = "<group>"; };
 		729B08D1D5D784632F486C3E /* Pods-Udalosti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.release.xcconfig"; sourceTree = "<group>"; };
 		B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udalosti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F1F13A2198472600072402 /* MapKit.framework in Frameworks */,
 				69F67C7F51073ABB12346CE7 /* Pods_Udalosti.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,9 +193,9 @@
 		62621812211AFA3900AA53F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				62621814211AFA5200AA53F8 /* NavigaciaUdalosti.swift */,
-				62E42C64211C542C00038A01 /* UdalostiObjavuj.swift */,
-				62E42C66211C544800038A01 /* UdalostiPodlaPozacie.swift */,
+				62621814211AFA5200AA53F8 /* Navigacia.swift */,
+				62E42C64211C542C00038A01 /* Objavuj.swift */,
+				62E42C66211C544800038A01 /* Lokalizator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 		681F9A87EDA6D2DA52BC1F8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62F1F1392198472600072402 /* MapKit.framework */,
 				B27C5435CD81D5168B86202E /* Pods_Udalosti.framework */,
 			);
 			name = Frameworks;
@@ -499,6 +503,11 @@
 					62D140342115E73A005FDB11 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					62D140482115E73C005FDB11 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -634,7 +643,7 @@
 				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */,
 				62A30DA52128A084005C6857 /* SQLiteDataImplementacia.swift in Sources */,
-				62E42C65211C542C00038A01 /* UdalostiObjavuj.swift in Sources */,
+				62E42C65211C542C00038A01 /* Objavuj.swift in Sources */,
 				62D140392115E73A005FDB11 /* AppDelegate.swift in Sources */,
 				62621825211B6F5C00AA53F8 /* TokenUdaje.swift in Sources */,
 				622DC2FC2117291800CA5D2C /* Autentifikacia.swift in Sources */,
@@ -644,7 +653,7 @@
 				62F9747E211ED0AA00989640 /* Obrazok.swift in Sources */,
 				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
 				62621827211B6F7900AA53F8 /* TokenImplementacia.swift in Sources */,
-				62E42C67211C544800038A01 /* UdalostiPodlaPozacie.swift in Sources */,
+				62E42C67211C544800038A01 /* Lokalizator.swift in Sources */,
 				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,
 				62D66A562118B36B000D8050 /* Nastavenia.swift in Sources */,
 				62C670942119C48F00A4B4B7 /* RychlaUkazkaAplikacie.swift in Sources */,
@@ -653,7 +662,7 @@
 				62D66A522118A994000D8050 /* AutentifikaciaUdaje.swift in Sources */,
 				62621818211B004400AA53F8 /* UvodnaObrazovka.swift in Sources */,
 				62C670962119E87C00A4B4B7 /* SQLiteDatabaza.swift in Sources */,
-				62621815211AFA5200AA53F8 /* NavigaciaUdalosti.swift in Sources */,
+				62621815211AFA5200AA53F8 /* Navigacia.swift in Sources */,
 				62C670922119C0E700A4B4B7 /* OnboardingView.swift in Sources */,
 				62D8E535211DBCCC00EAC9D1 /* Udalost.swift in Sources */,
 			);

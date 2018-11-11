@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
 protocol KommunikaciaOdpoved {
+    
     func odpovedServera(odpoved: String, od: String, udaje:NSDictionary?) -> Void
 }

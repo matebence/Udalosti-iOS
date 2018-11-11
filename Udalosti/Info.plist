@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Position is needed to find events what are near to you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Position is needed to find events what are near to you.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Udalosti</string>
 	<key>CFBundleExecutable</key>

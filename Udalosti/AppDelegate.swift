@@ -11,11 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let udalostiAdresa = "http://app-udalosti.8u.cz/";
+    let ipAdresa = "http://ip-api.com/";
+    let geoAdresa = "https://eu1.locationiq.com/v1/reverse.php?key=" + Nastavenia.POZICIA_TOKEN;
+
     var window: UIWindow?
-    var sqliteDatabaza: SQLiteDatabaza!
-    
-    let udalostiAdresa = "http://app-udalosti.8u.cz/"
-    let geoAdresa = "http://ip-api.com/"
+    var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     
     func ukazkaAplikacie(){
         print("Metoda ukazkaAplikacie bola vykonana")
@@ -25,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var obsah = udalosti.instantiateViewController(withIdentifier: "RychlaUkazkaAplikacie")
         if preferencie.bool(forKey: "prvyStart") {
-            self.sqliteDatabaza = SQLiteDatabaza()
-            
-            if self.sqliteDatabaza.pouzivatelskeUdaje(){
+            self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
+
+            if self.uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje(){
                 obsah = udalosti.instantiateViewController(withIdentifier: "UvodnaObrazovka")
             }else{
                 obsah = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")
@@ -39,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        print("Metoda application bola vykonana")
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.ukazkaAplikacie()
         
@@ -46,21 +49,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
+        print("Metoda applicationDidEnterBackground bola vykonana")
+
         let tokenUdaje: TokenUdaje = TokenUdaje()
         tokenUdaje.zrusToken()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        print("Metoda applicationWillEnterForeground bola vykonana")
+
         let tokenUdaje: TokenUdaje = TokenUdaje()
         tokenUdaje.novyToken()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
+        print("Metoda applicationWillResignActive bola vykonana")
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        print("Metoda applicationDidBecomeActive bola vykonana")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
+        print("Metoda applicationWillTerminate bola vykonana")
     }
 }

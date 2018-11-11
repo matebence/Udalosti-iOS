@@ -10,19 +10,21 @@ import Foundation
 import SQLite3
 
 class SQLiteDatabaza: SQLiteDataImplementacia {
-    
+   
+    private let nazovDatabazy:String = "udalosti.sqlite"
     private var databaza: OpaquePointer?
     private var miestoUlozenia: URL
-    private let nazovDatabazy:String = "udalosti.sqlite"
-    
+
     init() {
-        print("Metoda SQLiteDatabaza bola vykonana")
+        print("Metoda init - SQLiteDatabaza bola vykonana")
         
         miestoUlozenia = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent(nazovDatabazy)
     }
     
-    func vyvorTabulky(){
+    func vytvor() {
+        print("Metoda vytvor bola vykonana")
+        
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
             return
@@ -35,16 +37,16 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         }
         
         if sqlite3_exec(databaza,
-                        "CREATE TABLE IF NOT EXISTS \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.ID_STLPCA) INTEGER PRIMARY KEY AUTOINCREMENT, \(SQLiteTabulka.Miesto.STAT) TEXT, \(SQLiteTabulka.Miesto.OKRES) TEXT, \(SQLiteTabulka.Miesto.MESTO) TEXT)", nil, nil, nil) != SQLITE_OK {
+                        "CREATE TABLE IF NOT EXISTS \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.ID_STLPCA) INTEGER PRIMARY KEY AUTOINCREMENT, \(SQLiteTabulka.Miesto.POZICIA) TEXT, \(SQLiteTabulka.Miesto.OKRES) TEXT, \(SQLiteTabulka.Miesto.KRAJ) TEXT, \(SQLiteTabulka.Miesto.PSC) TEXT, \(SQLiteTabulka.Miesto.STAT) TEXT, \(SQLiteTabulka.Miesto.ZNAKSTATU) TEXT)", nil, nil, nil) != SQLITE_OK {
             print("Nastala chyba pri vyvorenie tabulky Miesto")
             return
         }
         
         sqlite3_close(databaza)
     }
-    
-    func noveMiestoPrihlasenia(stat: String, okres:String, mesto:String){
-        print("Metoda noveMiestoPrihlasenia bola vykonana")
+
+    func noveMiesto(pozicia: String, okres:String, kraj:String, psc:String, stat:String, znakStatu:String) {
+        print("Metoda noveMiesto bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -52,7 +54,7 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         }
         
         var stmt: OpaquePointer?
-        let dotaz = "INSERT INTO \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES),\(SQLiteTabulka.Miesto.MESTO)) VALUES ('\(stat)', '\(okres)', '\(mesto)')"
+        let dotaz = "INSERT INTO \(SQLiteTabulka.Miesto.NAZOV_TABULKY) (\(SQLiteTabulka.Miesto.POZICIA), \(SQLiteTabulka.Miesto.OKRES), \(SQLiteTabulka.Miesto.KRAJ), \(SQLiteTabulka.Miesto.PSC), \(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.ZNAKSTATU)) VALUES ('\(pozicia)', '\(okres)', '\(kraj)', '\(psc)', '\(stat)', '\(znakStatu)')"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -71,9 +73,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         print("Nove miesto sa ulozilo")
     }
-    
-    func aktualizujMiestoPrihlasenia(stat: String, okres: String, mesto:String){
-        print("Metoda aktualizujMiestoPrihlasenia bola vykonana")
+
+    func aktualizujMiesto(pozicia: String, okres:String, kraj:String, psc:String, stat:String, znakStatu:String) {
+        print("Metoda aktualizujMiesto bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -82,7 +84,7 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         var stmt: OpaquePointer?
         let idMiestoPrihlasenia = 1;
-        let dotaz = "UPDATE \(SQLiteTabulka.Miesto.NAZOV_TABULKY) SET \(SQLiteTabulka.Miesto.STAT) = '\(stat)', \(SQLiteTabulka.Miesto.OKRES) = '\(okres)', \(SQLiteTabulka.Miesto.MESTO) = '\(mesto)' WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = \(idMiestoPrihlasenia)"
+        let dotaz = "UPDATE \(SQLiteTabulka.Miesto.NAZOV_TABULKY) SET \(SQLiteTabulka.Miesto.POZICIA) = '\(pozicia)', \(SQLiteTabulka.Miesto.OKRES) = '\(okres)', \(SQLiteTabulka.Miesto.KRAJ) = '\(kraj)', \(SQLiteTabulka.Miesto.PSC) = '\(psc)', \(SQLiteTabulka.Miesto.STAT) = '\(stat)', \(SQLiteTabulka.Miesto.ZNAKSTATU) = '\(znakStatu)' WHERE \(SQLiteTabulka.Miesto.ID_STLPCA) = \(idMiestoPrihlasenia)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -101,9 +103,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         print("Miesto sa aktualizovalo")
     }
-    
-    func odstranMiestoPrihlasenia(idMiesto: integer_t){
-        print("Metoda aktualizujMiestoPrihlasenia bola vykonana")
+
+    func odstrnaMiesto(idMiesto: integer_t) {
+        print("Metoda odstranMiesto bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -127,12 +129,12 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         sqlite3_finalize(stmt)
         sqlite3_close(databaza)
-
+        
         print("Miesto prihlasenia sa odstranilo")
     }
-    
-    func miestoPrihlasenia() -> Bool{
-        print("Metoda miestoPrihlasenia bola vykonana")
+
+    func miesto() -> Bool {
+        print("Metoda miesto bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -160,17 +162,17 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
             return false;
         }
     }
-    
-    func vratMiestoPrihlasenia() -> NSDictionary? {
-        print("Metoda vratMiestoPrihlasenia bola vykonana")
 
+    func varMiesto() -> NSDictionary? {
+        print("Metoda vratMiesto bola vykonana")
+        
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
             return nil
         }
         
         var stmt: OpaquePointer?
-        let dotaz = "SELECT \(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.OKRES), \(SQLiteTabulka.Miesto.MESTO) FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
+        let dotaz = "SELECT \(SQLiteTabulka.Miesto.POZICIA), \(SQLiteTabulka.Miesto.OKRES), \(SQLiteTabulka.Miesto.KRAJ), \(SQLiteTabulka.Miesto.PSC), \(SQLiteTabulka.Miesto.STAT), \(SQLiteTabulka.Miesto.ZNAKSTATU) FROM \(SQLiteTabulka.Miesto.NAZOV_TABULKY)"
         
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
@@ -179,14 +181,20 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         }
         
         if sqlite3_step(stmt) == SQLITE_ROW {
-            let stat = String(cString: sqlite3_column_text(stmt, 0))
+            let pozicia = String(cString: sqlite3_column_text(stmt, 0))
             let okres = String(cString: sqlite3_column_text(stmt, 1))
-            let mesto = String(cString: sqlite3_column_text(stmt, 2))
-            
+            let kraj = String(cString: sqlite3_column_text(stmt, 2))
+            let psc = String(cString: sqlite3_column_text(stmt, 3))
+            let stat = String(cString: sqlite3_column_text(stmt, 4))
+            let znakStatu = String(cString: sqlite3_column_text(stmt, 5))
+
             let udaje: NSDictionary = [
-                "stat": stat,
+                "pozicia": pozicia,
                 "okres": okres,
-                "mesto": mesto
+                "kraj": kraj,
+                "psc": psc,
+                "stat": stat,
+                "znakStatu": znakStatu
             ]
             sqlite3_finalize(stmt)
             sqlite3_close(databaza)
@@ -198,9 +206,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         return nil
     }
-    
-    func novePouzivatelskeUdaje(email:String, heslo:String, token:String){
-        print("Metoda novePouzivatelskeUdaje bola vykonana")
+
+    func novyPouzivatel(email: String, heslo: String, token: String) {
+        print("Metoda novyPouzivatel bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -209,7 +217,7 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         var stmt: OpaquePointer?
         let dotaz = "INSERT INTO \(SQLiteTabulka.Pouzivatel.NAZOV_TABULKY) (\(SQLiteTabulka.Pouzivatel.EMAIL), \(SQLiteTabulka.Pouzivatel.HESLO), \(SQLiteTabulka.Pouzivatel.TOKEN)) VALUES ('\(email)', '\(heslo)', '\(token)')"
-
+        
         if sqlite3_prepare(databaza, dotaz, -1, &stmt, nil) != SQLITE_OK{
             let chyba = String(cString: sqlite3_errmsg(databaza)!)
             print("Databaza chyba pridavanie(Pouzivatel): "+chyba)
@@ -227,9 +235,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         print("Nove Pouzivatelske udaje sa ulozili")
     }
-    
-    func aktualizujPouzivatelskeUdaje(email:String, heslo:String, token:String){
-        print("Metoda aktualizujPouzivatelskeUdaje bola vykonana")
+
+    func aktualizujPouzivatela(email: String, heslo: String, token: String) {
+        print("Metoda aktualizujPouzivatela bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -256,9 +264,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         print("Pouzivatelske udaje sa aktualizovali")
     }
-    
-    func odstranPouzivatelskeUdaje(email: String){
-        print("Metoda odstranPouzivatelskeUdaje bola vykonana")
+
+    func odstranPouzivatela(email: String) {
+        print("Metoda odstranPouzivatela bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -285,9 +293,9 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         
         print("Pouzivatelske udaje sa odstranili")
     }
-    
-    func pouzivatelskeUdaje() -> Bool{
-        print("Metoda pouzivatelskeUdaje bola vykonana")
+
+    func pouzivatel() -> Bool {
+        print("Metoda pouzivatel bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")
@@ -310,13 +318,13 @@ class SQLiteDatabaza: SQLiteDataImplementacia {
         }else{
             sqlite3_finalize(stmt)
             sqlite3_close(databaza)
-
+            
             return false;
         }
     }
-    
-    func vratAktualnehoPouzivatela() -> NSDictionary?{
-        print("Metoda vratAktualnehoPouzivatela bola vykonana")
+
+    func vratPouzivatela() -> NSDictionary? {
+        print("Metoda vratPouzivatela bola vykonana")
         
         if sqlite3_open(miestoUlozenia.path, &databaza) != SQLITE_OK {
             print("Databazu sa nepodarilo otvorit")

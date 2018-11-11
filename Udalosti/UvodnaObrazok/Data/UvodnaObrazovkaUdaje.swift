@@ -13,18 +13,20 @@ class UvodnaObrazovkaUdaje : UvodnaObrazovkaImplementacia{
     private var sqliteDatabaza: SQLiteDatabaza
     
     init() {
+        print("Metoda init - UvodnaObrazovkaUdaje bola vykonana")
+
         self.sqliteDatabaza = SQLiteDatabaza()
     }
     
     func zistiCiPouzivatelExistuje() -> Bool {
         print("Metoda zistiCiPouzivatelExistuje bola vykonana")
         
-        return sqliteDatabaza.pouzivatelskeUdaje()
+        return sqliteDatabaza.pouzivatel()
     }
     
     func prihlasPouzivatela() -> NSDictionary {
         print("Metoda prihlasPouzivatela bola vykonana")
         
-        return sqliteDatabaza.vratAktualnehoPouzivatela()!
+        return sqliteDatabaza.vratPouzivatela()!
     }
 }

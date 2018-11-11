@@ -10,10 +10,14 @@ import Foundation
 
 extension String{
     func pozicia(od: Int) -> Index{
+        print("Metoda pozicia bola vykonana")
+        
         return self.index(startIndex, offsetBy: od)
     }
     
     func castRetazca(doRetazca: Int) -> String {
+        print("Metoda castRetazca bola vykonana")
+        
         let retazecDo = pozicia(od: doRetazca)
         return String(self[..<retazecDo])
     }

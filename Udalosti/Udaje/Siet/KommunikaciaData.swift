@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
 protocol KommunikaciaData {
+    
     func dataZoServera(odpoved: String, od: String, data:NSArray?) -> Void
 }

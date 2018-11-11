@@ -12,18 +12,135 @@ import Alamofire
 class AutentifikaciaUdaje : AutentifikaciaImplementacia{
 
     private let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     private var kommunikaciaOdpoved: KommunikaciaOdpoved
     private var sqliteDatabaza: SQLiteDatabaza
     
     init(kommunikaciaOdpoved: KommunikaciaOdpoved){
+        print("Metoda init - AutentifikaciaUdaje bola vykonana")
+
         self.kommunikaciaOdpoved=kommunikaciaOdpoved
         self.sqliteDatabaza = SQLiteDatabaza()
     }
+
+    func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj: Bool) {
+        print("Metoda miestoPrihlasenia bola vykonana")
+
+        let adresa = "\(delegate.geoAdresa)&lat=\(zemepisnaSirka)&lon=\(zemepisnaDlzka)&format=\(Nastavenia.POZICIA_FORMAT)&accept-language=\(Nastavenia.POZICIA_JAZYK)"
+
+        Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
+            {
+                response in
+                if let odpoved = response.result.value{
+                    
+                    let udaje = odpoved as! NSDictionary
+                    var pozicia, okres, kraj, psc, stat, znakStatu:String
+                    
+                    pozicia = ""
+                    okres = ""
+                    kraj = ""
+                    psc = ""
+                    stat = ""
+                    znakStatu = ""
+                    
+                    if(udaje.value(forKey: "city_district") != nil){
+                        pozicia = udaje.value(forKey: "city_district") as! String
+                    }
+                    if(udaje.value(forKey: "city") != nil){
+                        okres = udaje.value(forKey: "city") as! String
+                    }
+                    if(udaje.value(forKey: "state") != nil){
+                        kraj = udaje.value(forKey: "state") as! String
+                    }
+                    if(udaje.value(forKey: "postcode") != nil){
+                        psc = udaje.value(forKey: "postcode") as! String
+                    }
+                    if(udaje.value(forKey: "country") != nil){
+                        stat = udaje.value(forKey: "country") as! String
+                    }
+                    if(udaje.value(forKey: "country_code") != nil){
+                        znakStatu = udaje.value(forKey: "country_code") as! String
+                    }
+                    
+                    if (self.sqliteDatabaza.miesto()){
+                        self.sqliteDatabaza.aktualizujMiesto(
+                            pozicia: pozicia,
+                            okres: okres,
+                            kraj: kraj,
+                            psc: psc,
+                            stat: stat,
+                            znakStatu: znakStatu)
+                    }else{
+                        self.sqliteDatabaza.noveMiesto(
+                            pozicia: pozicia,
+                            okres: okres,
+                            kraj: kraj,
+                            psc: psc,
+                            stat: stat,
+                            znakStatu: znakStatu)
+                    }
+                    
+                    if(aktualizuj){
+                        self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI_AKTUALIZUJ, udaje:nil)
+                    }else{
+                        self.prihlasenie(
+                            email: email,
+                            heslo: heslo)
+                    }
+                }else{
+                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
+                }
+        }
+    }		
     
-    func prihlasenie(email: String, heslo: String, stat: String, okres: String, mesto: String) {
+    func miestoPrihlasenia(email: String, heslo: String) {
+        print("Metoda miestoPrihlasenia bola vykonana")
+        
+        let adresa = delegate.ipAdresa+Nastavenia.SERVER_GEO_IP
+        
+        Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
+            {
+                response in
+                if let odpoved = response.result.value{
+                    
+                    let udaje = odpoved as! NSDictionary
+                    var stat:String = ""
+                    
+                    if(udaje.value(forKey: "country") != nil){
+                        stat = udaje.value(forKey: "country") as! String
+                    }
+                    
+                    if (self.sqliteDatabaza.miesto()){
+                        self.sqliteDatabaza.aktualizujMiesto(
+                            pozicia: "",
+                            okres: "",
+                            kraj: "",
+                            psc: "",
+                            stat: stat,
+                            znakStatu: "")
+                    }else{
+                        self.sqliteDatabaza.noveMiesto(
+                            pozicia: "",
+                            okres: "",
+                            kraj: "",
+                            psc: "",
+                            stat: stat,
+                            znakStatu: "")
+                    }
+                    
+                    self.prihlasenie(
+                        email: email,
+                        heslo: heslo)
+                }else{
+                    self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
+                }
+        }
+    }
+    
+    func prihlasenie(email: String, heslo: String) {
         print("Metoda prihlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+"index.php/prihlasenie/prihlasit"
+        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_PRIHLASENIE
         let vstup: Parameters=[
             "email":email,
             "heslo":heslo,
@@ -67,60 +184,10 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
         }
     }
     
-    func miestoPrihlasenia(email: String, heslo: String) {
-        print("Metoda miestoPrihlasenia bola vykonana")
-
-        let adresa = delegate.geoAdresa+"json"
-    
-        Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
-            {
-                response in
-                if let odpoved = response.result.value{
-                    
-                    let udaje = odpoved as! NSDictionary
-                    var stat, okres, mesto : String
-                    
-                    stat = ""
-                    okres = ""
-                    mesto = ""
-                    
-                    if(udaje.value(forKey: "country") != nil){
-                        stat = udaje.value(forKey: "country") as! String
-                        stat = "Slovensko";
-                    }
-                    if(udaje.value(forKey: "regionName") != nil){
-                        okres = udaje.value(forKey: "regionName") as! String
-                    }
-                    if(udaje.value(forKey: "city") != nil){
-                        mesto = udaje.value(forKey: "city") as! String
-                    }
-                    
-                    if (self.sqliteDatabaza.miestoPrihlasenia()){
-                        self.sqliteDatabaza.aktualizujMiestoPrihlasenia(
-                            stat: stat,
-                            okres: okres,
-                            mesto: mesto)
-                    }else{
-                        self.sqliteDatabaza.noveMiestoPrihlasenia(
-                            stat: stat,
-                            okres: okres,
-                            mesto: mesto)
-                    }
-                    
-                    self.prihlasenie(
-                        email: email,
-                        heslo: heslo,
-                        stat: stat,
-                        okres: okres,
-                        mesto: mesto)
-                }
-        }
-    }
-    
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {
         print("Metoda registracia bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+"index.php/registracia"
+        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_REGISTRACIA
         let vstup: Parameters=[
             "email":email,
             "meno":meno,
@@ -161,13 +228,13 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func ulozPrihlasovacieUdajeDoDatabazy(email: String, heslo: String, token: String) {
         print("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana")
         
-        if(self.sqliteDatabaza.pouzivatelskeUdaje()){
-            self.sqliteDatabaza.aktualizujPouzivatelskeUdaje(
+        if(self.sqliteDatabaza.pouzivatel()){
+            self.sqliteDatabaza.aktualizujPouzivatela(
                 email: email,
                 heslo: heslo,
                 token: token)
         }else{
-            self.sqliteDatabaza.novePouzivatelskeUdaje(
+            self.sqliteDatabaza.novyPouzivatel(
                 email: email,
                 heslo: heslo,
                 token: token)
@@ -177,6 +244,17 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func ucetJeNePristupny(email: String) {
         print("Metoda ucetJeNePristupny bola vykonana")
         
-        self.sqliteDatabaza.odstranPouzivatelskeUdaje(email: email)
+        self.sqliteDatabaza.odstranPouzivatela(email: email)
+    }
+    
+    func vytvorTabulky() {
+        print("Metoda vytvorTabulky bola vykonana")
+
+        let preferencie = UserDefaults.standard
+        
+        if !(preferencie.bool(forKey: "prvyStart")) {
+            self.sqliteDatabaza = SQLiteDatabaza()
+            self.sqliteDatabaza.vytvor()
+        }
     }
 }

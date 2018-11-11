@@ -15,6 +15,8 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
     private var udalostiUdaje : UdalostiUdaje!
 
     init() {
+        print("Metoda init - TokenUdaje bola vykonana")
+
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
         self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
@@ -36,19 +38,17 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
 
         if Nastavenia.TOKEN && uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje(){
             let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
-            let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
 
             autentifikaciaUdaje.prihlasenie(
                 email: pouzivatelskeUdaje.value(forKey: "email") as! String,
-                heslo: pouzivatelskeUdaje.value(forKey: "heslo") as! String,
-                stat: miesto.value(forKey: "stat") as! String,
-                okres: miesto.value(forKey: "okres") as! String,
-                mesto: miesto.value(forKey: "mesto") as! String)
+                heslo: pouzivatelskeUdaje.value(forKey: "heslo") as! String)
         }
         Nastavenia.TOKEN = false
     }
     
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
+        print("Metoda odpovedeServera - TokenUdaje bola vykonana")
+
         switch od {
         case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
@@ -64,5 +64,8 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
         }
     }
     
-    func dataZoServera(odpoved: String, od: String, data: NSArray?) {}
+    func dataZoServera(odpoved: String, od: String, data: NSArray?) {
+        print("Metoda dataZoServera - TokenUdaje bola vykonana")
+
+    }
 }

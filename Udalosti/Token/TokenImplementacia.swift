@@ -9,6 +9,8 @@
 import Foundation
 
 protocol TokenImplementacia {
+    
     func zrusToken()
+    
     func novyToken()
 }

@@ -9,6 +9,8 @@
 import Foundation
 
 protocol UvodnaObrazovkaImplementacia {
+    
     func zistiCiPouzivatelExistuje() -> Bool
+    
     func prihlasPouzivatela() -> NSDictionary
 }
