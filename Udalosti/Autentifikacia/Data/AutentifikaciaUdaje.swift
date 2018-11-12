@@ -108,6 +108,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     
                     if(udaje.value(forKey: "country") != nil){
                         stat = udaje.value(forKey: "country") as! String
+                        stat = "Slovensko"
                     }
                     
                     if (self.sqliteDatabaza.miesto()){

@@ -63,17 +63,19 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         print("Metoda miestoPrihlasenia bola vykonana")
         
         let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
-        if miesto.value(forKey: "stat") != nil {
-            self.titul.title = miesto.value(forKey: "stat") as? String
-        }
-        if miesto.value(forKey: "okres") != nil {
+        if miesto.value(forKey: "pozicia") as! String != "" {
+            self.titul.title = "Okolie \(miesto.value(forKey: "pozicia") ?? "Pozícia neurčená")"
+        }else if miesto.value(forKey: "okres") as! String != "" {
             self.titul.title = miesto.value(forKey: "okres") as? String
-        }
-        if miesto.value(forKey: "mesto") != nil {
-            self.titul.title = miesto.value(forKey: "mesto") as? String
+        }else if miesto.value(forKey: "kraj") as! String != "" {
+            self.titul.title = miesto.value(forKey: "kraj") as? String
+        }else{
+            self.titul.title = "Pozícia neurčená"
         }
         
-        self.nacitajZoznamUdalostiPodlaPozicie(miesto: miesto)
+        if udalostiPodlaPozicie.count == 0{
+            self.nacitajZoznamUdalostiPodlaPozicie(miesto: miesto)
+        }
     }
     
     func nacitajZoznamUdalostiPodlaPozicie(miesto: NSDictionary){
@@ -84,7 +86,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
             email: pouzivatelskeUdaje.value(forKey: "email") as! String,
             stat: miesto.value(forKey: "stat") as! String,
             okres: miesto.value(forKey: "okres") as! String,
-            mesto: miesto.value(forKey: "mesto") as! String,
+            mesto: miesto.value(forKey: "pozicia") as! String,
             token: pouzivatelskeUdaje.value(forKey: "token") as! String)
     }
     
@@ -111,20 +113,20 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         let udalost: Udalost
         udalost = udalostiPodlaPozicie[indexPath.row]
 
-        riadokUdalosti.datum.text = udalost.den
-        riadokUdalosti.mesiac.text = udalost.mesiac
-        riadokUdalosti.nazov.text = udalost.nazov
-        riadokUdalosti.mesto.text = udalost.mesto
-        riadokUdalosti.miesto.text = udalost.ulica
-        riadokUdalosti.cas.text = udalost.cas
+        riadokUdalosti.datum?.text = udalost.den
+        riadokUdalosti.mesiac?.text = udalost.mesiac
+        riadokUdalosti.nazov?.text = udalost.nazov
+        riadokUdalosti.mesto?.text = udalost.mesto
+        riadokUdalosti.miesto?.text = udalost.ulica
+        riadokUdalosti.cas?.text = udalost.cas
         
         Alamofire.request(delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
             debugPrint(response)
             
             if let obrazokUdalosti = response.result.value {
-                riadokUdalosti.obrazok.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: riadokUdalosti.obrazok.frame.width)
+                riadokUdalosti.obrazok?.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: riadokUdalosti.obrazok.frame.width)
             }else {
-                riadokUdalosti.obrazok.image = UIImage(named: "chyba_obrazka")!
+                riadokUdalosti.obrazok?.image = UIImage(named: "chyba_obrazka")!
                 riadokUdalosti.obrazok.contentMode = .scaleAspectFill;
             }
         }
@@ -141,7 +143,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 ziadneUdalosti.isHidden = true
                 for i in 0..<data!.count{
                     self.udalostiPodlaPozicie.append(Udalost(
-                        idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? integer_t,
+                        idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
                         obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
                         nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
                         den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
@@ -149,9 +151,9 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
                         cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
                         mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
                         ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
-                        vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? float_t)!,
-                        zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? integer_t)!,
-                        zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? integer_t)!
+                        vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
+                        zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
+                        zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
                     ))
                 }
                 self.zoznamUdalostiPodlaPozicie.reloadData()

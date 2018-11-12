@@ -377,48 +377,43 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VFp-ux-XHJ">
-                                                    <rect key="frame" x="118.5" y="195" width="138" height="54"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBd-DG-hbZ">
+                                                    <rect key="frame" x="155.5" y="195" width="64.5" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-cd-B9D">
+                                                    <rect key="frame" x="118.5" y="220" width="138" height="28"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBd-DG-hbZ">
-                                                            <rect key="frame" x="37" y="0.0" width="64.5" height="26"/>
-                                                            <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-Wt-jvg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-HN-539">
+                                                            <rect key="frame" x="28" y="4" width="56.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.35686274509999999" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhC-dR-Grk">
+                                                            <rect key="frame" x="84.5" y="4" width="53.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-cd-B9D">
-                                                            <rect key="frame" x="0.0" y="26" width="138" height="28"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-Wt-jvg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-HN-539">
-                                                                    <rect key="frame" x="28" y="4" width="56.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.35686274509999999" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhC-dR-Grk">
-                                                                    <rect key="frame" x="84.5" y="4" width="53.5" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="99l-bd-AVQ">
-                                                    <rect key="frame" x="308" y="195" width="45" height="49.5"/>
+                                                    <rect key="frame" x="310.5" y="195" width="42.5" height="49.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="17:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-1M-rfE">
-                                                            <rect key="frame" x="1.5" y="0.0" width="42.5" height="21.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="42.5" height="21.5"/>
                                                             <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-kX-zqb">
-                                                            <rect key="frame" x="8.5" y="21.5" width="28" height="28"/>
+                                                            <rect key="frame" x="7.5" y="21.5" width="28" height="28"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
@@ -428,24 +423,24 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VFp-ux-XHJ" firstAttribute="top" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="5" id="06w-8c-L0t"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="2bI-uQ-3BW"/>
-                                                <constraint firstItem="VFp-ux-XHJ" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" constant="103.5" id="4BU-Fq-oKr"/>
                                                 <constraint firstItem="99l-bd-AVQ" firstAttribute="top" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="5" id="9dj-5b-HOZ"/>
+                                                <constraint firstItem="HBd-DG-hbZ" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="AB3-LP-baA"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="leading" secondItem="Mfd-WW-Lvb" secondAttribute="leading" id="F3v-y3-o0O"/>
                                                 <constraint firstItem="hkr-Jd-j1v" firstAttribute="top" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="5" id="Hc7-w0-Tn9"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mfd-WW-Lvb" secondAttribute="trailing" id="I9s-Bl-oIS"/>
                                                 <constraint firstItem="hkr-Jd-j1v" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" id="LeA-wP-4ee"/>
+                                                <constraint firstItem="HBd-DG-hbZ" firstAttribute="top" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="5" id="MiX-3i-FGp"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" id="QFF-em-DQm"/>
                                                 <constraint firstAttribute="trailing" secondItem="GPd-gL-aId" secondAttribute="trailing" id="QHF-Ya-mqB"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="99l-bd-AVQ" secondAttribute="bottom" constant="9.5" id="ZEB-WT-LYv"/>
+                                                <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="dpF-cd-B9D" secondAttribute="bottom" constant="6" id="a6a-c9-bDe"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="aCJ-a5-mxr"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="hkr-Jd-j1v" secondAttribute="bottom" constant="8" id="bB0-As-YEv"/>
-                                                <constraint firstItem="99l-bd-AVQ" firstAttribute="leading" secondItem="VFp-ux-XHJ" secondAttribute="trailing" constant="51.5" id="jmU-mP-jlq"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="trailing" secondItem="Mfd-WW-Lvb" secondAttribute="trailing" id="kAM-kK-plO"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="lvu-6L-Uap"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="99l-bd-AVQ" secondAttribute="trailing" constant="7" id="pXP-1v-tVe"/>
-                                                <constraint firstItem="VFp-ux-XHJ" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="ve7-tV-gK3"/>
+                                                <constraint firstItem="dpF-cd-B9D" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="wAM-IH-j7d"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mfd-WW-Lvb" secondAttribute="bottom" id="zdh-Xb-Hzr"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -500,7 +495,7 @@
                             <constraint firstItem="w3m-Ke-CKr" firstAttribute="centerX" secondItem="FBX-Ke-j05" secondAttribute="centerX" id="vjz-Ip-N7m"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Lokalizátor" image="udalosti_tab_podla_pozicie" selectedImage="tab_lokalizator" id="SbB-b8-F9U">
+                    <tabBarItem key="tabBarItem" title="Lokalizátor" image="tab_lokalizator" selectedImage="tab_lokalizator" id="SbB-b8-F9U">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -581,49 +576,44 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Qjh-v5-0aD">
-                                                    <rect key="frame" x="111" y="189" width="153" height="64"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUe-sG-PKa">
+                                                    <rect key="frame" x="155.5" y="195" width="64.5" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-px-7wb">
+                                                    <rect key="frame" x="118.5" y="220" width="138" height="28"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUe-sG-PKa">
-                                                            <rect key="frame" x="44.5" y="0.0" width="64.5" height="34"/>
-                                                            <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="22"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-II-IDP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2On-R9-4io">
+                                                            <rect key="frame" x="28" y="4" width="57.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-qY-Cjw">
+                                                            <rect key="frame" x="85.5" y="4" width="52.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-px-7wb">
-                                                            <rect key="frame" x="7.5" y="29" width="138" height="35"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-II-IDP">
-                                                                    <rect key="frame" x="0.0" y="3.5" width="28" height="28"/>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2On-R9-4io">
-                                                                    <rect key="frame" x="28" y="7.5" width="57.5" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miesto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXm-qY-Cjw">
-                                                                    <rect key="frame" x="85.5" y="7.5" width="52.5" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-ft-RUD">
-                                                    <rect key="frame" x="308" y="195" width="53" height="54"/>
+                                                    <rect key="frame" x="318.5" y="195" width="42.5" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="17:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXm-UT-TyB">
-                                                            <rect key="frame" x="5.5" y="0.0" width="42.5" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="42.5" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_cas" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-Sa-VpN">
-                                                            <rect key="frame" x="12.5" y="23.5" width="28" height="30.5"/>
+                                                            <rect key="frame" x="7.5" y="23.5" width="28" height="30.5"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
@@ -637,20 +627,19 @@
                                                 <constraint firstAttribute="bottom" secondItem="ZDU-qr-Rj8" secondAttribute="bottom" id="0pz-Rq-CHE"/>
                                                 <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="RgW-ft-RUD" secondAttribute="bottom" constant="6" id="22t-S3-EIa"/>
                                                 <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="0P2-Rt-77b" secondAttribute="bottom" constant="8" id="4Hd-x8-WlO"/>
+                                                <constraint firstItem="JUe-sG-PKa" firstAttribute="top" secondItem="R9A-eI-huD" secondAttribute="bottom" constant="5" id="9Kp-ip-bpY"/>
                                                 <constraint firstItem="R9A-eI-huD" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" id="BL3-Z6-N7X"/>
-                                                <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="Qjh-v5-0aD" secondAttribute="bottom" constant="2" id="I6w-DF-CBH"/>
-                                                <constraint firstItem="Qjh-v5-0aD" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leading" constant="111" id="KAt-ML-76W"/>
+                                                <constraint firstItem="CSn-px-7wb" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="Fvc-C6-Uo8"/>
+                                                <constraint firstItem="JUe-sG-PKa" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="KVp-SY-XdQ"/>
                                                 <constraint firstItem="R9A-eI-huD" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" id="MhE-tD-lid"/>
                                                 <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="255" id="Mp8-f0-8ae"/>
                                                 <constraint firstAttribute="trailing" secondItem="R9A-eI-huD" secondAttribute="trailing" id="QxN-oF-ZHd"/>
                                                 <constraint firstAttribute="trailing" secondItem="RgW-ft-RUD" secondAttribute="trailing" constant="14" id="aQT-w9-zwd"/>
-                                                <constraint firstItem="0P2-Rt-77b" firstAttribute="centerY" secondItem="Qjh-v5-0aD" secondAttribute="centerY" id="dNJ-pN-agV"/>
                                                 <constraint firstItem="0P2-Rt-77b" firstAttribute="top" secondItem="R9A-eI-huD" secondAttribute="bottom" constant="5" id="gd3-fr-C0s"/>
-                                                <constraint firstItem="Qjh-v5-0aD" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="nFX-VB-mWb"/>
+                                                <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="CSn-px-7wb" secondAttribute="bottom" constant="7" id="gss-Kb-nvz"/>
                                                 <constraint firstItem="R9A-eI-huD" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="oDH-dF-oJo"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZDU-qr-Rj8" secondAttribute="trailing" id="sWx-rE-VSu"/>
                                                 <constraint firstItem="0P2-Rt-77b" firstAttribute="leading" secondItem="gOU-t9-LOF" secondAttribute="leadingMargin" id="tpe-2q-cPD"/>
-                                                <constraint firstItem="RgW-ft-RUD" firstAttribute="leading" secondItem="Qjh-v5-0aD" secondAttribute="trailing" constant="44" id="vPj-x9-EFP"/>
                                                 <constraint firstItem="RgW-ft-RUD" firstAttribute="top" secondItem="R9A-eI-huD" secondAttribute="bottom" constant="5" id="xGB-gH-otZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -916,7 +905,6 @@
         <image name="tab_lokalizator" width="28" height="28"/>
         <image name="tab_objavuj" width="28" height="28"/>
         <image name="tlacidlo" width="178" height="29"/>
-        <image name="udalosti_tab_podla_pozicie" width="28" height="28"/>
         <image name="vstup" width="178" height="29"/>
         <image name="ziadne_udalosti" width="316" height="358"/>
         <image name="zoznam_cas" width="28" height="28"/>

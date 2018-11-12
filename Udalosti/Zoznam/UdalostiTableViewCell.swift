@@ -18,11 +18,21 @@ class UdalostiTableViewCell: UITableViewCell {
     @IBOutlet weak var miesto: UILabel!
     @IBOutlet weak var cas: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
+        print("Metoda setSelected - UdalostiTableViewCell bola vykonana")
+
         super.setSelected(selected, animated: animated)
+    }
+    
+    override func prepareForReuse() {
+        print("Metoda prepareForReuse - UdalostiTableViewCell bola vykonana")
+
+        self.obrazok.image = nil
+        self.datum.text = nil
+        self.mesiac.text = nil
+        self.nazov.text = nil
+        self.mesto.text = nil
+        self.miesto.text = nil
+        self.cas.text = nil
     }
 }

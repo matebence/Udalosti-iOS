@@ -56,15 +56,18 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
         self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
-        self.statPrihlasenia()
+        self.ziskajData()
     }
     
-    func statPrihlasenia(){
-        print("Metoda statPrihlasenia bola vykonana")
+    func ziskajData(){
+        print("Metoda ziskajData bola vykonana")
 
         let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
         self.titul.title = miesto.value(forKey: "stat") as? String
-        self.nacitajZoznamUdalosti(miesto: miesto)
+        
+        if self.udalosti.count == 0 {
+            self.nacitajZoznamUdalosti(miesto: miesto)
+        }
     }
     
     func nacitajZoznamUdalosti(miesto: NSDictionary){
@@ -79,26 +82,26 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Metoda tableView - Objavuj bola vykonana")
-
+        
         let riadokUdalosti = tableView.dequeueReusableCell(withIdentifier: "udalosti", for: indexPath) as! UdalostiTableViewCell
         
         let udalost: Udalost
         udalost = udalosti[indexPath.row]
         
-        riadokUdalosti.datum.text = udalost.den
-        riadokUdalosti.mesiac.text = udalost.mesiac
-        riadokUdalosti.nazov.text = udalost.nazov
-        riadokUdalosti.mesto.text = udalost.mesto
-        riadokUdalosti.miesto.text = udalost.ulica
-        riadokUdalosti.cas.text = udalost.cas
+        riadokUdalosti.datum?.text = udalost.den
+        riadokUdalosti.mesiac?.text = udalost.mesiac
+        riadokUdalosti.nazov?.text = udalost.nazov
+        riadokUdalosti.mesto?.text = udalost.mesto
+        riadokUdalosti.miesto?.text = udalost.ulica
+        riadokUdalosti.cas?.text = udalost.cas
         
         Alamofire.request(delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
             debugPrint(response)
             
             if let obrazokUdalosti = response.result.value {
-                riadokUdalosti.obrazok.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: riadokUdalosti.obrazok.frame.width)
+                riadokUdalosti.obrazok?.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: riadokUdalosti.obrazok.frame.width)
             }else {
-                riadokUdalosti.obrazok.image = UIImage(named: "chyba_obrazka")!
+                riadokUdalosti.obrazok?.image = UIImage(named: "chyba_obrazka")!
                 riadokUdalosti.obrazok.contentMode = .scaleAspectFill;
             }
         }
@@ -130,7 +133,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
                 ziadneUdalosti.isHidden = true
                 for i in 0..<data!.count{
                     self.udalosti.append(Udalost(
-                        idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? integer_t,
+                        idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
                         obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
                         nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
                         den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
@@ -138,9 +141,9 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
                         cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
                         mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
                         ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
-                        vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? float_t)!,
-                        zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? integer_t)!,
-                        zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? integer_t)!
+                        vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
+                        zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
+                        zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
                     ))
                 }
                 self.zoznamUdalosti.reloadData()
