@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
-class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
+class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, KommunikaciaOdpoved {
     
     var autentifikaciaUdaje : AutentifikaciaUdaje!
+    var manazerPozicie:CLLocationManager!
+
+    var ipPozicia = true
+    var spracovane = false
     
     @IBOutlet weak var vstupEmailu: UITextField!
     @IBOutlet weak var vstupHesla: UITextField!
@@ -19,10 +24,32 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     @IBAction func prihlasitSa(_ sender: UIButton) {
         print("Metoda prihlasitSa bola vykonana")
         
-        self.nacitavanie.isHidden = false
-        self.autentifikaciaUdaje.miestoPrihlasenia(
-            email: vstupEmailu.text!,
-            heslo: vstupHesla.text!)
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            
+            let cas = 20.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + cas) {
+                if(self.ipPozicia){
+                    self.autentifikaciaUdaje.miestoPrihlasenia(
+                        email: self.vstupEmailu.text!,
+                        heslo: self.vstupHesla.text!)
+                    
+                    self.nacitavanie.isHidden = false
+                    self.manazerPozicie.stopUpdatingLocation()
+                }
+            }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                self.manazerPozicie.startUpdatingLocation()
+            }
+            
+        }else{
+            self.autentifikaciaUdaje.miestoPrihlasenia(
+                email: vstupEmailu.text!,
+                heslo: vstupHesla.text!)
+            
+            self.nacitavanie.isHidden = false
+        }
     }
     
     @objc func klavesnica() {
@@ -65,8 +92,14 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     
     func inicializacia(){
         print("Metoda inicializacia - Prihlasenie bola vykonana")
-
+        
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
+        
+        self.manazerPozicie = CLLocationManager()
+        self.manazerPozicie.delegate = self
+        self.manazerPozicie.desiredAccuracy = kCLLocationAccuracyBest
+        self.manazerPozicie.requestWhenInUseAuthorization()
+        
         self.vstupEmailu.delegate = self
         self.vstupHesla.delegate = self
         
@@ -87,12 +120,38 @@ class Prihlasenie: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         UIView.commitAnimations()
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Metoda locationManager - Prihlasenie bola vykonana")
+
+        if(!spracovane){
+            spracovane = true;
+            let pozicia:CLLocation = locations[0] as CLLocation
+            
+            self.ipPozicia = false;
+            self.autentifikaciaUdaje.miestoPrihlasenia(
+                email: vstupEmailu.text!,
+                heslo: vstupHesla.text!,
+                zemepisnaSirka: pozicia.coordinate.latitude,
+                zemepisnaDlzka: pozicia.coordinate.longitude,
+                aktualizuj: false)
+            
+            self.nacitavanie.isHidden = false
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Metoda locationManager - Prihlasenie bola vykonana")
+    }
+    
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
         print("Metoda odpovedServera - Prihlasenie bola vykonana")
 
         if Pripojenie.spojenieExistuje(){
             switch od {
             case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
+                self.manazerPozicie.stopUpdatingLocation()
+
                 if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                     let email =  udaje!.value(forKey: "email") as! String
                     let heslo = udaje!.value(forKey: "heslo") as! String

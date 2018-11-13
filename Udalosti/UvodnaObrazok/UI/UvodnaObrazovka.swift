@@ -5,14 +5,21 @@
 //  Created by Bence Mate on 8/8/18.
 //  Copyright © 2018 Bence Mate. All rights reserved.
 //
-import UIKit
 
-class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
+import UIKit
+import CoreLocation
+
+class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, KommunikaciaOdpoved {
 
     var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     var autentifikaciaUdaje: AutentifikaciaUdaje!
+    
+    var manazerPozicie:CLLocationManager!
     var pouzivatelskeUdaje: NSDictionary!
-
+    
+    var ipPozicia = true
+    var spracovane = false
+    
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +62,13 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
         
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
+        
+        self.manazerPozicie = CLLocationManager()
+        self.manazerPozicie.delegate = self
+        self.manazerPozicie.desiredAccuracy = kCLLocationAccuracyBest
+        self.manazerPozicie.requestWhenInUseAuthorization()
+        
+        self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
     }
     
     func pristup(){
@@ -62,8 +76,32 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
 
         if Pripojenie.spojenieExistuje(){
             if(uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje()){
-                self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
-                autentifikaciaUdaje.miestoPrihlasenia(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String, heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String)
+                if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+                    CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+                    
+                    let cas = 20.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + cas) {
+                        if(self.ipPozicia){
+                            self.autentifikaciaUdaje.miestoPrihlasenia(
+                                email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
+                                heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String)
+                            
+                            self.nacitavanie.isHidden = false
+                            self.manazerPozicie.stopUpdatingLocation()
+                        }
+                    }
+                    
+                    if CLLocationManager.locationServicesEnabled() {
+                        self.manazerPozicie.startUpdatingLocation()
+                    }
+                    
+                }else{
+                    self.autentifikaciaUdaje.miestoPrihlasenia(
+                        email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
+                        heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String)
+                    
+                    self.nacitavanie.isHidden = false
+                }
             }else{
                 performSegue(withIdentifier: "automatickePrihlasenie", sender: nil)
             }
@@ -72,18 +110,44 @@ class UvodnaObrazovka: UIViewController, KommunikaciaOdpoved {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Metoda locationManager - UvodnaObrazovka bola vykonana")
+        
+        if(!spracovane){
+            spracovane = true
+            let pozicia:CLLocation = locations[0] as CLLocation
+            
+            self.ipPozicia = false;
+            self.autentifikaciaUdaje.miestoPrihlasenia(
+                email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
+                heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String,
+                zemepisnaSirka: pozicia.coordinate.latitude,
+                zemepisnaDlzka: pozicia.coordinate.longitude,
+                aktualizuj: false)
+            
+            self.nacitavanie.isHidden = false
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Metoda locationManager - UvodnaObrazovka bola vykonana")
+    }
+    
     func odpovedServera(odpoved: String, od: String, udaje: NSDictionary?) {
         print("Metoda odpovedServera - UvodnaObrazovka bola vykonana")
 
         switch od {
         case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
+            self.manazerPozicie.stopUpdatingLocation()
+
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 let email =  udaje!.value(forKey: "email") as! String
                 let heslo = udaje!.value(forKey: "heslo") as! String
                 let token =  udaje!.value(forKey: "token") as! String
                 
                 self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
-                
+
                 let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                 let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
                 

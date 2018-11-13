@@ -131,22 +131,29 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         case Nastavenia.UDALOSTI_OBJAVUJ:
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 ziadneUdalosti.isHidden = true
-                for i in 0..<data!.count{
-                    self.udalosti.append(Udalost(
-                        idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
-                        obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
-                        nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
-                        den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
-                        mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 3)+".",
-                        cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
-                        mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
-                        ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
-                        vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
-                        zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
-                        zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
-                    ))
+                ziadneUdalosti.image = UIImage(named: "ziadne_udalosti")
+                
+                if(data != nil){
+                    for i in 0..<data!.count{
+                        self.udalosti.append(Udalost(
+                            idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
+                            obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
+                            nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
+                            den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
+                            mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 3)+".",
+                            cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
+                            mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
+                            ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
+                            vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
+                            zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
+                            zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
+                        ))
+                    }
+                    self.zoznamUdalosti.reloadData()
+                }else{
+                    ziadneUdalosti.isHidden = false
+                    ziadneUdalosti.image = UIImage(named: "ziadne_spojenie")
                 }
-                self.zoznamUdalosti.reloadData()
             } else if(odpoved == Nastavenia.CHYBA){
                 ziadneUdalosti.isHidden = false
             }

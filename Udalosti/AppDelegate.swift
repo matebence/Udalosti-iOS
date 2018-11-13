@@ -11,8 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let udalostiAdresa = "http://app-udalosti.8u.cz/";
     let ipAdresa = "http://ip-api.com/";
+    let udalostiAdresa = "http://app-udalosti.8u.cz/";
     let geoAdresa = "https://eu1.locationiq.com/v1/reverse.php?key=" + Nastavenia.POZICIA_TOKEN;
 
     var window: UIWindow?

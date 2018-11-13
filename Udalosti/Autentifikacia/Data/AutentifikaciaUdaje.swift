@@ -25,67 +25,73 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
 
     func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj: Bool) {
         print("Metoda miestoPrihlasenia bola vykonana")
-
+        
         let adresa = "\(delegate.geoAdresa)&lat=\(zemepisnaSirka)&lon=\(zemepisnaDlzka)&format=\(Nastavenia.POZICIA_FORMAT)&accept-language=\(Nastavenia.POZICIA_JAZYK)"
-
+        
         Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
             {
                 response in
                 if let odpoved = response.result.value{
+
+                    var udaje = odpoved as! NSDictionary
                     
-                    let udaje = odpoved as! NSDictionary
-                    var pozicia, okres, kraj, psc, stat, znakStatu:String
-                    
-                    pozicia = ""
-                    okres = ""
-                    kraj = ""
-                    psc = ""
-                    stat = ""
-                    znakStatu = ""
-                    
-                    if(udaje.value(forKey: "city_district") != nil){
-                        pozicia = udaje.value(forKey: "city_district") as! String
-                    }
-                    if(udaje.value(forKey: "city") != nil){
-                        okres = udaje.value(forKey: "city") as! String
-                    }
-                    if(udaje.value(forKey: "state") != nil){
-                        kraj = udaje.value(forKey: "state") as! String
-                    }
-                    if(udaje.value(forKey: "postcode") != nil){
-                        psc = udaje.value(forKey: "postcode") as! String
-                    }
-                    if(udaje.value(forKey: "country") != nil){
-                        stat = udaje.value(forKey: "country") as! String
-                    }
-                    if(udaje.value(forKey: "country_code") != nil){
-                        znakStatu = udaje.value(forKey: "country_code") as! String
-                    }
-                    
-                    if (self.sqliteDatabaza.miesto()){
-                        self.sqliteDatabaza.aktualizujMiesto(
-                            pozicia: pozicia,
-                            okres: okres,
-                            kraj: kraj,
-                            psc: psc,
-                            stat: stat,
-                            znakStatu: znakStatu)
+                    if(udaje.value(forKey: "address") != nil){
+                        udaje = udaje.value(forKey: "address") as! NSDictionary
+                        var pozicia, okres, kraj, psc, stat, znakStatu:String
+                        
+                        pozicia = ""
+                        okres = ""
+                        kraj = ""
+                        psc = ""
+                        stat = ""
+                        znakStatu = ""
+                        
+                        if(udaje.value(forKey: "city_district") != nil){
+                            pozicia = udaje.value(forKey: "city_district") as! String
+                        }
+                        if(udaje.value(forKey: "city") != nil){
+                            okres = udaje.value(forKey: "city") as! String
+                        }
+                        if(udaje.value(forKey: "state") != nil){
+                            kraj = udaje.value(forKey: "state") as! String
+                        }
+                        if(udaje.value(forKey: "postcode") != nil){
+                            psc = udaje.value(forKey: "postcode") as! String
+                        }
+                        if(udaje.value(forKey: "country") != nil){
+                            stat = udaje.value(forKey: "country") as! String
+                        }
+                        if(udaje.value(forKey: "country_code") != nil){
+                            znakStatu = udaje.value(forKey: "country_code") as! String
+                        }
+                        
+                        if (self.sqliteDatabaza.miesto()){
+                            self.sqliteDatabaza.aktualizujMiesto(
+                                pozicia: pozicia,
+                                okres: okres,
+                                kraj: kraj,
+                                psc: psc,
+                                stat: stat,
+                                znakStatu: znakStatu)
+                        }else{
+                            self.sqliteDatabaza.noveMiesto(
+                                pozicia: pozicia,
+                                okres: okres,
+                                kraj: kraj,
+                                psc: psc,
+                                stat: stat,
+                                znakStatu: znakStatu)
+                        }
+                        
+                        if(aktualizuj){
+                            self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI_AKTUALIZUJ, udaje:nil)
+                        }else{
+                            self.prihlasenie(
+                                email: email,
+                                heslo: heslo)
+                        }
                     }else{
-                        self.sqliteDatabaza.noveMiesto(
-                            pozicia: pozicia,
-                            okres: okres,
-                            kraj: kraj,
-                            psc: psc,
-                            stat: stat,
-                            znakStatu: znakStatu)
-                    }
-                    
-                    if(aktualizuj){
-                        self.kommunikaciaOdpoved.odpovedServera(odpoved: Nastavenia.VSETKO_V_PORIADKU, od: Nastavenia.UDALOSTI_AKTUALIZUJ, udaje:nil)
-                    }else{
-                        self.prihlasenie(
-                            email: email,
-                            heslo: heslo)
+                        self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
                     }
                 }else{
                     self.kommunikaciaOdpoved.odpovedServera(odpoved: "Server je momentalne nedostupný!", od: Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje:nil)
@@ -108,7 +114,9 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     
                     if(udaje.value(forKey: "country") != nil){
                         stat = udaje.value(forKey: "country") as! String
-                        stat = "Slovensko"
+                        if((stat == "Slovakia") || (stat == "Slovak Republic")){
+                            stat = "Slovensko"
+                        }
                     }
                     
                     if (self.sqliteDatabaza.miesto()){
