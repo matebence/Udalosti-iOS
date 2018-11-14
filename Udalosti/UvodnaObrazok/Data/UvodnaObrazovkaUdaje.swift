@@ -21,12 +21,12 @@ class UvodnaObrazovkaUdaje : UvodnaObrazovkaImplementacia{
     func zistiCiPouzivatelExistuje() -> Bool {
         print("Metoda zistiCiPouzivatelExistuje bola vykonana")
         
-        return sqliteDatabaza.pouzivatel()
+        return self.sqliteDatabaza.pouzivatel()
     }
     
     func prihlasPouzivatela() -> NSDictionary {
         print("Metoda prihlasPouzivatela bola vykonana")
         
-        return sqliteDatabaza.vratPouzivatela()!
+        return self.sqliteDatabaza.vratPouzivatela()!
     }
 }

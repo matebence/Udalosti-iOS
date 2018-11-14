@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        window?.rootViewController = obsah
-        window?.makeKeyAndVisible()
+        self.window?.rootViewController = obsah
+        self.window?.makeKeyAndVisible()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -38,7 +38,7 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         print("Metoda viewDidLoad - RychlaUkazkaAplikacie bola vykonana")
 
         super.viewDidLoad()
-        self.inicializacia()
+        inicializacia()
     }
     
     func inicializacia(){

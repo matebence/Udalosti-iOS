@@ -28,7 +28,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func zoznamUdalosti(email: String, stat: String, token: String) {
         print("Metoda zoznamUdalosti bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_UDALOSTI
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_UDALOSTI
         let vstup: Parameters=[
             "email":email,
             "stat":stat,
@@ -55,7 +55,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func zoznamUdalostiPodlaPozicie(email: String, stat: String, okres: String, mesto: String, token: String) {
         print("Metoda zoznamUdalostiPodlaPozicie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_UDALOSTI_PODLA_POZCIE
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_UDALOSTI_PODLA_POZCIE
         let vstup: Parameters=[
             "email":email,
             "stat":stat,
@@ -85,7 +85,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func zoznamZaujmov(email: String, token: String) {
         print("Metoda zoznamZaujmov bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_ZAUJMOV
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ZOZNAM_ZAUJMOV
         let vstup: Parameters=[
             "email":email,
             "token":token
@@ -112,7 +112,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func zaujem(email: String, token: String, idUdalost: integer_t) {
         print("Metoda zaujem bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ZAUJEM
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ZAUJEM
         let vstup: Parameters=[
             "email":email,
             "token":token,
@@ -140,7 +140,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func potvrdZaujem(email: String, token: String, idUdalost: integer_t) {
         print("Metoda potvrdZaujem bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_POTVRD_ZAUJEM
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_POTVRD_ZAUJEM
         let vstup: Parameters=[
             "email":email,
             "token":token,
@@ -168,7 +168,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func odstranZaujem(email: String, token: String, idUdalost: integer_t) {
         print("Metoda odstranZaujem bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ODSTRAN_ZAUJEM
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ODSTRAN_ZAUJEM
         let vstup: Parameters=[
             "email":email,
             "token":token,
@@ -203,7 +203,7 @@ class UdalostiUdaje : UdalostiImplementacia {
     func odhlasenie(email: String) {
         print("Metoda odhlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_ODHLASENIE
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ODHLASENIE
         let vstup: Parameters=[
             "email":email
         ]
@@ -229,6 +229,6 @@ class UdalostiUdaje : UdalostiImplementacia {
     func automatickePrihlasenieVypnute(email: String) {
         print("Metoda automatickePrihlasenieVypnute bola vykonana")
         
-        sqliteDatabaza.odstranPouzivatela(email: email)
+        self.sqliteDatabaza.odstranPouzivatela(email: email)
     }
 }

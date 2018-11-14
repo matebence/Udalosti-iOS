@@ -29,7 +29,7 @@ class Autentifikacia: UINavigationController, KommunikaciaOdpoved {
         print("Metoda viewDidLoad - Autentifikacia bola vykonana")
 
         super.viewDidLoad()
-        self.inicializacia()
+        inicializacia()
     }
 
     func inicializacia(){
@@ -42,7 +42,7 @@ class Autentifikacia: UINavigationController, KommunikaciaOdpoved {
     func automatickePrihlasenieChyba(){
         print("Metoda automatickePrihlasenieChyba bola vykonana")
         
-        if let ucetNepristupny = chyba {
+        if let ucetNepristupny = self.chyba {
             if ucetNepristupny {
                 let chyba = UIAlertController(title: "Chyba", message: "Prosím prihláste sa!", preferredStyle: UIAlertController.Style.alert)
                 chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))

@@ -28,7 +28,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     @IBAction func odhlasitSa(_ sender: UIBarButtonItem) {
         print("Metoda odhlasitSa - Objavuj bola vykonana")
 
-        udalostiUdaje.odhlasenie(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
+        self.udalostiUdaje.odhlasenie(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -46,8 +46,8 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     override func viewDidLoad() {
         print("Metoda viewDidLoad - Objavuj bola vykonana")
 
-        super.viewDidLoad()
-        self.inicializacia()
+        super.viewDidLoad()       
+        inicializacia()
     }
     
     func inicializacia (){
@@ -55,14 +55,14 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         
         self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
-        self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+        self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
         self.ziskajData()
     }
     
     func ziskajData(){
         print("Metoda ziskajData bola vykonana")
 
-        let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
+        let miesto: NSDictionary = self.udalostiUdaje.miestoPrihlasenia()
         self.titul.title = miesto.value(forKey: "stat") as? String
         
         if self.udalosti.count == 0 {
@@ -75,18 +75,41 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         
         self.nacitavanie.isHidden = false
         self.udalostiUdaje.zoznamUdalosti(
-            email: pouzivatelskeUdaje.value(forKey: "email") as! String,
+            email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
             stat: miesto.value(forKey: "stat") as! String,
-            token: pouzivatelskeUdaje.value(forKey: "token") as! String)
+            token: self.pouzivatelskeUdaje.value(forKey: "token") as! String)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Metoda tableView - numberOfRowsInSection - Objavuj bola vykonana")
+        
+        return self.udalosti.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("Metoda tableView - willDisplay - Objavuj bola vykonana")
+        
+        cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.8) {
+            cell.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Metoda tableView - didSelectRowAt - Objavuj bola vykonana")
+        
+        let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+        let podrobnostiUdalosti = udalosti.instantiateViewController(withIdentifier: "Podrobnosti") as! Podrobnosti
+        self.navigationController?.pushViewController(podrobnostiUdalosti, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Metoda tableView - Objavuj bola vykonana")
+        print("Metoda tableView - cellForRowAt - Objavuj bola vykonana")
         
         let riadokUdalosti = tableView.dequeueReusableCell(withIdentifier: "udalosti", for: indexPath) as! UdalostiTableViewCell
         
         let udalost: Udalost
-        udalost = udalosti[indexPath.row]
+        udalost = self.udalosti[indexPath.row]
         
         riadokUdalosti.datum?.text = udalost.den
         riadokUdalosti.mesiac?.text = udalost.mesiac
@@ -95,7 +118,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         riadokUdalosti.miesto?.text = udalost.ulica
         riadokUdalosti.cas?.text = udalost.cas
         
-        Alamofire.request(delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
+        Alamofire.request(self.delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
             debugPrint(response)
             
             if let obrazokUdalosti = response.result.value {
@@ -107,21 +130,6 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         }
 
         return riadokUdalosti
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Metoda tableView - Objavuj bola vykonana")
-
-        return udalosti.count
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("Metoda tableView - Objavuj bola vykonana")
-
-        cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        UIView.animate(withDuration: 0.8) {
-            cell.transform = CGAffineTransform.identity
-        }
     }
     
     func dataZoServera(odpoved: String, od: String, data: NSArray?) {
@@ -171,7 +179,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 print("Odhlasenie prebehlo uspesne")
-                udalostiUdaje.automatickePrihlasenieVypnute(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
+                udalostiUdaje.automatickePrihlasenieVypnute(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
                 
                 let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                 let autentifikaciaController = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")

@@ -14,8 +14,8 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
     var autentifikaciaUdaje : AutentifikaciaUdaje!
     var manazerPozicie:CLLocationManager!
 
-    var ipPozicia = true
-    var spracovane = false
+    var poziadavka = true
+    var server = false
     
     @IBOutlet weak var vstupEmailu: UITextField!
     @IBOutlet weak var vstupHesla: UITextField!
@@ -29,7 +29,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
             
             let cas = 20.0
             DispatchQueue.main.asyncAfter(deadline: .now() + cas) {
-                if(self.ipPozicia){
+                if(self.poziadavka){
                     self.autentifikaciaUdaje.miestoPrihlasenia(
                         email: self.vstupEmailu.text!,
                         heslo: self.vstupHesla.text!)
@@ -45,8 +45,8 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
             
         }else{
             self.autentifikaciaUdaje.miestoPrihlasenia(
-                email: vstupEmailu.text!,
-                heslo: vstupHesla.text!)
+                email: self.vstupEmailu.text!,
+                heslo: self.vstupHesla.text!)
             
             self.nacitavanie.isHidden = false
         }
@@ -87,7 +87,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
         print("Metoda viewDidLoad - Prihlasenie bola vykonana")
 
         super.viewDidLoad()
-        self.inicializacia()
+        inicializacia()
     }
     
     func inicializacia(){
@@ -123,14 +123,14 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Metoda locationManager - Prihlasenie bola vykonana")
 
-        if(!spracovane){
-            spracovane = true;
+        if(!self.server){
+            self.server = true;
             let pozicia:CLLocation = locations[0] as CLLocation
             
-            self.ipPozicia = false;
+            self.poziadavka = false;
             self.autentifikaciaUdaje.miestoPrihlasenia(
-                email: vstupEmailu.text!,
-                heslo: vstupHesla.text!,
+                email: self.vstupEmailu.text!,
+                heslo: self.vstupHesla.text!,
                 zemepisnaSirka: pozicia.coordinate.latitude,
                 zemepisnaDlzka: pozicia.coordinate.longitude,
                 aktualizuj: false)
@@ -161,6 +161,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
                         email: email,
                         heslo: heslo,
                         token: token)
+                    self.server = false
                     
                     let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                     let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
@@ -168,7 +169,9 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
                 }else{
                     let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
                     chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
+                    
                     self.present(chyba, animated: true, completion: nil)
+                    self.server = false
                 }
                 break;
             default: break
@@ -178,6 +181,6 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
             chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
             self.present(chyba, animated: true, completion: nil)
         }
-        nacitavanie.isHidden = true
+        self.nacitavanie.isHidden = true
     }
 }

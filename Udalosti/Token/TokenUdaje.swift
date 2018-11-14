@@ -25,8 +25,8 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
     func zrusToken() {
         print("Metoda zrusToken bola vykonana")
 
-        if uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje() {
-            let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+        if self.uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje() {
+            let pouzivatelskeUdaje: NSDictionary = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
             self.udalostiUdaje.odhlasenie(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
             
             Nastavenia.TOKEN = true
@@ -36,10 +36,10 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
     func novyToken() {
         print("Metoda novyToken bola vykonana")
 
-        if Nastavenia.TOKEN && uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje(){
-            let pouzivatelskeUdaje: NSDictionary = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+        if Nastavenia.TOKEN && self.uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje(){
+            let pouzivatelskeUdaje: NSDictionary = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
 
-            autentifikaciaUdaje.prihlasenie(
+            self.autentifikaciaUdaje.prihlasenie(
                 email: pouzivatelskeUdaje.value(forKey: "email") as! String,
                 heslo: pouzivatelskeUdaje.value(forKey: "heslo") as! String)
         }

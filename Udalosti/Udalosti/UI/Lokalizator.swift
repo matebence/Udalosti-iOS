@@ -28,7 +28,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBAction func odhlasitSa(_ sender: UIBarButtonItem) {
         print("Metoda odhlasitSa - UdalostiPodlaPozacie bola vykonana")
 
-        udalostiUdaje.odhlasenie(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
+        self.udalostiUdaje.odhlasenie(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -46,8 +46,8 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         print("Metoda viewDidLoad - UdalostiPodlaPozacie bola vykonana")
 
-        super.viewDidLoad()
-        self.inicializacia()
+        super.viewDidLoad()        
+        inicializacia()
     }
     
     func inicializacia (){
@@ -55,14 +55,14 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
-        self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+        self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
         self.miestoPrihlasenia()
     }
     
     func miestoPrihlasenia(){
         print("Metoda miestoPrihlasenia bola vykonana")
         
-        let miesto: NSDictionary = udalostiUdaje.miestoPrihlasenia()
+        let miesto: NSDictionary = self.udalostiUdaje.miestoPrihlasenia()
         if miesto.value(forKey: "pozicia") as! String != "" {
             self.titul.title = "Okolie \(miesto.value(forKey: "pozicia") ?? "Pozícia neurčená")"
         }else if miesto.value(forKey: "okres") as! String != "" {
@@ -73,7 +73,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
             self.titul.title = "Pozícia neurčená"
         }
         
-        if udalostiPodlaPozicie.count == 0{
+        if self.udalostiPodlaPozicie.count == 0{
             self.nacitajZoznamUdalostiPodlaPozicie(miesto: miesto)
         }
     }
@@ -83,21 +83,21 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         self.nacitavanie.isHidden = false
         self.udalostiUdaje.zoznamUdalostiPodlaPozicie(
-            email: pouzivatelskeUdaje.value(forKey: "email") as! String,
+            email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
             stat: miesto.value(forKey: "stat") as! String,
             okres: miesto.value(forKey: "okres") as! String,
             mesto: miesto.value(forKey: "pozicia") as! String,
-            token: pouzivatelskeUdaje.value(forKey: "token") as! String)
+            token: self.pouzivatelskeUdaje.value(forKey: "token") as! String)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Metoda tableView - UdalostiPodlaPozacie bola vykonana")
+        print("Metoda tableView - numberOfRowsInSection - UdalostiPodlaPozacie bola vykonana")
 
-        return udalostiPodlaPozicie.count
+        return self.udalostiPodlaPozicie.count
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("Metoda tableView - UdalostiPodlaPozacie bola vykonana")
+        print("Metoda tableView - willDisplay - UdalostiPodlaPozacie bola vykonana")
 
         cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UIView.animate(withDuration: 0.8) {
@@ -106,12 +106,12 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Metoda tableView - UdalostiPodlaPozacie bola vykonana")
+        print("Metoda tableView - cellForRowAt - UdalostiPodlaPozacie bola vykonana")
 
         let riadokUdalosti = tableView.dequeueReusableCell(withIdentifier: "udalostiPodlaPozicie", for: indexPath) as! UdalostiTableViewCell
         
         let udalost: Udalost
-        udalost = udalostiPodlaPozicie[indexPath.row]
+        udalost = self.udalostiPodlaPozicie[indexPath.row]
 
         riadokUdalosti.datum?.text = udalost.den
         riadokUdalosti.mesiac?.text = udalost.mesiac
@@ -120,7 +120,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         riadokUdalosti.miesto?.text = udalost.ulica
         riadokUdalosti.cas?.text = udalost.cas
         
-        Alamofire.request(delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
+        Alamofire.request(self.delegate.udalostiAdresa+udalost.obrazok!).responseImage { response in
             debugPrint(response)
             
             if let obrazokUdalosti = response.result.value {
@@ -181,7 +181,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 print("Odhlasenie prebehlo uspesne")
-                udalostiUdaje.automatickePrihlasenieVypnute(email: pouzivatelskeUdaje.value(forKey: "email") as! String)
+                self.udalostiUdaje.automatickePrihlasenieVypnute(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
                 
                 let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                 let autentifikaciaController = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")

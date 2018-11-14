@@ -26,7 +26,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj: Bool) {
         print("Metoda miestoPrihlasenia bola vykonana")
         
-        let adresa = "\(delegate.geoAdresa)&lat=\(zemepisnaSirka)&lon=\(zemepisnaDlzka)&format=\(Nastavenia.POZICIA_FORMAT)&accept-language=\(Nastavenia.POZICIA_JAZYK)"
+        let adresa = "\(self.delegate.geoAdresa)&lat=\(zemepisnaSirka)&lon=\(zemepisnaDlzka)&format=\(Nastavenia.POZICIA_FORMAT)&accept-language=\(Nastavenia.POZICIA_JAZYK)"
         
         Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
             {
@@ -102,7 +102,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func miestoPrihlasenia(email: String, heslo: String) {
         print("Metoda miestoPrihlasenia bola vykonana")
         
-        let adresa = delegate.ipAdresa+Nastavenia.SERVER_GEO_IP
+        let adresa = self.delegate.ipAdresa+Nastavenia.SERVER_GEO_IP
         
         Alamofire.request(adresa, method: .get, parameters: nil).responseJSON
             {
@@ -149,7 +149,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func prihlasenie(email: String, heslo: String) {
         print("Metoda prihlasenie bola vykonana")
         
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_PRIHLASENIE
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_PRIHLASENIE
         let vstup: Parameters=[
             "email":email,
             "heslo":heslo,
@@ -196,7 +196,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
     func registracia(meno: String, email: String, heslo: String, potvrd: String) {
         print("Metoda registracia bola vykonana")
 
-        let adresa = delegate.udalostiAdresa+Nastavenia.SERVER_REGISTRACIA
+        let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_REGISTRACIA
         let vstup: Parameters=[
             "email":email,
             "meno":meno,

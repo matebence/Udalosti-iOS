@@ -15,7 +15,7 @@ class Navigacia: SwipeableTabBarController{
         print("Metoda viewDidLoad - NavigaciaUdalosti bola vykonana")
 
         super.viewDidLoad()
-        self.nastavGesta()
+        nastavGesta()
     }
     
     func nastavGesta(){

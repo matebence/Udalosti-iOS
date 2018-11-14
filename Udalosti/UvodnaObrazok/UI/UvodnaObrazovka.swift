@@ -17,8 +17,8 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
     var manazerPozicie:CLLocationManager!
     var pouzivatelskeUdaje: NSDictionary!
     
-    var ipPozicia = true
-    var spracovane = false
+    var poziadavka = true
+    var server = false
     
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
@@ -26,7 +26,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         print("Metoda viewDidAppear - UvodnaObrazovka bola vykonana")
 
         self.nacitavanie.isHidden = false
-        self.pristup()
+        pristup()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,7 +54,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         print("Metoda viewDidLoad - UvodnaObrazovka bola vykonana")
 
         super.viewDidLoad()
-        self.inicializacia()
+        inicializacia()
     }
     
     func inicializacia(){
@@ -68,20 +68,20 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         self.manazerPozicie.desiredAccuracy = kCLLocationAccuracyBest
         self.manazerPozicie.requestWhenInUseAuthorization()
         
-        self.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela()
+        self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
     }
     
     func pristup(){
         print("Metoda pristup bola vykonana")
 
         if Pripojenie.spojenieExistuje(){
-            if(uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje()){
+            if(self.uvodnaObrazovkaUdaje.zistiCiPouzivatelExistuje()){
                 if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
                     CLLocationManager.authorizationStatus() ==  .authorizedAlways){
                     
                     let cas = 20.0
                     DispatchQueue.main.asyncAfter(deadline: .now() + cas) {
-                        if(self.ipPozicia){
+                        if(self.poziadavka){
                             self.autentifikaciaUdaje.miestoPrihlasenia(
                                 email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
                                 heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String)
@@ -113,11 +113,11 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Metoda locationManager - UvodnaObrazovka bola vykonana")
         
-        if(!spracovane){
-            spracovane = true
+        if(!self.server){
+            self.server = true
             let pozicia:CLLocation = locations[0] as CLLocation
             
-            self.ipPozicia = false;
+            self.poziadavka = false;
             self.autentifikaciaUdaje.miestoPrihlasenia(
                 email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
                 heslo: self.pouzivatelskeUdaje.value(forKey: "heslo")as! String,
@@ -147,14 +147,16 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
                 let token =  udaje!.value(forKey: "token") as! String
                 
                 self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
-
+                self.server = false
+                
                 let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
                 let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
                 
                 self.present(navigaciaUdalostiController, animated: true, completion: nil)
             }else{
                 performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
-                autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+                self.autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+                self.server = false
             }
             break;
         default: break

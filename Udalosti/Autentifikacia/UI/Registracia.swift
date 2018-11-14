@@ -26,9 +26,10 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
 
         self.nacitavanie.isHidden = false
         self.autentifikaciaUdaje.registracia(
-            meno: vstupPouzivatelskeMena.text!,
-            email: vstupEmailu.text!, heslo: vstupHesla.text!,
-            potvrd: vstupPotvrdenieHesla.text!)
+            meno: self.vstupPouzivatelskeMena.text!,
+            email: self.vstupEmailu.text!,
+            heslo: self.vstupHesla.text!,
+            potvrd: self.vstupPotvrdenieHesla.text!)
     }
     
     @objc func klavesnica() {
@@ -69,7 +70,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
     override func viewDidLoad() {
         print("Metoda viewDidLoad - Prihlasenie bola vykonana")
 
-        self.inicializacia()
+        inicializacia()
         super.viewDidLoad()
     }
     
@@ -133,6 +134,6 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
             chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
             self.present(chyba, animated: true, completion: nil)
         }
-        nacitavanie.isHidden = true
+        self.nacitavanie.isHidden = true
     }
 }
