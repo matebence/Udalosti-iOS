@@ -10,7 +10,7 @@ import UIKit
 
 class Autentifikacia: UINavigationController, KommunikaciaOdpoved {
 
-    var autentifikaciaUdaje : AutentifikaciaUdaje!
+    private var autentifikaciaUdaje : AutentifikaciaUdaje!
     var chyba: Bool?
     
     override func viewDidAppear(_ animated: Bool) {

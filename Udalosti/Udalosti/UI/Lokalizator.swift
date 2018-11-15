@@ -17,8 +17,8 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
     private var udalostiUdaje : UdalostiUdaje!
     private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     
-    var pouzivatelskeUdaje: NSDictionary!
-    var udalostiPodlaPozicie = [Udalost]()
+    private var pouzivatelskeUdaje: NSDictionary!
+    private var udalostiPodlaPozicie = [Udalost]()
     
     @IBOutlet weak var zoznamUdalostiPodlaPozicie: UITableView!
     @IBOutlet weak var titul: UINavigationItem!

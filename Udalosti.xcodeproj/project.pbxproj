@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		621728F4219C6F5100AE0A98 /* Podrobnosti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621728F3219C6F5100AE0A98 /* Podrobnosti.swift */; };
 		621728F6219C892800AE0A98 /* Zaujmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621728F5219C892800AE0A98 /* Zaujmy.swift */; };
+		621F0307219DB1890020C1B8 /* AktualizatorObsahu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621F0306219DB1890020C1B8 /* AktualizatorObsahu.swift */; };
+		621F0309219DB19B0020C1B8 /* Aktualizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621F0308219DB19B0020C1B8 /* Aktualizator.swift */; };
 		622DC2E22117050E00CA5D2C /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2D02117050C00CA5D2C /* Raleway-Light.ttf */; };
 		622DC2E32117050E00CA5D2C /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2D12117050C00CA5D2C /* Raleway-Regular.ttf */; };
 		622DC2E42117050E00CA5D2C /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622DC2D22117050D00CA5D2C /* Raleway-Medium.ttf */; };
@@ -86,6 +88,8 @@
 		416385FA724AF0FEAB83F586 /* Pods-Udalosti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udalosti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udalosti/Pods-Udalosti.debug.xcconfig"; sourceTree = "<group>"; };
 		621728F3219C6F5100AE0A98 /* Podrobnosti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podrobnosti.swift; sourceTree = "<group>"; };
 		621728F5219C892800AE0A98 /* Zaujmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zaujmy.swift; sourceTree = "<group>"; };
+		621F0306219DB1890020C1B8 /* AktualizatorObsahu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AktualizatorObsahu.swift; sourceTree = "<group>"; };
+		621F0308219DB19B0020C1B8 /* Aktualizator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aktualizator.swift; sourceTree = "<group>"; };
 		622DC2D02117050C00CA5D2C /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		622DC2D12117050C00CA5D2C /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		622DC2D22117050D00CA5D2C /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				621728F3219C6F5100AE0A98 /* Podrobnosti.swift */,
+				621F0306219DB1890020C1B8 /* AktualizatorObsahu.swift */,
+				621F0308219DB19B0020C1B8 /* Aktualizator.swift */,
 			);
 			path = Podrobnosti;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				62C6123C2154F9C900F7C623 /* Retazec.swift in Sources */,
 				6262182B211B724800AA53F8 /* UdalostiUdaje.swift in Sources */,
 				6262181C211B402000AA53F8 /* UvodnaObrazovkaImplementacia.swift in Sources */,
+				621F0309219DB19B0020C1B8 /* Aktualizator.swift in Sources */,
 				6269B194211DC27A008AFD17 /* UdalostiTableViewCell.swift in Sources */,
 				62C670982119EA8800A4B4B7 /* SQLiteTabulka.swift in Sources */,
 				62621829211B723D00AA53F8 /* UdalostiImplementacia.swift in Sources */,
@@ -682,6 +689,7 @@
 				6262181E211B402C00AA53F8 /* UvodnaObrazovkaUdaje.swift in Sources */,
 				62F9747E211ED0AA00989640 /* Obrazok.swift in Sources */,
 				62D66A5B2118D142000D8050 /* KommunikaciaData.swift in Sources */,
+				621F0307219DB1890020C1B8 /* AktualizatorObsahu.swift in Sources */,
 				62621827211B6F7900AA53F8 /* TokenImplementacia.swift in Sources */,
 				62E42C67211C544800038A01 /* Lokalizator.swift in Sources */,
 				62D66A502118A989000D8050 /* AutentifikaciaImplementacia.swift in Sources */,

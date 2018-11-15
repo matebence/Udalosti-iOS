@@ -17,8 +17,8 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     private var udalostiUdaje : UdalostiUdaje!
     private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     
-    var pouzivatelskeUdaje: NSDictionary!
-    var udalosti = [Udalost]()
+    private var pouzivatelskeUdaje: NSDictionary!
+    private var udalosti = [Udalost]()
     
     @IBOutlet weak var titul: UINavigationItem!
     @IBOutlet weak var zoznamUdalosti: UITableView!
@@ -100,6 +100,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         
         let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
         let podrobnostiUdalosti = udalosti.instantiateViewController(withIdentifier: "Podrobnosti") as! Podrobnosti
+        podrobnostiUdalosti.udalost = self.udalosti[indexPath.row]
         self.navigationController?.pushViewController(podrobnostiUdalosti, animated: true)
     }
     

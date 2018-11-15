@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let geoAdresa = "https://eu1.locationiq.com/v1/reverse.php?key=" + Nastavenia.POZICIA_TOKEN;
 
     var window: UIWindow?
-    var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
+    private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     
     func ukazkaAplikacie(){
         print("Metoda ukazkaAplikacie bola vykonana")

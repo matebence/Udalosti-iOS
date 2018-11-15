@@ -10,7 +10,7 @@ import UIKit
 
 class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
        
-    var autentifikaciaUdaje : AutentifikaciaUdaje!
+    private var autentifikaciaUdaje : AutentifikaciaUdaje!
     
     @IBOutlet weak var vstupPouzivatelskeMena: UITextField!
     @IBOutlet weak var vstupEmailu: UITextField!

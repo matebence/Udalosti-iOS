@@ -11,14 +11,14 @@ import CoreLocation
 
 class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, KommunikaciaOdpoved {
 
-    var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
-    var autentifikaciaUdaje: AutentifikaciaUdaje!
+    private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
+    private var autentifikaciaUdaje: AutentifikaciaUdaje!
     
-    var manazerPozicie:CLLocationManager!
-    var pouzivatelskeUdaje: NSDictionary!
+    private var manazerPozicie:CLLocationManager!
+    private var pouzivatelskeUdaje: NSDictionary!
     
-    var poziadavka = true
-    var server = false
+    private var poziadavka = true
+    private var server = false
     
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     

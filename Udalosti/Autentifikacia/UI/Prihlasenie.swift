@@ -11,11 +11,11 @@ import CoreLocation
 
 class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, KommunikaciaOdpoved {
     
-    var autentifikaciaUdaje : AutentifikaciaUdaje!
-    var manazerPozicie:CLLocationManager!
+    private var autentifikaciaUdaje : AutentifikaciaUdaje!
+    private var manazerPozicie:CLLocationManager!
 
-    var poziadavka = true
-    var server = false
+    private var poziadavka = true
+    private var server = false
     
     @IBOutlet weak var vstupEmailu: UITextField!
     @IBOutlet weak var vstupHesla: UITextField!
