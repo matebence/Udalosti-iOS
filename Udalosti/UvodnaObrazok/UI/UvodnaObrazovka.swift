@@ -57,7 +57,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         inicializacia()
     }
     
-    func inicializacia(){
+    private func inicializacia(){
         print("Metoda inicializacia - UvodnaObrazovka bola vykonana")
         
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
@@ -71,7 +71,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
     }
     
-    func pristup(){
+    private func pristup(){
         print("Metoda pristup bola vykonana")
 
         if Pripojenie.spojenieExistuje(){
@@ -126,6 +126,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
                 aktualizuj: false)
             
             self.nacitavanie.isHidden = false
+            self.manazerPozicie.stopUpdatingLocation()
         }
     }
     
@@ -138,28 +139,27 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
         print("Metoda odpovedServera - UvodnaObrazovka bola vykonana")
 
         switch od {
-        case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
-            self.manazerPozicie.stopUpdatingLocation()
+            case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
 
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                let email =  udaje!.value(forKey: "email") as! String
-                let heslo = udaje!.value(forKey: "heslo") as! String
-                let token =  udaje!.value(forKey: "token") as! String
-                
-                self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
-                self.server = false
-                
-                let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
-                
-                self.present(navigaciaUdalostiController, animated: true, completion: nil)
-            }else{
-                performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
-                self.autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
-                self.server = false
-            }
-            break;
-        default: break
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                    let email =  udaje!.value(forKey: "email") as! String
+                    let heslo = udaje!.value(forKey: "heslo") as! String
+                    let token =  udaje!.value(forKey: "token") as! String
+                    
+                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email: email, heslo: heslo, token: token)
+                    self.server = false
+                    
+                    let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+                    let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
+                    
+                    self.present(navigaciaUdalostiController, animated: true, completion: nil)
+                }else{
+                    performSegue(withIdentifier: "automatickePrihlasenie", sender: true)
+                    self.autentifikaciaUdaje.ucetJeNePristupny(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+                    self.server = false
+                }
+                break;
+            default: break
         }
         nacitavanie.isHidden = true
     }

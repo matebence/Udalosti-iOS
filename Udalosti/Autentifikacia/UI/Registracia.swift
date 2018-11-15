@@ -74,7 +74,7 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         super.viewDidLoad()
     }
     
-    func inicializacia(){
+    private func inicializacia(){
         print("Metoda inicializacia-Registracia bola vykonana")
         
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
@@ -88,13 +88,13 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
         view.addGestureRecognizer(vypnutKlavesnicu)
     }
     
-    func spustiPrihlasenie(){
+    private func spustiPrihlasenie(){
         print("Metoda spustiPrihlasenie bola vykonana")
 
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
-    func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
+    private func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
         print("Metoda posunVstupVyssie - Prihlasenie bola vykonana")
 
         let moveDuration = 0.3
@@ -112,22 +112,22 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
 
         if Pripojenie.spojenieExistuje(){
             switch od {
-            case Nastavenia.AUTENTIFIKACIA_REGISRACIA:
-                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                    let chyba = UIAlertController(title: "Úspech", message: "Registrácia prebehla úspešne", preferredStyle: UIAlertController.Style.alert)
-                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: {
-                        action in
-                        self.spustiPrihlasenie()
-                    }))
-                    self.present(chyba, animated: true, completion: nil)
-                }else{
-                    let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
-                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(chyba, animated: true, completion: nil)
-                }
-                break;
-            default:
-                break
+                case Nastavenia.AUTENTIFIKACIA_REGISRACIA:
+                    if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                        let chyba = UIAlertController(title: "Úspech", message: "Registrácia prebehla úspešne", preferredStyle: UIAlertController.Style.alert)
+                        chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: {
+                            action in
+                            self.spustiPrihlasenie()
+                        }))
+                        self.present(chyba, animated: true, completion: nil)
+                    }else{
+                        let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
+                        chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(chyba, animated: true, completion: nil)
+                    }
+                    break;
+                default:
+                    break
             }
         }else{
             let chyba = UIAlertController(title: "Chyba", message: "Žiadne spojenie", preferredStyle: UIAlertController.Style.alert)

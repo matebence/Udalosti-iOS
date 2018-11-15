@@ -18,7 +18,7 @@ class Navigacia: SwipeableTabBarController{
         nastavGesta()
     }
     
-    func nastavGesta(){
+    private func nastavGesta(){
         print("Metoda nastavGesta bola vykonana")
 
         selectedIndex = 0

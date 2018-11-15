@@ -16,11 +16,11 @@ protocol UdalostiImplementacia {
     
     func zoznamZaujmov(email: String, token:String)
     
-    func zaujem(email: String, token:String, idUdalost:integer_t)
+    func zaujem(email: String, token:String, idUdalost:Int)
     
-    func potvrdZaujem(email:String, token:String, idUdalost:integer_t)
+    func potvrdZaujem(email:String, token:String, idUdalost:Int)
     
-    func odstranZaujem(email:String, token:String, idUdalost:integer_t)
+    func odstranZaujem(email:String, token:String, idUdalost:Int)
     
     func miestoPrihlasenia() -> NSDictionary
 

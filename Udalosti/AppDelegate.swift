@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     
-    func ukazkaAplikacie(){
+    private func ukazkaAplikacie(){
         print("Metoda ukazkaAplikacie bola vykonana")
         
         let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = obsah
         self.window?.makeKeyAndVisible()
     }
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("Metoda application bola vykonana")
 

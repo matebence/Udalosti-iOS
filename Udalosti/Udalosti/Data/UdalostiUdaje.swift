@@ -109,7 +109,7 @@ class UdalostiUdaje : UdalostiImplementacia {
         }
     }
     
-    func zaujem(email: String, token: String, idUdalost: integer_t) {
+    func zaujem(email: String, token: String, idUdalost: Int) {
         print("Metoda zaujem bola vykonana")
 
         let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ZAUJEM
@@ -119,7 +119,7 @@ class UdalostiUdaje : UdalostiImplementacia {
             "idUdalost": idUdalost
         ]
         
-        Alamofire.request(adresa, method: .get, parameters: vstup).responseJSON
+        Alamofire.request(adresa, method: .post, parameters: vstup).responseJSON
             {
                 response in
                 if let odpoved = response.result.value{
@@ -137,7 +137,7 @@ class UdalostiUdaje : UdalostiImplementacia {
         }
     }
     
-    func potvrdZaujem(email: String, token: String, idUdalost: integer_t) {
+    func potvrdZaujem(email: String, token: String, idUdalost: Int) {
         print("Metoda potvrdZaujem bola vykonana")
 
         let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_POTVRD_ZAUJEM
@@ -165,7 +165,7 @@ class UdalostiUdaje : UdalostiImplementacia {
         }
     }
     
-    func odstranZaujem(email: String, token: String, idUdalost: integer_t) {
+    func odstranZaujem(email: String, token: String, idUdalost: Int) {
         print("Metoda odstranZaujem bola vykonana")
 
         let adresa = self.delegate.udalostiAdresa+Nastavenia.SERVER_ODSTRAN_ZAUJEM
@@ -175,7 +175,7 @@ class UdalostiUdaje : UdalostiImplementacia {
             "idUdalost": idUdalost
         ]
         
-        Alamofire.request(adresa, method: .get, parameters: vstup).responseJSON
+        Alamofire.request(adresa, method: .post, parameters: vstup).responseJSON
             {
                 response in
                 if let odpoved = response.result.value{

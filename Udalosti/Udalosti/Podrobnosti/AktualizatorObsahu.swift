@@ -34,7 +34,7 @@ class AktualizatorObsahu{
         self.aktualizator = aktualizator
     }
     
-    func aktualizuj() -> Void{
+    private func aktualizuj() -> Void{
         print("Metoda aktualizuj bola vykonana")
         
         self.aktualizator.aktualizujObsahZaujmov();

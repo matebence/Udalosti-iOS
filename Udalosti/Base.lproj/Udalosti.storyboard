@@ -397,7 +397,7 @@
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-WW-Lvb">
                                                     <rect key="frame" x="0.0" y="254" width="375" height="20"/>
-                                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -811,7 +811,7 @@
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-qr-Rj8">
                                                     <rect key="frame" x="0.0" y="255" width="375" height="19"/>
-                                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -1193,7 +1193,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hWV-bf-dHt"/>
-        <segue reference="kzr-RI-kS7"/>
+        <segue reference="Bsf-SF-ekB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

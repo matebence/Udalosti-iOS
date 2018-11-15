@@ -32,14 +32,14 @@ class Autentifikacia: UINavigationController, KommunikaciaOdpoved {
         inicializacia()
     }
 
-    func inicializacia(){
+    private func inicializacia(){
         print("Metoda inicializacia-Autentifikacia bola vykonana")
         
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
         self.autentifikaciaUdaje.vytvorTabulky()
     }
     
-    func automatickePrihlasenieChyba(){
+    private func automatickePrihlasenieChyba(){
         print("Metoda automatickePrihlasenieChyba bola vykonana")
         
         if let ucetNepristupny = self.chyba {

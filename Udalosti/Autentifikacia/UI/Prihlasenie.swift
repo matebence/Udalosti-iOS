@@ -90,7 +90,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
         inicializacia()
     }
     
-    func inicializacia(){
+    private func inicializacia(){
         print("Metoda inicializacia - Prihlasenie bola vykonana")
         
         self.autentifikaciaUdaje = AutentifikaciaUdaje(kommunikaciaOdpoved: self)
@@ -107,7 +107,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
         view.addGestureRecognizer(vypnutKlavesnicu)
     }
     
-    func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
+    private func posunVstupVyssie(_ textField: UITextField, moveDistance: Int, up: Bool) {
         print("Metoda posunVstupVyssie - Prihlasenie bola vykonana")
 
         let moveDuration = 0.3
@@ -136,6 +136,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
                 aktualizuj: false)
             
             self.nacitavanie.isHidden = false
+            self.manazerPozicie.stopUpdatingLocation()
         }
     }
     
@@ -149,32 +150,31 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
 
         if Pripojenie.spojenieExistuje(){
             switch od {
-            case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
-                self.manazerPozicie.stopUpdatingLocation()
+                case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
 
-                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                    let email =  udaje!.value(forKey: "email") as! String
-                    let heslo = udaje!.value(forKey: "heslo") as! String
-                    let token =  udaje!.value(forKey: "token") as! String
-                    
-                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
-                        email: email,
-                        heslo: heslo,
-                        token: token)
-                    self.server = false
-                    
-                    let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                    let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
-                    self.present(navigaciaUdalostiController, animated: true, completion: nil)
-                }else{
-                    let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
-                    chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
-                    
-                    self.present(chyba, animated: true, completion: nil)
-                    self.server = false
-                }
-                break;
-            default: break
+                    if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                        let email =  udaje!.value(forKey: "email") as! String
+                        let heslo = udaje!.value(forKey: "heslo") as! String
+                        let token =  udaje!.value(forKey: "token") as! String
+                        
+                        self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
+                            email: email,
+                            heslo: heslo,
+                            token: token)
+                        self.server = false
+                        
+                        let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+                        let navigaciaUdalostiController = udalosti.instantiateViewController(withIdentifier: "NavigaciaUdalosti")
+                        self.present(navigaciaUdalostiController, animated: true, completion: nil)
+                    }else{
+                        let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
+                        chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
+                        
+                        self.present(chyba, animated: true, completion: nil)
+                        self.server = false
+                    }
+                    break;
+                default: break
             }
         }else{
             let chyba = UIAlertController(title: "Chyba", message: "Žiadne spojenie", preferredStyle: UIAlertController.Style.alert)

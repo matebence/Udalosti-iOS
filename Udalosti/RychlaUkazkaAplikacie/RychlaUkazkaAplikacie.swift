@@ -41,7 +41,7 @@ class RychlaUkazkaAplikacie: UIViewController, PaperOnboardingDataSource, PaperO
         inicializacia()
     }
     
-    func inicializacia(){
+    private func inicializacia(){
         print("Metoda inicializacia - RychlaUkazkaAplikacie bola vykonana")
         
         self.ukazkaAplikacie.dataSource = self

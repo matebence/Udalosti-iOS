@@ -20,15 +20,32 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     private var pouzivatelskeUdaje: NSDictionary!
     private var udalosti = [Udalost]()
     
-    @IBOutlet weak var titul: UINavigationItem!
     @IBOutlet weak var zoznamUdalosti: UITableView!
+    @IBOutlet weak var titul: UINavigationItem!
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     @IBOutlet weak var ziadneUdalosti: UIImageView!
+    
+    private var aktualizator = UIRefreshControl()
     
     @IBAction func odhlasitSa(_ sender: UIBarButtonItem) {
         print("Metoda odhlasitSa - Objavuj bola vykonana")
 
         self.udalostiUdaje.odhlasenie(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+    }
+    
+    @objc func aktualizuj(_ sender: Any) {
+        print("Metoda aktualizuj - Objavuj bola vykonana")
+        
+        if(Pripojenie.spojenieExistuje()){
+            self.udalosti.removeAll()
+            ziskajData()
+        }else{
+            self.zoznamUdalosti.isHidden = true
+            self.aktualizator.isHidden = true
+            
+            self.ziadneUdalosti.image = UIImage(named: "ziadne_spojenie")
+            self.ziadneUdalosti.isHidden = false
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -50,19 +67,22 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         inicializacia()
     }
     
-    func inicializacia (){
+    private func inicializacia (){
         print("Metoda inicializacia - Objavuj bola vykonana")
         
         self.udalostiUdaje = UdalostiUdaje(kommunikaciaOdpoved: self, kommunikaciaData: self)
         self.uvodnaObrazovkaUdaje = UvodnaObrazovkaUdaje()
-        self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
-        self.ziskajData()
+        
+        ziskajData()
+        nastavAktualizator()
     }
     
-    func ziskajData(){
+    private func ziskajData(){
         print("Metoda ziskajData bola vykonana")
 
         let miesto: NSDictionary = self.udalostiUdaje.miestoPrihlasenia()
+        
+        self.pouzivatelskeUdaje = self.uvodnaObrazovkaUdaje.prihlasPouzivatela()
         self.titul.title = miesto.value(forKey: "stat") as? String
         
         if self.udalosti.count == 0 {
@@ -70,10 +90,22 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         }
     }
     
-    func nacitajZoznamUdalosti(miesto: NSDictionary){
+    private func nastavAktualizator(){
+        print("Metoda nastavAktualizator - Objavuj bola vykonana")
+
+        self.aktualizator.backgroundColor = UIColor(red:0.00, green:0.36, blue:0.65, alpha:1.0)
+        self.aktualizator.tintColor = UIColor.white
+        self.aktualizator.addTarget(self, action: #selector(aktualizuj(_:)), for: .valueChanged)
+        
+        self.zoznamUdalosti.addSubview(self.aktualizator)
+    }
+    
+    private func nacitajZoznamUdalosti(miesto: NSDictionary){
         print("Metoda nacitajZoznamUdalosti bola vykonana")
         
         self.nacitavanie.isHidden = false
+        self.zoznamUdalosti.isHidden = true
+        
         self.udalostiUdaje.zoznamUdalosti(
             email: self.pouzivatelskeUdaje.value(forKey: "email") as! String,
             stat: miesto.value(forKey: "stat") as! String,
@@ -135,41 +167,52 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     
     func dataZoServera(odpoved: String, od: String, data: NSArray?) {
         print("Metoda dataZoServera - Objavuj bola vykonana")
-
+        
         switch od {
-        case Nastavenia.UDALOSTI_OBJAVUJ:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                ziadneUdalosti.isHidden = true
-                ziadneUdalosti.image = UIImage(named: "ziadne_udalosti")
-                
-                if(data != nil){
-                    for i in 0..<data!.count{
-                        self.udalosti.append(Udalost(
-                            idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
-                            obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
-                            nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
-                            den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
-                            mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 3)+".",
-                            cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
-                            mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
-                            ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
-                            vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
-                            zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
-                            zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
-                        ))
+            case Nastavenia.UDALOSTI_OBJAVUJ:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                    
+                    self.ziadneUdalosti.isHidden = true
+                    self.zoznamUdalosti.isHidden = false
+                    
+                    self.ziadneUdalosti.image = UIImage(named: "ziadne_udalosti")
+                    
+                    if(data != nil){
+                        for i in 0..<data!.count{
+                            self.udalosti.append(Udalost(
+                                idUdalost: (data![i] as AnyObject).value(forKey: "idUdalost") as? String,
+                                obrazok: (data![i] as AnyObject).value(forKey: "obrazok") as? String,
+                                nazov: (data![i] as AnyObject).value(forKey: "nazov") as? String,
+                                den: ((data![i] as AnyObject).value(forKey: "den") as? String)!+".",
+                                mesiac: ((data![i] as AnyObject).value(forKey: "mesiac") as? String)!.castRetazca(doRetazca: 3)+".",
+                                cas: (data![i] as AnyObject).value(forKey: "cas") as? String,
+                                mesto: ((data![i] as AnyObject).value(forKey: "mesto") as? String)!+", ",
+                                ulica: (data![i] as AnyObject).value(forKey: "ulica") as? String,
+                                vstupenka: ((data![i] as AnyObject).value(forKey: "vstupenka") as? String)!,
+                                zaujemcovia: ((data![i] as AnyObject).value(forKey: "zaujemcovia") as? String)!,
+                                zaujem: ((data![i] as AnyObject).value(forKey: "zaujem") as? String)!
+                            ))
+                        }
+                        self.zoznamUdalosti.reloadData()
+                    }else{
+                        self.ziadneUdalosti.isHidden = false
+                        self.zoznamUdalosti.isHidden = true
+                        
+                        self.ziadneUdalosti.image = UIImage(named: "ziadne_spojenie")
                     }
-                    self.zoznamUdalosti.reloadData()
-                }else{
-                    ziadneUdalosti.isHidden = false
-                    ziadneUdalosti.image = UIImage(named: "ziadne_spojenie")
+                } else if(odpoved == Nastavenia.CHYBA){
+                    self.ziadneUdalosti.isHidden = false
+                    self.zoznamUdalosti.isHidden = true
+                } else {
+                    self.ziadneUdalosti.isHidden = false
+                    self.zoznamUdalosti.isHidden = true
                 }
-            } else if(odpoved == Nastavenia.CHYBA){
-                ziadneUdalosti.isHidden = false
-            }
-            break;
-        default: break
+                break;
+            default: break
         }
+        
         self.zoznamUdalosti.reloadData()
+        self.aktualizator.endRefreshing()
         self.nacitavanie.isHidden = true
     }
     
@@ -177,17 +220,17 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         print("Metoda odpovedServera - Objavuj bola vykonana")
 
         switch od {
-        case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                print("Odhlasenie prebehlo uspesne")
-                udalostiUdaje.automatickePrihlasenieVypnute(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
-                
-                let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
-                let autentifikaciaController = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")
-                self.present(autentifikaciaController, animated: true, completion: nil)
-            }
-            break;
-        default: break
+            case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                    print("Odhlasenie prebehlo uspesne")
+                    udalostiUdaje.automatickePrihlasenieVypnute(email: self.pouzivatelskeUdaje.value(forKey: "email") as! String)
+                    
+                    let udalosti = UIStoryboard(name: "Udalosti", bundle: nil)
+                    let autentifikaciaController = udalosti.instantiateViewController(withIdentifier: "Autentifikacia")
+                    self.present(autentifikaciaController, animated: true, completion: nil)
+                }
+                break;
+            default: break
         }
     }
 }

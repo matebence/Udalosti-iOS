@@ -13,7 +13,7 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
     private var autentifikaciaUdaje : AutentifikaciaUdaje!
     private var uvodnaObrazovkaUdaje: UvodnaObrazovkaUdaje!
     private var udalostiUdaje : UdalostiUdaje!
-
+    
     init() {
         print("Metoda init - TokenUdaje bola vykonana")
 
@@ -53,6 +53,15 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
         case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
             if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 print("Novy token generovany")
+                
+                let email =  udaje!.value(forKey: "email") as! String
+                let heslo = udaje!.value(forKey: "heslo") as! String
+                let token =  udaje!.value(forKey: "token") as! String
+                
+                self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
+                    email: email,
+                    heslo: heslo,
+                    token: token)                
             }
             break;
         case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:

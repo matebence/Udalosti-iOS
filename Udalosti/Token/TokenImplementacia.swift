@@ -12,5 +12,5 @@ protocol TokenImplementacia {
     
     func zrusToken()
     
-    func novyToken()
+    func novyToken()    
 }
