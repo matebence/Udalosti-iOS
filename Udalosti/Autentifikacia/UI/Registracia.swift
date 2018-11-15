@@ -126,8 +126,8 @@ class Registracia: UIViewController, KommunikaciaOdpoved, UITextFieldDelegate {
                         self.present(chyba, animated: true, completion: nil)
                     }
                     break;
-                default:
-                    break
+                
+                default:break
             }
         }else{
             let chyba = UIAlertController(title: "Chyba", message: "Žiadne spojenie", preferredStyle: UIAlertController.Style.alert)

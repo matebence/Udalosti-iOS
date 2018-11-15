@@ -187,55 +187,55 @@ class Podrobnosti: UIViewController, KommunikaciaOdpoved, KommunikaciaData {
         print("Metoda odpovedServera - Podrobnosti bola vykonana")
 
         switch od {
-        case Nastavenia.ZAUJEM_ODSTRANENIE:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                
-                if(udaje?.value(forKey: "uspech") != nil){
-                    var zaujemcovia: Int = Int(self.pocetZaujemcovZvolenejUdalosti.text!)!
-                    zaujemcovia = zaujemcovia-1
-                    self.pocetZaujemcovZvolenejUdalosti!.text = String (zaujemcovia)
+            case Nastavenia.ZAUJEM_ODSTRANENIE:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                     
-                    AktualizatorObsahu.zaujmy().hodnota()
-                    nastavTlacidlo(stavTlacidla: 0)
+                    if(udaje?.value(forKey: "uspech") != nil){
+                        var zaujemcovia: Int = Int(self.pocetZaujemcovZvolenejUdalosti.text!)!
+                        zaujemcovia = zaujemcovia-1
+                        self.pocetZaujemcovZvolenejUdalosti!.text = String (zaujemcovia)
+                        
+                        AktualizatorObsahu.zaujmy().hodnota()
+                        nastavTlacidlo(stavTlacidla: 0)
+                    }else{
+                        
+                        let chyba = UIAlertController(title: "Chyba", message: udaje!.value(forKey: "chyba") as? String, preferredStyle: UIAlertController.Style.alert)
+                        chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(chyba, animated: true, completion: nil)
+                    }
                 }else{
                     
-                    let chyba = UIAlertController(title: "Chyba", message: udaje!.value(forKey: "chyba") as? String, preferredStyle: UIAlertController.Style.alert)
+                    let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
                     chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
                     self.present(chyba, animated: true, completion: nil)
                 }
-            }else{
+                break;
+            
+            case Nastavenia.ZAUJEM:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
                 
-                let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
-                chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
-                self.present(chyba, animated: true, completion: nil)
-            }
-            break;
-            
-        case Nastavenia.ZAUJEM:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-            
-                if(udaje?.value(forKey: "uspech") != nil){
-                    var zaujemcovia: Int = Int(self.pocetZaujemcovZvolenejUdalosti.text!)!
-                    zaujemcovia = zaujemcovia+1
-                    self.pocetZaujemcovZvolenejUdalosti!.text = String (zaujemcovia)
-                    
-                    AktualizatorObsahu.zaujmy().hodnota()
-                    nastavTlacidlo(stavTlacidla: 1)
+                    if(udaje?.value(forKey: "uspech") != nil){
+                        var zaujemcovia: Int = Int(self.pocetZaujemcovZvolenejUdalosti.text!)!
+                        zaujemcovia = zaujemcovia+1
+                        self.pocetZaujemcovZvolenejUdalosti!.text = String (zaujemcovia)
+                        
+                        AktualizatorObsahu.zaujmy().hodnota()
+                        nastavTlacidlo(stavTlacidla: 1)
+                    }else{
+                        
+                        let chyba = UIAlertController(title: "Chyba", message: udaje!.value(forKey: "chyba") as? String, preferredStyle: UIAlertController.Style.alert)
+                        chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(chyba, animated: true, completion: nil)
+                    }
                 }else{
                     
-                    let chyba = UIAlertController(title: "Chyba", message: udaje!.value(forKey: "chyba") as? String, preferredStyle: UIAlertController.Style.alert)
+                    let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
                     chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
                     self.present(chyba, animated: true, completion: nil)
                 }
-            }else{
-                
-                let chyba = UIAlertController(title: "Chyba", message: odpoved, preferredStyle: UIAlertController.Style.alert)
-                chyba.addAction(UIAlertAction(title: "Zatvoriť", style: UIAlertAction.Style.default, handler: nil))
-                self.present(chyba, animated: true, completion: nil)
-            }
-            break;
+                break;
             
-        default: break
+            default: break
         }
     }
 }

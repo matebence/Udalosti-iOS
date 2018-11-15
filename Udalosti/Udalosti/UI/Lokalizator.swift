@@ -115,8 +115,8 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 alertController.addAction(nastavenia)
                 
                 self.present(alertController, animated: true, completion: nil)
-            default:
-                break;
+            
+            default: break;
             }
     }
     
@@ -137,7 +137,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
         
         if self.udalostiPodlaPozicie.count == 0{
-            self.nacitajZoznamUdalostiPodlaPozicie(miesto: miesto)
+            nacitajZoznamUdalostiPodlaPozicie(miesto: miesto)
         }
     }
     
@@ -317,6 +317,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     self.zoznamUdalostiPodlaPozicie.isHidden = true
                 }
                 break;
+            
             default: break
         }
         
@@ -351,6 +352,7 @@ class Lokalizator: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     self.ziadneUdalosti.isHidden = false
                 }
                 break;
+            
             default: break
         }
     }

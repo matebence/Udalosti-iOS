@@ -50,25 +50,26 @@ class TokenUdaje : TokenImplementacia, KommunikaciaOdpoved, KommunikaciaData{
         print("Metoda odpovedeServera - TokenUdaje bola vykonana")
 
         switch od {
-        case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                print("Novy token generovany")
-                
-                let email =  udaje!.value(forKey: "email") as! String
-                let heslo = udaje!.value(forKey: "heslo") as! String
-                let token =  udaje!.value(forKey: "token") as! String
-                
-                self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
-                    email: email,
-                    heslo: heslo,
-                    token: token)                
-            }
-            break;
-        case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
-            if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
-                print("Token odstranene")
-            }
-            break;
+            case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                    print("Novy token generovany")
+                    
+                    let email =  udaje!.value(forKey: "email") as! String
+                    let heslo = udaje!.value(forKey: "heslo") as! String
+                    let token =  udaje!.value(forKey: "token") as! String
+                    
+                    self.autentifikaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(
+                        email: email,
+                        heslo: heslo,
+                        token: token)                
+                }
+                break;
+            case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
+                if(odpoved == Nastavenia.VSETKO_V_PORIADKU){
+                    print("Token odstranene")
+                }
+                break;
+            
         default: break
         }
     }

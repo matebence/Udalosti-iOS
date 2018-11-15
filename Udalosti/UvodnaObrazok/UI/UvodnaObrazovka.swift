@@ -159,6 +159,7 @@ class UvodnaObrazovka: UIViewController, CLLocationManagerDelegate, Kommunikacia
                     self.server = false
                 }
                 break;
+            
             default: break
         }
         nacitavanie.isHidden = true

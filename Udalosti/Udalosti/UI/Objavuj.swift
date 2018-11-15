@@ -78,7 +78,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     }
     
     private func ziskajData(){
-        print("Metoda ziskajData bola vykonana")
+        print("Metoda ziskajData - Objavuj bola vykonana")
 
         let miesto: NSDictionary = self.udalostiUdaje.miestoPrihlasenia()
         
@@ -86,7 +86,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
         self.titul.title = miesto.value(forKey: "stat") as? String
         
         if self.udalosti.count == 0 {
-            self.nacitajZoznamUdalosti(miesto: miesto)
+            nacitajZoznamUdalosti(miesto: miesto)
         }
     }
     
@@ -101,7 +101,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
     }
     
     private func nacitajZoznamUdalosti(miesto: NSDictionary){
-        print("Metoda nacitajZoznamUdalosti bola vykonana")
+        print("Metoda nacitajZoznamUdalosti - Objavuj bola vykonana")
         
         self.nacitavanie.isHidden = false
         self.zoznamUdalosti.isHidden = true
@@ -208,6 +208,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
                     self.zoznamUdalosti.isHidden = true
                 }
                 break;
+            
             default: break
         }
         
@@ -230,6 +231,7 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
                     self.present(autentifikaciaController, animated: true, completion: nil)
                 }
                 break;
+            
             default: break
         }
     }

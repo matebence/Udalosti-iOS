@@ -711,16 +711,129 @@
                     <view key="view" contentMode="scaleToFill" id="u7o-Ig-KFi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ghH-AP-ugD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="zaujmy" rowHeight="80" id="G6F-Sw-wff" customClass="ZaujmyTableViewCell" customModule="Udalosti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G6F-Sw-wff" id="SUI-ic-rpj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-xb-gOf">
+                                                    <rect key="frame" x="15" y="11" width="231.5" height="57.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-vN-YJc">
+                                                            <rect key="frame" x="0.0" y="12.5" width="40.5" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="28"/>
+                                                            <color key="textColor" red="0.76470588240000004" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mes." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7a-0J-7Mz">
+                                                            <rect key="frame" x="58.5" y="14" width="53" height="29.5"/>
+                                                            <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6as-Kc-3Wd">
+                                                            <rect key="frame" x="129.5" y="0.0" width="102" height="57.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqu-0h-o2X">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="29.5"/>
+                                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="25"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="left" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="67P-fm-xyS">
+                                                                    <rect key="frame" x="0.0" y="29.5" width="102" height="28"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="hnG-on-jdT">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-6e-tO0">
+                                                                            <rect key="frame" x="33" y="5" width="32" height="18"/>
+                                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
+                                                                            <color key="textColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltc-4I-G43">
+                                                                            <rect key="frame" x="70" y="4" width="32" height="20"/>
+                                                                            <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="4Hh-xb-gOf" firstAttribute="top" secondItem="SUI-ic-rpj" secondAttribute="topMargin" id="7Qu-9K-tfa"/>
+                                                <constraint firstItem="4Hh-xb-gOf" firstAttribute="leading" secondItem="SUI-ic-rpj" secondAttribute="leadingMargin" id="E25-jI-paX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4Hh-xb-gOf" secondAttribute="bottom" constant="0.5" id="xvd-XZ-yfX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="den" destination="Hu2-vN-YJc" id="rZS-sF-0hE"/>
+                                            <outlet property="mesiac" destination="G7a-0J-7Mz" id="Kfr-sh-B9y"/>
+                                            <outlet property="mesto" destination="0N2-6e-tO0" id="7nJ-w9-5vW"/>
+                                            <outlet property="nazov" destination="cqu-0h-o2X" id="Hxx-Oj-aP1"/>
+                                            <outlet property="ulica" destination="Ltc-4I-G43" id="dfI-gH-7bq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AxB-t9-eEk" id="1y8-N6-gdD"/>
+                                    <outlet property="delegate" destination="AxB-t9-eEk" id="6G0-62-xwq"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uBb-us-7CR">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ziadne_zaujmy" translatesAutoresizingMaskIntoConstraints="NO" id="r1n-3H-O50">
+                                <rect key="frame" x="132.5" y="274.5" width="110" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="gN0-Hn-bIq"/>
+                                    <constraint firstAttribute="height" constant="118" id="iIE-DG-oB5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ghH-AP-ugD" firstAttribute="top" secondItem="mJb-Y1-mtb" secondAttribute="bottom" id="7Zg-vC-lUo"/>
+                            <constraint firstAttribute="trailing" secondItem="ghH-AP-ugD" secondAttribute="trailing" id="PPk-pZ-YxG"/>
+                            <constraint firstItem="uBb-us-7CR" firstAttribute="centerY" secondItem="u7o-Ig-KFi" secondAttribute="centerY" id="aNg-hN-CsS"/>
+                            <constraint firstItem="r1n-3H-O50" firstAttribute="centerY" secondItem="u7o-Ig-KFi" secondAttribute="centerY" id="fZ8-Vk-foF"/>
+                            <constraint firstItem="uBb-us-7CR" firstAttribute="centerX" secondItem="u7o-Ig-KFi" secondAttribute="centerX" id="gE8-Bd-qqZ"/>
+                            <constraint firstItem="m5k-6j-qYz" firstAttribute="top" secondItem="ghH-AP-ugD" secondAttribute="bottom" id="h6K-tt-ktS"/>
+                            <constraint firstItem="ghH-AP-ugD" firstAttribute="leading" secondItem="u7o-Ig-KFi" secondAttribute="leading" id="p6K-Nv-K9D"/>
+                            <constraint firstItem="r1n-3H-O50" firstAttribute="centerX" secondItem="u7o-Ig-KFi" secondAttribute="centerX" id="zq4-qV-eAv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Zoznam záujmov" id="tzM-h2-bhQ">
                         <barButtonItem key="backBarButtonItem" title="Späť" id="Z34-j9-eL8"/>
-                        <barButtonItem key="rightBarButtonItem" title="Odhlásenie" image="odhlasenie" id="naL-vG-ymU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Odhlásenie" image="odhlasenie" id="naL-vG-ymU">
+                            <connections>
+                                <action selector="odhlasitSa:" destination="AxB-t9-eEk" id="n8o-1e-fXe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nacitavanie" destination="uBb-us-7CR" id="3KE-XH-hHN"/>
+                        <outlet property="ziadneZaujmy" destination="r1n-3H-O50" id="cmB-2C-UhH"/>
+                        <outlet property="zoznamZaujmov" destination="ghH-AP-ugD" id="AhD-IY-MMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJm-RE-D1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="789"/>
+            <point key="canvasLocation" x="744.79999999999995" y="788.45577211394311"/>
         </scene>
         <!--Objavuj-->
         <scene sceneID="CLP-rz-vfh">
@@ -1188,6 +1301,7 @@
         <image name="tlacidlo" width="178" height="29"/>
         <image name="vstup" width="178" height="29"/>
         <image name="ziadne_udalosti" width="316" height="358"/>
+        <image name="ziadne_zaujmy" width="316" height="358"/>
         <image name="zoznam_cas" width="28" height="28"/>
         <image name="zoznam_pozicia" width="28" height="28"/>
     </resources>

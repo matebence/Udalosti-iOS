@@ -174,6 +174,7 @@ class Prihlasenie: UIViewController, UITextFieldDelegate, CLLocationManagerDeleg
                         self.server = false
                     }
                     break;
+                
                 default: break
             }
         }else{
