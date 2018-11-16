@@ -10,6 +10,7 @@ import UIKit
 
 class UdalostiTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     @IBOutlet weak var obrazok: UIImageView!
     @IBOutlet weak var datum: UILabel!
     @IBOutlet weak var mesiac: UILabel!

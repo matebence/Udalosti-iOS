@@ -156,9 +156,11 @@ class Objavuj: UIViewController, UITableViewDataSource, UITableViewDelegate, Kom
             
             if let obrazokUdalosti = response.result.value {
                 riadokUdalosti.obrazok?.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: riadokUdalosti.obrazok.frame.width)
+                riadokUdalosti.nacitavanie.isHidden = true
             }else {
                 riadokUdalosti.obrazok?.image = UIImage(named: "chyba_obrazka")!
                 riadokUdalosti.obrazok.contentMode = .scaleAspectFill;
+                riadokUdalosti.nacitavanie.isHidden = true
             }
         }
 

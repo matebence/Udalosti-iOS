@@ -24,7 +24,7 @@ class Podrobnosti: UIViewController, KommunikaciaOdpoved, KommunikaciaData {
     @IBOutlet weak var nacitavanie: UIActivityIndicatorView!
     
     @IBOutlet weak var tlacidlo: UIButton!
-    @IBOutlet weak var obsahObrazka: UIImageView!
+    @IBOutlet weak var nacitavanieObrazka: UIActivityIndicatorView!
     @IBOutlet weak var nazovMiesto: UIStackView!
     @IBOutlet weak var oddelovac: UIView!
     @IBOutlet weak var zaujemcovia: UIStackView!
@@ -101,7 +101,8 @@ class Podrobnosti: UIViewController, KommunikaciaOdpoved, KommunikaciaData {
             nastavTlacidlo(stavTlacidla: Int(self.udalost.zaujem!)!)
             
             self.tlacidlo.isHidden = false
-            self.obsahObrazka.isHidden = false
+            self.obrazokZvolenejUdalosti.isHidden = false
+            self.nacitavanieObrazka.isHidden = false
             self.nazovMiesto.isHidden = false
             self.oddelovac.isHidden = false
             self.zaujemcovia.isHidden = false
@@ -120,9 +121,11 @@ class Podrobnosti: UIViewController, KommunikaciaOdpoved, KommunikaciaData {
             
             if let obrazokUdalosti = response.result.value {
                 self.obrazokZvolenejUdalosti.image = Obrazok.nastavObrazok(obrazokUdalosti, sirka: self.obrazokZvolenejUdalosti.frame.width)
+                self.nacitavanieObrazka.isHidden = true
             }else {
                 self.obrazokZvolenejUdalosti.image = UIImage(named: "chyba_obrazka")!
                 self.obrazokZvolenejUdalosti.contentMode = .scaleAspectFill;
+                self.nacitavanieObrazka.isHidden = true
             }
         }
     }
@@ -163,7 +166,8 @@ class Podrobnosti: UIViewController, KommunikaciaOdpoved, KommunikaciaData {
                     }
                     
                     self.tlacidlo.isHidden = false
-                    self.obsahObrazka.isHidden = false
+                    self.obrazokZvolenejUdalosti.isHidden = false
+                    self.nacitavanieObrazka.isHidden = false
                     self.nazovMiesto.isHidden = false
                     self.oddelovac.isHidden = false
                     self.zaujemcovia.isHidden = false

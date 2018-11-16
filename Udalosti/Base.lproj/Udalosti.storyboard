@@ -338,6 +338,10 @@
                                                         <constraint firstAttribute="height" constant="190" id="p6u-BW-ZUQ"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-Zz-p3J">
+                                                    <rect key="frame" x="177.5" y="85" width="20" height="20"/>
+                                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hkr-Jd-j1v">
                                                     <rect key="frame" x="15" y="195" width="62" height="51"/>
                                                     <subviews>
@@ -409,12 +413,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="Mfd-WW-Lvb" secondAttribute="trailing" id="I9s-Bl-oIS"/>
                                                 <constraint firstItem="hkr-Jd-j1v" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leadingMargin" id="LeA-wP-4ee"/>
                                                 <constraint firstItem="HBd-DG-hbZ" firstAttribute="top" secondItem="GPd-gL-aId" secondAttribute="bottom" constant="5" id="MiX-3i-FGp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DXc-Zz-p3J" secondAttribute="bottom" constant="158" id="MlZ-0H-SpH"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="top" id="QFF-em-DQm"/>
                                                 <constraint firstAttribute="trailing" secondItem="GPd-gL-aId" secondAttribute="trailing" id="QHF-Ya-mqB"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="99l-bd-AVQ" secondAttribute="bottom" constant="9.5" id="ZEB-WT-LYv"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="dpF-cd-B9D" secondAttribute="bottom" constant="6" id="a6a-c9-bDe"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="aCJ-a5-mxr"/>
                                                 <constraint firstItem="Mfd-WW-Lvb" firstAttribute="top" secondItem="hkr-Jd-j1v" secondAttribute="bottom" constant="8" id="bB0-As-YEv"/>
+                                                <constraint firstItem="DXc-Zz-p3J" firstAttribute="top" secondItem="ZJ8-0I-FSt" secondAttribute="topMargin" constant="74" id="fYw-tO-bKG"/>
+                                                <constraint firstItem="DXc-Zz-p3J" firstAttribute="centerX" secondItem="ZJ8-0I-FSt" secondAttribute="centerX" id="jrf-oy-gpV"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="trailing" secondItem="Mfd-WW-Lvb" secondAttribute="trailing" id="kAM-kK-plO"/>
                                                 <constraint firstItem="GPd-gL-aId" firstAttribute="leading" secondItem="ZJ8-0I-FSt" secondAttribute="leading" id="lvu-6L-Uap"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="99l-bd-AVQ" secondAttribute="trailing" constant="7" id="pXP-1v-tVe"/>
@@ -428,6 +435,7 @@
                                             <outlet property="mesiac" destination="iwi-GC-JQl" id="gBq-Gf-xaT"/>
                                             <outlet property="mesto" destination="fo4-HN-539" id="cvx-PB-TqM"/>
                                             <outlet property="miesto" destination="NhC-dR-Grk" id="86n-Un-MeF"/>
+                                            <outlet property="nacitavanie" destination="DXc-Zz-p3J" id="7f9-0x-Ao6"/>
                                             <outlet property="nazov" destination="HBd-DG-hbZ" id="WaH-tU-13P"/>
                                             <outlet property="obrazok" destination="GPd-gL-aId" id="jA2-E4-xvw"/>
                                         </connections>
@@ -502,20 +510,24 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="REh-AS-DzU">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TnY-Cr-1B4">
+                                <rect key="frame" x="177.5" y="151" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-wh-a5f">
-                                <rect key="frame" x="30" y="274" width="179" height="54"/>
+                                <rect key="frame" x="30" y="274" width="191.5" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uag-YH-V5b">
-                                        <rect key="frame" x="0.0" y="0.5" width="36.5" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="43" height="53"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96F-fe-8pg">
-                                                <rect key="frame" x="4.5" y="0.0" width="28" height="29.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="00." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96F-fe-8pg">
+                                                <rect key="frame" x="3.5" y="0.0" width="36.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="25"/>
                                                 <color key="textColor" red="0.76470588235294112" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfX-vF-gCg">
-                                                <rect key="frame" x="0.0" y="29.5" width="36.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mes." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfX-vF-gCg">
+                                                <rect key="frame" x="0.0" y="29.5" width="43" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -523,16 +535,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="left" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J6y-NY-wx4">
-                                        <rect key="frame" x="56.5" y="0.0" width="122.5" height="54"/>
+                                        <rect key="frame" x="63" y="0.0" width="128.5" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Triatlon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-32-teo">
-                                                <rect key="frame" x="0.0" y="0.0" width="122.5" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Nazov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-32-teo">
+                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="31"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nitra, Stadion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwp-aF-t6c">
-                                                <rect key="frame" x="0.0" y="31" width="122.5" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, miesto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwp-aF-t6c">
+                                                <rect key="frame" x="0.0" y="31" width="128.5" height="23"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="20"/>
                                                 <color key="textColor" red="0.49014242069187874" green="0.51821567357512954" blue="0.51489338451384081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -642,7 +654,7 @@
                                     <constraint firstAttribute="height" constant="66" id="FZj-5p-byb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="20"/>
-                                <state key="normal" title="Mám záujem"/>
+                                <state key="normal" title="Tlacidlo"/>
                                 <connections>
                                     <action selector="zaujem:" destination="dEY-BL-wbz" eventType="touchUpInside" id="qKa-rS-Cra"/>
                                 </connections>
@@ -659,12 +671,15 @@
                             <constraint firstItem="n2Y-a6-tW3" firstAttribute="top" secondItem="ZnY-v5-Raq" secondAttribute="top" constant="495" id="EB1-2Z-6z4"/>
                             <constraint firstItem="REh-AS-DzU" firstAttribute="centerX" secondItem="ZnY-v5-Raq" secondAttribute="centerX" id="G66-OV-PHK"/>
                             <constraint firstItem="QFI-Ti-jD4" firstAttribute="top" secondItem="ZnY-v5-Raq" secondAttribute="top" constant="339" id="Gds-sh-36W"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="TnY-Cr-1B4" secondAttribute="bottom" constant="496" id="Hib-oA-Q2k"/>
                             <constraint firstItem="TG2-iI-hMi" firstAttribute="leading" secondItem="ZnY-v5-Raq" secondAttribute="leadingMargin" constant="14" id="IEN-uc-5Cv"/>
                             <constraint firstItem="QFI-Ti-jD4" firstAttribute="leading" secondItem="ZnY-v5-Raq" secondAttribute="leading" id="Iip-1o-TgN"/>
                             <constraint firstItem="QFI-Ti-jD4" firstAttribute="top" secondItem="mhm-wh-a5f" secondAttribute="bottom" constant="11" id="Ij8-UM-xGC"/>
                             <constraint firstItem="TG2-iI-hMi" firstAttribute="top" secondItem="ux1-oS-4Ar" secondAttribute="bottom" constant="23.5" id="LVv-TU-2OF"/>
                             <constraint firstItem="mhm-wh-a5f" firstAttribute="leading" secondItem="ZnY-v5-Raq" secondAttribute="leadingMargin" constant="14" id="LiT-t3-FVj"/>
+                            <constraint firstItem="TnY-Cr-1B4" firstAttribute="top" secondItem="ZnY-v5-Raq" secondAttribute="topMargin" constant="131" id="PIQ-cw-J6h"/>
                             <constraint firstItem="n2Y-a6-tW3" firstAttribute="leading" secondItem="ZnY-v5-Raq" secondAttribute="leadingMargin" constant="14" id="W6f-cA-wEE"/>
+                            <constraint firstItem="TnY-Cr-1B4" firstAttribute="centerX" secondItem="ZnY-v5-Raq" secondAttribute="centerX" id="Wv8-UN-bgn"/>
                             <constraint firstItem="mhm-wh-a5f" firstAttribute="top" secondItem="ZnY-v5-Raq" secondAttribute="top" constant="274" id="Z7S-dF-nkd"/>
                             <constraint firstItem="ux1-oS-4Ar" firstAttribute="top" secondItem="QFI-Ti-jD4" secondAttribute="bottom" constant="26" id="ZDT-oY-4Jr"/>
                             <constraint firstAttribute="trailing" secondItem="QFI-Ti-jD4" secondAttribute="trailing" constant="-1" id="ZXd-Lm-e34"/>
@@ -684,10 +699,10 @@
                         <outlet property="mesiacZvolenejUdalosti" destination="cfX-vF-gCg" id="9th-E3-DWI"/>
                         <outlet property="miestoZvolenejUdalosti" destination="dwp-aF-t6c" id="Gey-gN-LSD"/>
                         <outlet property="nacitavanie" destination="REh-AS-DzU" id="sOl-BW-sQb"/>
+                        <outlet property="nacitavanieObrazka" destination="TnY-Cr-1B4" id="4YM-qj-FC7"/>
                         <outlet property="nazovMiesto" destination="mhm-wh-a5f" id="EOp-dr-6Or"/>
                         <outlet property="nazovZvolenejUdalosti" destination="OPO-32-teo" id="9ev-dU-7oo"/>
                         <outlet property="obrazokZvolenejUdalosti" destination="nB7-TH-nj1" id="s5i-0U-yh4"/>
-                        <outlet property="obsahObrazka" destination="nB7-TH-nj1" id="Ibs-Om-6aV"/>
                         <outlet property="oddelovac" destination="QFI-Ti-jD4" id="CdQ-Rh-mBv"/>
                         <outlet property="pocetZaujemcovZvolenejUdalosti" destination="cin-6O-xiS" id="3DA-cA-OOW"/>
                         <outlet property="tlacidlo" destination="U6K-ub-AqI" id="RoT-3F-wSu"/>
@@ -724,7 +739,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Hh-xb-gOf">
-                                                    <rect key="frame" x="15" y="11" width="231.5" height="57.5"/>
+                                                    <rect key="frame" x="15" y="11" width="277.5" height="57.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-vN-YJc">
                                                             <rect key="frame" x="0.0" y="12.5" width="40.5" height="33"/>
@@ -739,28 +754,28 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6as-Kc-3Wd">
-                                                            <rect key="frame" x="129.5" y="0.0" width="102" height="57.5"/>
+                                                            <rect key="frame" x="129.5" y="0.0" width="148" height="57.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqu-0h-o2X">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="29.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazov nazov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqu-0h-o2X">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="29.5"/>
                                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="25"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="left" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="67P-fm-xyS">
-                                                                    <rect key="frame" x="0.0" y="29.5" width="102" height="28"/>
+                                                                    <rect key="frame" x="0.0" y="29.5" width="141" height="28"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoznam_pozicia" translatesAutoresizingMaskIntoConstraints="NO" id="hnG-on-jdT">
                                                                             <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-6e-tO0">
-                                                                            <rect key="frame" x="33" y="5" width="32" height="18"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesto, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-6e-tO0">
+                                                                            <rect key="frame" x="33" y="5" width="50.5" height="18"/>
                                                                             <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                                                                             <color key="textColor" red="0.0" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltc-4I-G43">
-                                                                            <rect key="frame" x="70" y="4" width="32" height="20"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miesto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltc-4I-G43">
+                                                                            <rect key="frame" x="88.5" y="4" width="52.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -864,6 +879,10 @@
                                                         <constraint firstAttribute="height" constant="190" id="9hc-Vc-TzX"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YgR-NP-76b">
+                                                    <rect key="frame" x="177.5" y="85" width="20" height="20"/>
+                                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0P2-Rt-77b">
                                                     <rect key="frame" x="15" y="195" width="62" height="52"/>
                                                     <subviews>
@@ -939,7 +958,10 @@
                                                 <constraint firstItem="R9A-eI-huD" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" id="MhE-tD-lid"/>
                                                 <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="top" constant="255" id="Mp8-f0-8ae"/>
                                                 <constraint firstAttribute="trailing" secondItem="R9A-eI-huD" secondAttribute="trailing" id="QxN-oF-ZHd"/>
+                                                <constraint firstItem="YgR-NP-76b" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="X7t-UZ-dGB"/>
                                                 <constraint firstAttribute="trailing" secondItem="RgW-ft-RUD" secondAttribute="trailing" constant="14" id="aQT-w9-zwd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YgR-NP-76b" secondAttribute="bottom" constant="158" id="eOx-s1-IIZ"/>
+                                                <constraint firstItem="YgR-NP-76b" firstAttribute="top" secondItem="gOU-t9-LOF" secondAttribute="topMargin" constant="74" id="eWS-Kh-qtO"/>
                                                 <constraint firstItem="0P2-Rt-77b" firstAttribute="top" secondItem="R9A-eI-huD" secondAttribute="bottom" constant="5" id="gd3-fr-C0s"/>
                                                 <constraint firstItem="ZDU-qr-Rj8" firstAttribute="top" secondItem="CSn-px-7wb" secondAttribute="bottom" constant="7" id="gss-Kb-nvz"/>
                                                 <constraint firstItem="R9A-eI-huD" firstAttribute="centerX" secondItem="gOU-t9-LOF" secondAttribute="centerX" id="oDH-dF-oJo"/>
@@ -954,6 +976,7 @@
                                             <outlet property="mesiac" destination="fRZ-rq-FRa" id="etz-Bp-4Zp"/>
                                             <outlet property="mesto" destination="2On-R9-4io" id="WKc-pi-YKN"/>
                                             <outlet property="miesto" destination="NXm-qY-Cjw" id="7JE-hN-xtD"/>
+                                            <outlet property="nacitavanie" destination="YgR-NP-76b" id="6FW-Bs-S0R"/>
                                             <outlet property="nazov" destination="JUe-sG-PKa" id="T01-ft-GXi"/>
                                             <outlet property="obrazok" destination="R9A-eI-huD" id="5Y1-oe-UtD"/>
                                         </connections>
@@ -1307,7 +1330,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hWV-bf-dHt"/>
-        <segue reference="Bsf-SF-ekB"/>
+        <segue reference="kzr-RI-kS7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
