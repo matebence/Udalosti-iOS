@@ -23,7 +23,7 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
         self.sqliteDatabaza = SQLiteDatabaza()
     }
 
-    func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj: Bool) {
+       func miestoPrihlasenia(email: String, heslo: String, zemepisnaSirka: double_t, zemepisnaDlzka: double_t, aktualizuj: Bool) {
         print("Metoda miestoPrihlasenia bola vykonana")
         
         let adresa = "\(self.delegate.geoAdresa)&lat=\(zemepisnaSirka)&lon=\(zemepisnaDlzka)&format=\(Nastavenia.POZICIA_FORMAT)&accept-language=\(Nastavenia.POZICIA_JAZYK)"
@@ -48,21 +48,33 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                         
                         if(udaje.value(forKey: "city_district") != nil){
                             pozicia = udaje.value(forKey: "city_district") as! String
+                        }else{
+                            pozicia = "pozicia neurcena"
                         }
                         if(udaje.value(forKey: "city") != nil){
                             okres = udaje.value(forKey: "city") as! String
+                        }else{
+                            okres = "okres neurcena"
                         }
                         if(udaje.value(forKey: "state") != nil){
                             kraj = udaje.value(forKey: "state") as! String
+                        }else{
+                            kraj = "kraj neurcena"
                         }
                         if(udaje.value(forKey: "postcode") != nil){
                             psc = udaje.value(forKey: "postcode") as! String
+                        }else{
+                            psc = "psc neurcena"
                         }
                         if(udaje.value(forKey: "country") != nil){
                             stat = udaje.value(forKey: "country") as! String
+                        }else{
+                            stat = "stat neurcena"
                         }
                         if(udaje.value(forKey: "country_code") != nil){
                             znakStatu = udaje.value(forKey: "country_code") as! String
+                        }else{
+                            znakStatu = "znakStatu neurcena"
                         }
                         
                         if (self.sqliteDatabaza.miesto()){
@@ -114,9 +126,6 @@ class AutentifikaciaUdaje : AutentifikaciaImplementacia{
                     
                     if(udaje.value(forKey: "country") != nil){
                         stat = udaje.value(forKey: "country") as! String
-                        if((stat == "Slovakia") || (stat == "Slovak Republic")){
-                            stat = "Slovensko"
-                        }
                     }
                     
                     if (self.sqliteDatabaza.miesto()){
