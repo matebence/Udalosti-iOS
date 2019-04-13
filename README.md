@@ -35,15 +35,15 @@ _CocoaPods <br />
 ## Screenshooty aplikácie
 
 <p float="left">
-<img src="https://i.imgur.com/8Cw7gE0.png" alt="Screenshoot Udalosti 1" width="200"/>
-<img src="https://i.imgur.com/JmyxZya.png" alt="Screenshoot Udalosti 2" width="200"/>
-<img src="https://i.imgur.com/daLoVlX.png" alt="Screenshoot Udalosti 3" width="200"/>
+<img src="https://i.imgur.com/JmyxZya.png" alt="Screenshoot Udalosti 1" width="200"/>
+<img src="https://i.imgur.com/daLoVlX.png" alt="Screenshoot Udalosti 2" width="200"/>
+<img src="https://i.imgur.com/iroca7s.png" alt="Screenshoot Udalosti 3" width="200"/>
 </p>
 <br />
 <p float="left">
-<img src="https://i.imgur.com/iroca7s.png" alt="Screenshoot Udalosti 4" width="200"/>
-<img src="https://i.imgur.com/lHrH9FO.png" alt="Screenshoot Udalosti 5" width="200"/>
-<img src="https://i.imgur.com/XaoKsgL.png" alt="Screenshoot Udalosti 6" width="200"/>
+<img src="https://i.imgur.com/lHrH9FO.png" alt="Screenshoot Udalosti 4" width="200"/>
+<img src="https://i.imgur.com/XaoKsgL.png" alt="Screenshoot Udalosti 5" width="200"/>
+<img src="https://i.imgur.com/8Cw7gE0.png" alt="Screenshoot Udalosti 6" width="200"/>
 </p>
 <br />
 <p float="left">
