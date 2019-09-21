@@ -1,8 +1,6 @@
-# Aplikácia Udalosti platforma iOS
+# Udalosti - iOS
 
-
-
-# Štruktúra aplikácie
+# Application structure
 
 __Pods<br />
 __Udalosti.xcodeproj<br />
@@ -16,7 +14,7 @@ PodFile.lock<br />
 
 
 
-## Použité technológie
+## Technologies
 
 _Swift <br />
 	__Threading <br />
@@ -32,7 +30,7 @@ _CocoaPods <br />
 
 
 
-## Screenshooty aplikácie
+## Screenshots
 
 <p float="left">
 <img src="https://i.imgur.com/JmyxZya.png" alt="Screenshoot Udalosti 1" width="200"/>
